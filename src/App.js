@@ -1,12 +1,12 @@
 import React from 'react'; //ponto de entrada da aplicação
 import './App.css';
+import Button from './components/Button'
 
 function App() {
   return (
     <div className="App">
-      <p>Kelly Alves</p>
-      <p>Ama tecnologia</p>
-      <p>E quer ser Frontend</p>
+      <Button name="Olá" />
+      <p>Bem vindos ao Burguer Queen</p>
     </div>
   );
 }
