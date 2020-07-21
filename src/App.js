@@ -1,14 +1,21 @@
-import React from 'react'; //ponto de entrada da aplicação
-import './App.css';
-import Button from './components/Button'
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Login from "./Login";
+import SignUp from "./SignUp";
+import { AuthProvider } from "./Auth";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Button name="Olá" />
-      <p>Bem vindos ao Burguer Queen</p>
-    </div>
+    <AuthProvider>
+      <Router>
+        <div>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+        </div>
+      </Router>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
