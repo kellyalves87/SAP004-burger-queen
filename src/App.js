@@ -1,17 +1,21 @@
-// import React from 'react'; //ponto de entrada da aplicação
-import React, {useState} from 'react'
-import './App.css';
-import Button from './components/Button'
-import Modal from  './components/modal'
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Login from "./Login";
+import SignUp from "./SignUp";
+import { AuthProvider } from "./Auth";
 
-function App() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+const App = () => {
   return (
-    <div className="App">
-      <button onClick={()=> setIsModalVisible(true)}>Oopen</button>
-      {isModalVisible ? < Modal /> : null}
-    </div>
+    <AuthProvider>
+      <Router>
+        <div>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+        </div>
+      </Router>
+    </AuthProvider>
   );
-} 
+};
 
 export default App;
