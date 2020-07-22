@@ -42,11 +42,7 @@ const Login = ({ history }) => {
           <input name="password" type="password" placeholder="Senha" />
         </label>
         <button type="submit">Entrar</button>
-<<<<<<< HEAD
-        <p>Ainda não se registrou? Cadastre-se<a href='signup'> aqui</a></p>
-=======
         <p>Ainda não se registrou? Cadastre-se<a href='signup'>AQUI</a></p>
->>>>>>> 4bfb692286da08ef62dd9fa4d365b62ec7f79692
       </form>
     </div>
   );
