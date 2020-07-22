@@ -28,6 +28,9 @@ const Login = ({ history }) => {
 
   return (
     <div>
+      <header>
+        <figure><img></img></figure>
+      </header>
       <h1>Burger Queen</h1>
       <form onSubmit={handleLogin}>
         <label>
@@ -39,7 +42,7 @@ const Login = ({ history }) => {
           <input name="password" type="password" placeholder="Senha" />
         </label>
         <button type="submit">Entrar</button>
-        <p>Ainda não se registrou? Cadastre-se<a href='#newAccount'>AQUI</a></p>
+        <p>Ainda não se registrou? Cadastre-se<a href='signup'>AQUI</a></p>
       </form>
     </div>
   );
