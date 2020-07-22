@@ -12,13 +12,14 @@ const App = () => {
     <AuthProvider>
       <Router>
         <div>
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={SignUp} />
           <PrivateRoute exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={SignUp} />          
         </div>
       </Router>
     </AuthProvider>
   );
 };
+
 
 export default App;

@@ -14,9 +14,7 @@ export const AuthProvider = ({ children }) => {
     });
   }, []);
 
-  if(pending){
-    return <>Loading...</>
-  }
+
 
   return (
     <AuthContext.Provider
