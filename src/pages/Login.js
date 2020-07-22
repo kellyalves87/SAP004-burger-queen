@@ -1,9 +1,16 @@
-import React, { useCallback, useContext } from "react";
+import React, {useState, useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "../base";
+import Image from '../components/image/image';
 import { AuthContext } from "../firebase/Auth";
+import logo from '../assets/logo.png';
+import SignUp from "./SignUp";
+import Modal from '../components/modal/modal';
+import Button from '../components/button/Button';
+// import './Login.css';
 
 const Login = ({ history }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const handleLogin = useCallback(
     async event => {
       event.preventDefault();
@@ -20,29 +27,30 @@ const Login = ({ history }) => {
     [history]
   );
 
-  const { currentUser } = useContext(AuthContext);
-
-  if (currentUser) {
-    return <Redirect to="/" />;
-  }
+  const { currentUser } = useContext(AuthContext);  
 
   return (
     <div>
       <header>
-        <figure><img></img></figure>
+      <figure>
+        <Image src={logo} alt='logo' class='logo'/>
+        </figure>
       </header>
       <h1>Burger Queen</h1>
       <form onSubmit={handleLogin}>
-        <label>
-          Email
+        <label>      
           <input name="email" type="email" placeholder="Email" />
         </label>
         <label>
-          Senha
           <input name="password" type="password" placeholder="Senha" />
         </label>
-        <button type="submit">Entrar</button>
-        <p>Ainda não se registrou? Cadastre-se<a href='signup'>AQUI</a></p>
+        <Button id="login" class="button-loggin" name="Entrar" type="submit" />
+        <p onClick={ () => setIsModalVisible(true) }>Ainda não tem cadastro? <strong>Registre-se aqui!</strong></p>
+        {isModalVisible ? (
+                <Modal onClose={ () => setIsModalVisible(false) }>
+                    <SignUp />
+                </Modal>
+                ) : null}
       </form>
     </div>
   );
