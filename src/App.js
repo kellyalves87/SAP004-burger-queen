@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { AuthProvider } from "./firebase/Auth";
-import PrivateRoute from './route/PrivateRoute'
+import PrivateRoute from './routes/PrivateRoute'
 
 const App = () => {
   return (

@@ -1,7 +1,5 @@
 import React, {useState, useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import app from "../base";
-import Image from '../components/image/image';
 import { AuthContext } from "../firebase/Auth";
 import logo from '../assets/logo.png';
 import SignUp from "./SignUp";
@@ -51,6 +49,7 @@ const Login = ({ history }) => {
                     <SignUp />
                 </Modal>
                 ) : null}
+        <button type="submit">Entrar</button>
       </form>
     </div>
   );

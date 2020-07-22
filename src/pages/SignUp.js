@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
-import app from "../base";
+import app from "../firebase-config";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(
@@ -21,6 +21,7 @@ const SignUp = ({ history }) => {
 
   return (
     <div>
+      <h1>Burger Queen</h1>
       <form onSubmit={handleSignUp}>
         <label>
           Nome
@@ -35,11 +36,11 @@ const SignUp = ({ history }) => {
           <input name='password' type='password' placeholder='Senha' />
         </label>
         <input name='kitchen' type='radio' value='kitchen' />
-        <label for='Cozinha'>Cozinha</label>
+        <label htmlFor='cozinha'>Cozinha</label>
         <input name='hall' type='radio' value='hall' />
-        <label for='Salão'>Salão</label>
-        <button type='reset'>CANCELAR</button>
+        <label htmlFor='salão'>Salão</label>
         <button type='submit'>CRIAR CONTA</button>
+        <p>Já tem uma conta?<a href='login'> Acesse agora</a></p>
       </form>
     </div>
   );
