@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import app from "../base";
+import app from "../firebase-config";
 import { AuthContext } from "../firebase/Auth";
 
 const Login = ({ history }) => {
@@ -39,7 +39,7 @@ const Login = ({ history }) => {
           <input name="password" type="password" placeholder="Senha" />
         </label>
         <button type="submit">Entrar</button>
-        <p>Ainda não se registrou? Cadastre-se<a href='#newAccount'>AQUI</a></p>
+        <p>Ainda não se registrou? Cadastre-se<a href='signup'> aqui</a></p>
       </form>
     </div>
   );
