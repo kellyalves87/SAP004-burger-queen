@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from './pages/Home';
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+import Home from '../src/pages/home/Home';
+import Login from "../src/pages/login/Login";
+import SignUp from "../src/pages/signup/SignUp";
 import { AuthProvider } from "./firebase/Auth";
 import PrivateRoute from './routes/PrivateRoute'
 
