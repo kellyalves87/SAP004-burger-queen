@@ -1,6 +1,6 @@
 import React, {useState, useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import app from "../base";
+import app from "../firebase/base";
 import Image from '../components/image/image';
 import { AuthContext } from "../firebase/Auth";
 import logo from '../assets/logo.png';
