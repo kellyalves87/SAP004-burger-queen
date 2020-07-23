@@ -2,7 +2,55 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Fredoka One', cursive;
+  color:#97E264;
 }
-.mainLogin {
-  background-color: #3d3d3d;
+.div-login{
+  background-color: #3D3D3D;
+  height: 100vh;
+}
+figure{
+  display: flex
+}
+.logo{margin: auto;
+  height: 20.30075187969925vh; 
+}
+h1{
+  font-family: 'Fredoka One', cursive;
+  display: flex;
+  justify-content: center;
+  font-size: 27px;
+  color:#97E264;
+}
+input{
+  font-family: 'Nixie One', cursive;
+  width: 60.210526vw;;
+  height: 7.413534vh;
+  border-radius: 9px;
+  display: flex;
+  margin: auto;
+  margin-bottom:27px;
+  margin-top:20px;
+}
+button{
+  display: flex;
+  margin: auto;
+  margin: auto;
+  width: 131px;
+  height: 36px;
+  border-radius: 9px;
+  justify-content: center;
+    align-items: center;
+}
+p{
+  margin: auto;
+  text-align: center;
+  margin-top:20px;
+}
+.section{
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
