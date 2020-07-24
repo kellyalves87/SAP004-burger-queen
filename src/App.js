@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from '../src/pages/home/Home';
+import Hall from '../src/pages/hall/hall';
+import Kitchen from '../src/pages/kitchen/kitchen'
 import Login from "../src/pages/login/Login";
 import SignUp from "../src/pages/signup/SignUp";
 import { AuthProvider } from "./firebase/Auth";
@@ -11,12 +12,11 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div>
-          <PrivateRoute exact path='/' component={Home} />
+          <PrivateRoute exact path='/hall' component={Hall} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/kitchen' component={Kitchen} /> 
           <Route exact path='/signup' component={SignUp} />          
-        </div>
-      </Router>
+          </Router>
     </AuthProvider>
   );
 };
