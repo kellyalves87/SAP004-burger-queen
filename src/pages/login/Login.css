@@ -10,34 +10,41 @@
   height: 100vh;
 }
 figure{
-  display: flex
+  display: flex;
+  margin-bottom: 6.360902vh;
 }
-.logo{margin: auto;
-  height: 20.30075187969925vh; 
+.logo{
+  margin: auto;
+  height: 20.30075187969925vh;
+  
 }
-h1{
+.h1{
   font-family: 'Fredoka One', cursive;
   display: flex;
   justify-content: center;
   font-size: 27px;
   color:#97E264;
+  font-size: 18px;
+line-height: 44px;
+letter-spacing: 5px; 
 }
-input{
+.input-login{
   font-family: 'Nixie One', cursive;
   width: 60.210526vw;;
   height: 7.413534vh;
   border-radius: 9px;
   display: flex;
   margin: auto;
-  margin-bottom:27px;
-  margin-top:20px;
+  margin-bottom:4.06015037593985vh;
+  margin-top:3.007518796992481vh;
 }
-button{
+.button-login{
   display: flex;
   margin: auto;
   margin: auto;
-  width: 131px;
-  height: 36px;
+  color: black;
+  width: 35.512999vw;
+  height: 5.413533834586466vh;
   border-radius: 9px;
   justify-content: center;
     align-items: center;
@@ -45,7 +52,8 @@ button{
 p{
   margin: auto;
   text-align: center;
-  margin-top:20px;
+  margin-top:3.007518796992481vh;
+  font-size: 15px;
 }
 .section{
   display: flex;
@@ -53,4 +61,30 @@ p{
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+.line{
+  width: 51.059908vw;
+  margin: auto;
+  margin-top: 10px;
+}
+@media(min-width:768px){
+.img-section{
+  height: 125px;
+  width: 90px;
+}
+.input-login, button{
+  font-size: 28px;
+}
+.h1{
+  font-size: 65px;
+}
+figure{
+  margin-bottom: 5.360902vh;
+}
+p{
+  font-size: 25px;
+}
+.line{
+  margin-top:5.022556vh
+}
 }

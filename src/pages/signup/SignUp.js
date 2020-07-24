@@ -1,6 +1,12 @@
 import React, { useCallback } from "react";
-import { withRouter } from "react-router";
+import { withRouter, Redirect } from "react-router";
 import app from "../../firebase-config";
+import Button from '../../components/button/button';
+import Input from '../../components/input/Input'
+
+
+
+
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(
@@ -25,21 +31,21 @@ const SignUp = ({ history }) => {
       <form onSubmit={handleSignUp}>
         <label>
           Nome
-          <input name='name' type='text' placeholder='Nome' />
+          <Input name='name' type='text' placeholder='Nome' />
         </label>
         <label>
           Email
-          <input name='email' type='email' placeholder='Email' />
+          <Input name='email' type='email' placeholder='Email' />
         </label>
         <label>
           Senha
-          <input name='password' type='password' placeholder='Senha' />
+          <Input name='password' type='password' placeholder='Senha' />
         </label>
-        <input name='kitchen' type='radio' value='kitchen' />
+        <Input name='kitchen' type='radio' value='kitchen' />
         <label htmlFor='cozinha'>Cozinha</label>
-        <input name='hall' type='radio' value='hall' />
+        <Input name='hall' type='radio' value='hall' />
         <label htmlFor='salão'>Salão</label>
-        <button type='submit'>CRIAR CONTA</button>
+        <Button type='submit' name='CRIAR CONTA'/>
         <p>Já tem uma conta?<a href='login'> Acesse agora</a></p>
       </form>
     </div>
