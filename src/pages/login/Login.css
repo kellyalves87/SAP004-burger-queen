@@ -1,53 +1,68 @@
 * {
   margin: 0;
   padding: 0;
+  background-size: 100vw 100vh;
   box-sizing: border-box;
-  font-family: 'Fredoka One', cursive;
-  color:#97E264;
+  font-family: "Fredoka One", cursive;
+  color: #97e264;
 }
-.div-login{
-  background-color: #3D3D3D;
+.div-login {
+  background-color: #3d3d3d;
   height: 100vh;
 }
-figure{
-  display: flex
-}
-.logo{margin: auto;
-  height: 20.30075187969925vh; 
-}
-h1{
-  font-family: 'Fredoka One', cursive;
+figure {
   display: flex;
-  justify-content: center;
-  font-size: 27px;
-  color:#97E264;
 }
-input{
-  font-family: 'Nixie One', cursive;
-  width: 60.210526vw;;
-  height: 7.413534vh;
+.logo {
+  margin: auto;
+  height: 20.30075187969925vh;
+}
+h1 {
+  font-family: "Fredoka One", cursive;
+  display: flex;
+  letter-spacing: 5px;
+  justify-content: center;
+  font-size: 50px;
+  color: #97e264;
+}
+input {
+  font-family: "Nixie One", cursive;
+  width: 60.210526vw;
+  height: 5.413534vh;
   border-radius: 9px;
   display: flex;
   margin: auto;
-  margin-bottom:27px;
-  margin-top:20px;
+  margin-bottom: 27px;
+  margin-top: 20px;
 }
-button{
+.options{
+  width: 40px;
+}
+label {
+  margin: 30px;
+  padding: 10px;
+}
+::placeholder {
+  font-size: 25px;
+}
+button {
+  color: black;
+  font-size: 26px;
   display: flex;
   margin: auto;
   margin: auto;
-  width: 131px;
-  height: 36px;
+  width: 210px;
+  height: 60px;
   border-radius: 9px;
   justify-content: center;
-    align-items: center;
+  align-items: center;
 }
-p{
+p {
   margin: auto;
   text-align: center;
-  margin-top:20px;
+  margin-top: 26px;
 }
-.section{
+.section {
   display: flex;
   justify-content: space-around;
   position: fixed;

@@ -1,20 +1,35 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "../../firebase-config";
+import Input from "../../components/input/input";
+import Button from "../../components/button/button";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(
     async (event) => {
+
+      console.log('entrou')
+
       event.preventDefault();
-      const { email, password } = event.target.elements;
-      try {
-        await app
-          .auth()
-          .createUserWithEmailAndPassword(email.value, password.value);
-        history.push("/");
-      } catch (error) {
-        alert(error);
-      }
+      const { email, password, name, kitchen, hall } = event.target.elements;
+
+      const job = kitchen ? kitchen : hall;
+      const userCollection = app.firestore().collection("users");
+
+      app
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value)
+        .then((cred) => {
+
+          console.log('criou user', cred);
+
+          cred.user.updateProfile({ displayName: name }).then(() => {
+            const uid = app.auth().currentUser.uid;
+            userCollection.doc(uid).set({ name, email, job });
+          });
+          history.push("/");
+        })
+        .catch((error) => alert(error));
     },
     [history]
   );
@@ -25,22 +40,26 @@ const SignUp = ({ history }) => {
       <form onSubmit={handleSignUp}>
         <label>
           Nome
-          <input name='name' type='text' placeholder='Nome' />
+          <Input name='name' type='text' placeholder='Nome' />
         </label>
         <label>
           Email
-          <input name='email' type='email' placeholder='Email' />
+          <Input name='email' type='email' placeholder='Email' />
         </label>
         <label>
           Senha
-          <input name='password' type='password' placeholder='Senha' />
+          <Input name='password' type='password' placeholder='Senha' />
         </label>
-        <input name='kitchen' type='radio' value='kitchen' />
-        <label htmlFor='cozinha'>Cozinha</label>
-        <input name='hall' type='radio' value='hall' />
-        <label htmlFor='salão'>Salão</label>
-        <button type='submit'>CRIAR CONTA</button>
-        <p>Já tem uma conta?<a href='login'> Acesse agora</a></p>
+        <Input name='kitchen' class='options' type='radio' value='kitchen' />
+        <label htmlFor='cozinha'>COZINHA</label>
+        <Input name='hall' class='options' type='radio' value='hall' />
+        <label htmlFor='salão'>SALÃO</label>
+        <Button
+          id='login'
+          class='button-loggin'
+          name='CRIAR CONTA'
+          type='submit'
+        />
       </form>
     </div>
   );
