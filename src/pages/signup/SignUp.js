@@ -1,38 +1,38 @@
-import React, { useCallback } from "react";
-import { withRouter } from "react-router";
-import app from "../../firebase-config";
+import React, { useState } from "react";
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
+import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router";
+import app from "../../firebase-config";
+import "firebase";
 
-const SignUp = ({ history }) => {
-  const handleSignUp = useCallback(
-    async (event) => {
+const SignUp = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [workPlace, setWorkplace] = useState("");
+  const history = useHistory();
 
-      console.log('entrou')
+  const createUser = (event) => {
+    event.preventDefault();
+    console.log(email, password);
+    handleSignUp(email, password);
+  };
 
-      event.preventDefault();
-      const { email, password, name, kitchen, hall } = event.target.elements;
-
-      const job = kitchen ? kitchen : hall;
-      const userCollection = app.firestore().collection("users");
-
-      app
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value)
-        .then((cred) => {
-
-          console.log('criou user', cred);
-
-          cred.user.updateProfile({ displayName: name }).then(() => {
-            const uid = app.auth().currentUser.uid;
-            userCollection.doc(uid).set({ name, email, job });
-          });
-          history.push("/");
-        })
-        .catch((error) => alert(error));
-    },
-    [history]
-  );
+  const handleSignUp = () => {
+    app
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((cred) => {
+        cred.user.updateProfile({ displayName: name }).then(() => {
+          const uid = app.auth().currentUser.uid;
+          const userCollection = app.firestore().collection("users");
+          userCollection.doc(uid).set({ name, email, workPlace });
+        });
+        history.push("/");
+      })
+      .catch((error) => alert(error));
+  };
 
   return (
     <div>
@@ -40,24 +40,55 @@ const SignUp = ({ history }) => {
       <form onSubmit={handleSignUp}>
         <label>
           Nome
-          <Input name='name' type='text' placeholder='Nome' />
+          <Input
+            name='name'
+            type='text'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder='Nome'
+          />
         </label>
         <label>
           Email
-          <Input name='email' type='email' placeholder='Email' />
+          <Input
+            name='email'
+            type='text'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder='Email'
+          />
         </label>
         <label>
           Senha
-          <Input name='password' type='password' placeholder='Senha' />
+          <Input
+            name='password'
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder='Senha'
+          />
         </label>
-        <Input name='kitchen' class='options' type='radio' value='kitchen' />
+        <Input
+          name='workPlace'
+          class='options'
+          type='radio'
+          value='kitchen'
+          onChange={(e) => setWorkplace(e.target.value)}
+        />
         <label htmlFor='cozinha'>COZINHA</label>
-        <Input name='hall' class='options' type='radio' value='hall' />
+        <Input
+          name='workPlace'
+          class='options'
+          type='radio'
+          value='hall'
+          onChange={(e) => setWorkplace(e.target.value)}
+        />
         <label htmlFor='salão'>SALÃO</label>
         <Button
           id='login'
           class='button-loggin'
           name='CRIAR CONTA'
+          onClick={createUser}
           type='submit'
         />
       </form>

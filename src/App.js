@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from '../src/pages/home/Home';
+import Hall from '../src/pages/hall/Hall';
+import Kitchen from '../src/pages/kitchen/Kitchen';
 import Login from "../src/pages/login/Login";
 import SignUp from "../src/pages/signup/SignUp";
 import { AuthProvider } from "./firebase/Auth";
@@ -11,7 +12,8 @@ const App = () => {
     <AuthProvider>
       <Router>
         <div>
-          <PrivateRoute exact path='/' component={Home} />
+          <PrivateRoute exact path='/' component={Hall} />
+          <PrivateRoute exact path='/' component={Kitchen} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={SignUp} />          
         </div>

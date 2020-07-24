@@ -1,4 +1,4 @@
-import React from 'react'; //Renderiação do DOM com o App que é a nossa página start da aplicação
+import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

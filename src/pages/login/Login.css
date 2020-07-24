@@ -27,6 +27,7 @@ h1 {
 }
 input {
   font-family: "Nixie One", cursive;
+  font-size: 25px;
   width: 60.210526vw;
   height: 5.413534vh;
   border-radius: 9px;
@@ -34,6 +35,7 @@ input {
   margin: auto;
   margin-bottom: 27px;
   margin-top: 20px;
+  color: black;
 }
 .options{
   width: 40px;

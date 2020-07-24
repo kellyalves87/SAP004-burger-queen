@@ -1,7 +1,7 @@
 import React from "react";
 import app from "../../firebase-config";
 
-const Home = () => {
+const Hall = () => {
   return (
     <>
       <h1>Burger Queen</h1>
@@ -10,4 +10,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Hall;
