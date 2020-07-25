@@ -10,51 +10,43 @@
   background-color: #3d3d3d;
   height: 100vh;
 }
-figure {
+figure{
   display: flex;
+  margin-bottom: 6.360902vh;
 }
-.logo {
+.logo{
   margin: auto;
   height: 20.30075187969925vh;
+  
 }
-h1 {
-  font-family: "Fredoka One", cursive;
+.h1{
+  font-family: 'Fredoka One', cursive;
   display: flex;
   letter-spacing: 5px;
   justify-content: center;
-  font-size: 50px;
-  color: #97e264;
+  font-size: 27px;
+  color:#97E264;
+  font-size: 18px;
+line-height: 44px;
+letter-spacing: 5px; 
 }
-input {
-  font-family: "Nixie One", cursive;
-  font-size: 25px;
-  width: 60.210526vw;
-  height: 5.413534vh;
+.input-login{
+  font-family: 'Nixie One', cursive;
+  width: 60.210526vw;;
+  height: 7.413534vh;
   border-radius: 9px;
   display: flex;
   margin: auto;
-  margin-bottom: 27px;
-  margin-top: 20px;
-  color: black;
+  margin-bottom:4.06015037593985vh;
+  margin-top:3.007518796992481vh;
 }
-.options{
-  width: 40px;
-}
-label {
-  margin: 30px;
-  padding: 10px;
-}
-::placeholder {
-  font-size: 25px;
-}
-button {
-  color: black;
-  font-size: 26px;
+.button-login{
   display: flex;
   margin: auto;
   margin: auto;
-  width: 210px;
-  height: 60px;
+  color: black;
+  width: 35.512999vw;
+  height: 5.413533834586466vh;
   border-radius: 9px;
   justify-content: center;
   align-items: center;
@@ -62,7 +54,8 @@ button {
 p {
   margin: auto;
   text-align: center;
-  margin-top: 26px;
+  margin-top:3.007518796992481vh;
+  font-size: 15px;
 }
 .section {
   display: flex;
@@ -70,4 +63,30 @@ p {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+.line{
+  width: 51.059908vw;
+  margin: auto;
+  margin-top: 10px;
+}
+@media(min-width:768px){
+.img-section{
+  height: 125px;
+  width: 90px;
+}
+.input-login, button{
+  font-size: 28px;
+}
+.h1{
+  font-size: 65px;
+}
+figure{
+  margin-bottom: 5.360902vh;
+}
+p{
+  font-size: 25px;
+}
+.line{
+  margin-top:5.022556vh
+}
 }
