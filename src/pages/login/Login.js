@@ -3,13 +3,13 @@ import { withRouter } from "react-router";
 import firebase from "../../firebase-config";
 import { useHistory } from "react-router-dom";
 import Image from '../../components/image/image';
-import logo from '../../assets/logo.png';
-import line from '../../assets/line.png';
-import fries from '../../assets/fries.png';
-import hamburger from '../../assets/hamburger.png'
-import juice from '../../assets/juice.png';
-import milkshake from '../../assets/milkshake.png';
-import soda from '../../assets/soda.png';
+import logo from '../../assets/logo.svg';
+import line from '../../assets/line.svg';
+import fries from '../../assets/fries.svg';
+import hamburger from '../../assets/hamburger.svg'
+import juice from '../../assets/juice.svg';
+import milkshake from '../../assets/milkshake.svg';
+import soda from '../../assets/soda.svg';
 import SignUp from "../signup/SignUp";
 import Modal from '../../components/modal/modal';
 import Button from '../../components/button/button';
@@ -20,8 +20,8 @@ import 'firebase/firebase-firestore'
 
 const Login = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const history = useHistory()
   function loginUser(){
     firebase.auth().signInWithEmailAndPassword(email, password) //autenticando usuária logado
@@ -61,7 +61,7 @@ const Login = () => {
         <label>
           <Input name="password" type="password" placeholder="Senha" class="input-login"value={password} onChange={e => setPassword(e.target.value)} />
         </label>
-        <Button id="login" class="button-login" name="Entrar" type="submit"onClick = { noRefresh} />
+        <Button id="login" class="button-login" name="ENTRAR" type="submit"onClick = { noRefresh} />
         <p onClick={ () => setIsModalVisible(true) }>Ainda não tem cadastro? Registre-se<strong> aqui!</strong></p>
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>

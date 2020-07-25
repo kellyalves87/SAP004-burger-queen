@@ -10,51 +10,57 @@
   background-color: #3d3d3d;
   height: 100vh;
 }
-figure{
+figure {
   display: flex;
   margin-bottom: 6.360902vh;
 }
-.logo{
+.logo {
   margin: auto;
   height: 20.30075187969925vh;
-  
 }
-.h1{
-  font-family: 'Fredoka One', cursive;
+.h1 {
+  font-family: "Fredoka One", cursive;
   display: flex;
   letter-spacing: 5px;
   justify-content: center;
-  font-size: 27px;
-  color:#97E264;
+  font-size: 50px;
+  color: #97e264;
   font-size: 18px;
-line-height: 44px;
-letter-spacing: 5px; 
+  line-height: 44px;
+  letter-spacing: 5px;
 }
-.input-login{
-  font-family: 'Nixie One', cursive;
-  width: 60.210526vw;;
+.input-login {
+  font-family: "Nixie One", cursive;
+  width: 60.210526vw;
   height: 7.413534vh;
+  border: none;
   border-radius: 9px;
   display: flex;
   margin: auto;
-  margin-bottom:4.06015037593985vh;
-  margin-top:3.007518796992481vh;
+  margin-bottom: 4.06015037593985vh;
+  margin-top: 3.007518796992481vh;
 }
-.button-login{
+::placeholder {
+  font-family: "Nixie One", cursive;
+  font-size: 30px;
+  color: black;
+  padding: 8px;
+}
+.button-login {
   display: flex;
   margin: auto;
-  margin: auto;
   color: black;
-  width: 35.512999vw;
-  height: 5.413533834586466vh;
+  width: 25.512999vw;
+  height: 7.413534vh;
   border-radius: 9px;
   justify-content: center;
   align-items: center;
+  font-size: 40px;
 }
 p {
   margin: auto;
   text-align: center;
-  margin-top:3.007518796992481vh;
+  margin-top: 3.007518796992481vh;
   font-size: 15px;
 }
 .section {
@@ -64,29 +70,75 @@ p {
   bottom: 0;
   width: 100%;
 }
-.line{
+.line {
   width: 51.059908vw;
   margin: auto;
   margin-top: 10px;
 }
-@media(min-width:768px){
-.img-section{
-  height: 125px;
-  width: 90px;
+
+@media (min-width: 320px) {
+  .img-section {
+    height: 60px;
+    width: 40px;
+  }
+  .button-login {
+    width: 45.512999vw;
+    height: 7.413534vh;
+    border-radius: 9px;
+    font-size: 23px;
+  }
+  .input-login {
+    width: 69.210526vw;
+    height: 5.413534vh;
+  }
+  .h1 {
+    font-size: 26px;
+  }
+  ::placeholder {
+    font-size: 18px;
+    padding: 8px;
+  }
+  figure {
+    margin-bottom: 5.360902vh;
+  }
+  p {
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+  .line {
+    margin-top: 1.022556vh;
+    width: 212px;
+  }
 }
-.input-login, button{
-  font-size: 28px;
-}
-.h1{
-  font-size: 65px;
-}
-figure{
-  margin-bottom: 5.360902vh;
-}
-p{
-  font-size: 25px;
-}
-.line{
-  margin-top:5.022556vh
-}
+
+@media (min-width: 768px) {
+  .img-section {
+    height: 125px;
+    width: 90px;
+  }
+  .button-login {
+    width: 35.512999vw;
+    font-size: 38px;
+  }
+  .input-login {
+    height: 7.413534vh;
+  }
+  .h1 {
+    font-size: 65px;
+  }
+  ::placeholder {
+    font-size: 24px;
+    padding: 8px;
+  }
+  figure {
+    margin-bottom: 5.360902vh;
+  }
+  p {
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+  .line {
+    margin-top: 5.022556vh;
+    width: 500px;
+  }
 }

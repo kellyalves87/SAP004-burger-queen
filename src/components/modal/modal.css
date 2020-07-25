@@ -5,18 +5,59 @@
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: rgba(0,0,0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .container {
-  background-color: #3D3D3D;
+  background-color: #3d3d3d;
   width: 90%;
   height: 80%;
   color: black;
   border-radius: 10px;
   align-items: center;
+}
+.bq-title {
+  font-size: 65px;
+  letter-spacing: 5px;
+  margin: 10px 0 10px 0;
+  text-align: center;
+}
+.label-signup {
+  padding: 10px;
+  height: 10px;
+  font-size: 36px;
+  letter-spacing: 3px;
+}
+.credentials {
+  display: flex;
+  width: 300px;
+  height: 80px;
+  border-radius: 9px;
+}
+::placeholder {
+  font-family: "Nixie One", cursive;
+  font-size: 20px;
+  color: black;
+  width: 8px;
+}
+.options {
+  width: 30px;
+  height: 28px;
+}
+.button-loggin {
+  display: flex;
+  margin: auto;
+  margin: auto;
+  color: black;
+  letter-spacing: 3px;
+  width: 25.512999vw;
+  height: 7.413534vh;
+  border-radius: 9px;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
 }
 .close {
   background-color: transparent;
@@ -31,16 +72,121 @@
   top: 16px;
   position: relative;
 }
-.close:before, .close:after{
-content: '';
-position: absolute;
-width: 2.5px;
-height: 24px;
-background-color: black;
+.close:before,
+.close:after {
+  content: "";
+  position: absolute;
+  width: 2.5px;
+  height: 24px;
+  background-color: black;
 }
 .close:before {
   transform: rotate(45deg);
 }
 .close:after {
   transform: rotate(-45deg);
+}
+@media (min-width: 320px) {
+  .img-section {
+    height: 60px;
+    width: 40px;
+  }
+  .bq-title {
+    font-size: 24px;
+    letter-spacing: 3px;
+    margin: 20px 0 20px 0;
+  }
+  .label-signup {
+    font-size: 17px;
+  }
+  .credentials {
+    width: 256px;
+    height: 40px;
+  }
+  ::placeholder {
+    font-family: "Nixie One", cursive;
+    font-size: 20px;
+    color: black;
+    width: 8px;
+  }
+  .options {
+    width: 20px;
+    height: 27px;
+  }
+  .button-loggin {
+    letter-spacing: 2px;
+    width: 54.512999vw;
+    height: 8.413534vh;
+    font-size: 18px;
+  }
+  figure {
+    margin-bottom: 5.360902vh;
+  }
+  p {
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+  .line {
+    margin-top: 1.022556vh;
+    width: 212px;
+  }
+}
+
+@media (min-width: 768px) {
+  .img-section {
+    height: 125px;
+    width: 90px;
+  }
+  .bq-title {
+    font-size: 65px;
+    letter-spacing: 5px;
+    margin: 10px 0 10px 0;
+    text-align: center;
+  }
+  .label-signup {
+    padding: 10px;
+    height: 10px;
+    font-size: 36px;
+    letter-spacing: 3px;
+  }
+  .credentials {
+    display: flex;
+    width: 300px;
+    height: 80px;
+    border-radius: 9px;
+  }
+  ::placeholder {
+    font-family: "Nixie One", cursive;
+    font-size: 20px;
+    color: black;
+    width: 8px;
+  }
+  .options {
+    width: 30px;
+    height: 28px;
+  }
+  .button-loggin {
+    display: flex;
+    margin: auto;
+    margin: auto;
+    color: black;
+    letter-spacing: 3px;
+    width: 25.512999vw;
+    height: 7.413534vh;
+    border-radius: 9px;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+  }
+  figure {
+    margin-bottom: 5.360902vh;
+  }
+  p {
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+  .line {
+    margin-top: 5.022556vh;
+    width: 500px;
+  }
 }

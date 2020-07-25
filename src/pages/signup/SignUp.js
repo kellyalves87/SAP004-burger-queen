@@ -58,24 +58,24 @@ const SignUp = () => {
 
   return (
     <div>
-      <h1>Burger Queen</h1>
+      <h1 class="bq-title">BURGER QUEEN</h1>
       <div>
-        <label>
+        <label class="label-signup">
           Nome
-          <Input name='name' type='text' value={name} onChange={e => setName(e.target.value)} placeholder='Nome' />
+          <Input name='name' class="credentials" type='text' value={name} onChange={e => setName(e.target.value)} placeholder='Nome' />
         </label>
-        <label>
+        <label class="label-signup">
           Email
-          <Input name='email' type='text'value={email} onChange={e => setEmail(e.target.value)} placeholder='Email' />
+          <Input name='email' class="credentials" type='text'value={email} onChange={e => setEmail(e.target.value)} placeholder='Email' />
         </label>
-        <label>
+        <label class="label-signup">
           Senha
-          <Input name='password' type='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='Senha' />
+          <Input name='password' class="credentials" type='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='Senha' />
         </label>
         <Input name='workPlace' class='options' type='radio' value='kitchen' onChange={e => setWorkplace(e.target.value)} />
-        <label htmlFor='cozinha'>COZINHA</label>
+        <label htmlFor='cozinha' class="label-signup">COZINHA</label>
         <Input name='workPlace' class='options' type='radio' value='hall' onChange={e => setWorkplace(e.target.value)} />
-        <label htmlFor='salão'>SALÃO</label>
+        <label htmlFor='salão' class="label-signup">SALÃO</label>
         <Button
           id='login'
           class='button-loggin'
