@@ -11,13 +11,11 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div>
-          <PrivateRoute exact path='/' component={Hall} />
-          <PrivateRoute exact path='/' component={Kitchen} />
+          <PrivateRoute exact path='/hall' component={Hall} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/kitchen' component={Kitchen} /> 
           <Route exact path='/signup' component={SignUp} />          
-        </div>
-      </Router>
+          </Router>
     </AuthProvider>
   );
 };
