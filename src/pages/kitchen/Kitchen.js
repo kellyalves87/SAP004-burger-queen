@@ -1,12 +1,15 @@
 import React from "react";
-import app from "../../firebase-config";
-
+import firebase from "../../firebase-config";
+import {Link} from 'react-router-dom'
+import Button from '../../components/button/button';
 const Kitchen = () => {
   return (
     <>
-      <h1>Burger Queen</h1>
-      <button onClick={() => app.auth().signOut()}>Exit</button>
-    </>
+      <h1>Kitchen</h1>
+    <Link to='/login' >
+      <Button  name ='Exit'onClick={() => firebase.auth().signOut() }/>
+      </Link> 
+    </> 
   );
 };
 

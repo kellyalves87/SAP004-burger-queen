@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { withRouter, Redirect } from "react-router";
+import { withRouter } from "react-router";
 import firebase from "../../firebase-config";
 import { useHistory } from "react-router-dom";
 import Image from '../../components/image/image';
@@ -13,7 +13,7 @@ import soda from '../../assets/soda.png';
 import SignUp from "../signup/SignUp";
 import Modal from '../../components/modal/modal';
 import Button from '../../components/button/button';
-import Input from '../../components/input/Input'
+import Input from '../../components/input/input';
 import './Login.css';
 import 'firebase/firebase-auth'
 import 'firebase/firebase-firestore'
@@ -62,7 +62,7 @@ const Login = () => {
           <Input name="password" type="password" placeholder="Senha" class="input-login"value={password} onChange={e => setPassword(e.target.value)} />
         </label>
         <Button id="login" class="button-login" name="Entrar" type="submit"onClick = { noRefresh} />
-        <p onClick={ () => setIsModalVisible(true) }>Ainda não tem cadastro?<br /> <strong>Registre-se aqui!</strong></p>
+        <p onClick={ () => setIsModalVisible(true) }>Ainda não tem cadastro? Registre-se<strong> aqui!</strong></p>
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>
             <SignUp />

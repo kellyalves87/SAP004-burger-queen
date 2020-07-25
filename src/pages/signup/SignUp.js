@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withRouter, useHistory } from "react-router";
 import firebase from "../../firebase-config";
-import Input from "../../components/input/Input";
+import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 import 'firebase/firebase-auth'
 import 'firebase/firebase-firestore'
