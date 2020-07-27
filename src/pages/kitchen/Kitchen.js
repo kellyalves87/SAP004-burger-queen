@@ -5,7 +5,7 @@ import Button from '../../components/button/button';
 const Kitchen = () => {
   return (
     <>
-      <h1>Kitchen</h1>
+      <h1>COZINHA</h1>
     <Link to='/login' >
       <Button  name ='Exit'onClick={() => firebase.auth().signOut() }/>
       </Link> 

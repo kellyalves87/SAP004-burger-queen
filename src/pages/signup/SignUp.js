@@ -13,12 +13,6 @@ const SignUp = () => {
   const [workPlace, setWorkplace] = useState('')
   const history = useHistory()
 
-  // event.preventDefault();
-      // const { email, password, name, workPlace } = event.target.elements;
-
-      // const workPlace = kitchen ? kitchen : hall;
-      // const userCollection = firebase.firestore().collection("users");
-
   const handleSignUp = () => {
       firebase
         .auth()
@@ -58,17 +52,17 @@ const SignUp = () => {
 
   return (
     <div>
-      <h1 class="bq-title">BURGER QUEEN</h1>
+      <h1 className="bq-title">BURGER QUEEN</h1>
       <div>
-        <label class="label-signup">
+        <label className="label-signup">
           Nome
           <Input name='name' class="credentials" type='text' value={name} onChange={e => setName(e.target.value)} placeholder='Nome' />
         </label>
-        <label class="label-signup">
+        <label className="label-signup">
           Email
           <Input name='email' class="credentials" type='text'value={email} onChange={e => setEmail(e.target.value)} placeholder='Email' />
         </label>
-        <label class="label-signup">
+        <label className="label-signup">
           Senha
           <Input name='password' class="credentials" type='password' value={password} onChange={e => setPassword(e.target.value)} placeholder='Senha' />
         </label>

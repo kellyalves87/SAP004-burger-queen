@@ -31,16 +31,14 @@
   letter-spacing: 3px;
 }
 .credentials {
+  color: black;
+  color: black;
+  font-family: "Nixie One", cursive;
+  font-size: 26px;
   display: flex;
   width: 300px;
   height: 80px;
   border-radius: 9px;
-}
-::placeholder {
-  font-family: "Nixie One", cursive;
-  font-size: 20px;
-  color: black;
-  width: 8px;
 }
 .options {
   width: 30px;
@@ -103,12 +101,6 @@
     width: 256px;
     height: 40px;
   }
-  ::placeholder {
-    font-family: "Nixie One", cursive;
-    font-size: 20px;
-    color: black;
-    width: 8px;
-  }
   .options {
     width: 20px;
     height: 27px;
@@ -150,32 +142,18 @@
     letter-spacing: 3px;
   }
   .credentials {
-    display: flex;
-    width: 300px;
+    font-size: 24px;
+    width: 350px;
     height: 80px;
-    border-radius: 9px;
-  }
-  ::placeholder {
-    font-family: "Nixie One", cursive;
-    font-size: 20px;
-    color: black;
-    width: 8px;
   }
   .options {
     width: 30px;
     height: 28px;
   }
   .button-loggin {
-    display: flex;
-    margin: auto;
-    margin: auto;
-    color: black;
     letter-spacing: 3px;
-    width: 25.512999vw;
-    height: 7.413534vh;
-    border-radius: 9px;
-    justify-content: center;
-    align-items: center;
+    width: 45.512999vw;
+    height: 9.413534vh;
     font-size: 40px;
   }
   figure {
