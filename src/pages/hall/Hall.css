@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-size: 100vw 100vh;
+  box-sizing: border-box;
+  font-family: "Fredoka One", cursive;
+  color: #97e264;
+}
+.div-hall {
+  background-color: #3d3d3d;
+  height: 100vh;
+}
+figure {
+  display: flex;
+  margin-bottom: 6.360902vh;
+}
+.logo-hall {
+  height: 20.30075187969925vh;
+}
+.line-hall {
+  width: 51.059908vw;
+  margin: auto;
+  margin-top: 10px;
+}
+.h1-hall {
+  font-family: "Fredoka One", cursive;
+  font-size: 50px;
+  color: #97e264;
+  letter-spacing: 5px;
+}
+.input-service {
+  font-family: "Nixie One", cursive;
+  width: 32.210526vw;
+  height: 7.413534vh;
+  border: none;
+  border-radius: 9px;
+  display: inline-block;
+}
+::placeholder {
+  font-family: "Nixie One", cursive;
+  font-size: 30px;
+  color: black;
+  padding: 8px;
+}
+.label-service{
+  font-size: 30px;
+}
+.button-hall {
+  display: inline-block;
+  color: black;
+  width: 35.512999vw;
+  height: 7.413534vh;
+  border-radius: 9px;
+  font-size: 26px;
+  letter-spacing: 2px;
+}

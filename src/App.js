@@ -11,12 +11,14 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-          <PrivateRoute exact path='/hall' component={Hall} />
+          {/* <PrivateRoute exact path='/hall' component={Hall} />
           <Route exact path='/'>
             <Redirect to='/login' />
-          </Route>
+          </Route> */}
           <Route exact path='/login' component={Login} />
-          <Route exact path='/kitchen' component={Kitchen} /> 
+          <PrivateRoute exact path='/kitchen' component={Kitchen} />
+          <PrivateRoute exact path='/hall' component={Hall} />
+          <Redirect to='/login' />
           <Route exact path='/signup' component={SignUp} />          
           </Router>
     </AuthProvider>

@@ -28,15 +28,12 @@ const Login = () => {
       .auth()
       .signInWithEmailAndPassword(email, password) //autenticando usuária logado
       .then((uid) => {
-        //buscando a coleção do usuário
         firebase
           .firestore()
           .collection("users")
           .doc(uid.user.uid)
           .get()
-          //uid.user.uid buscando o usuário especifico que esta logando
           .then((doc) => {
-            //doc.data tem todas as informações do usuário, nome, email, workplace...
             if (doc.data().workPlace === "kitchen") {
               history.push("/kitchen");
             } else {

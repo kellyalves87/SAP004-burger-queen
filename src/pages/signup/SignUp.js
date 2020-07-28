@@ -24,22 +24,18 @@ const SignUp = () => {
           history.push("/hall");
         }
       })
-      //por padrão todas as funções retornam uma promessa
       .then(() => {
-        // uid salvando : referenciano a coleção, salvando "indetificação !@#s22544xcvzxcfxdcf" da coleção
         const uid = firebase.auth().currentUser.uid;
         firebase
           .firestore()
           .collection("users")
           .doc(uid)
-          //set inserindo as informações que preciso na coleção
           .set({
             name,
             email,
             uid: firebase.auth().currentUser.uid,
             workPlace,
           })
-          // caso queira usar o nome do funcionario em alguem lugar
           .then(
             firebase.auth().currentUser.updateProfile({
               displayName: name,
@@ -97,7 +93,7 @@ const SignUp = () => {
           value='kitchen'
           onChange={(e) => setWorkplace(e.target.value)}
         />
-        <label htmlFor='cozinha' class='label-signup'>
+        <label htmlFor='cozinha' className='label-signup'>
           COZINHA
         </label>
         <Input
