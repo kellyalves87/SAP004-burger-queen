@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router";
 import firebase from "../../firebase-config";
-import { useHistory } from "react-router-dom";
 import Image from "../../components/image/image";
 import logo from "../../assets/logo.svg";
 import line from "../../assets/line.svg";
@@ -15,34 +13,20 @@ import Modal from "../../components/modal/modal";
 import Button from "../../components/button/button";
 import Input from "../../components/input/input";
 import "./Login.css";
-import "firebase/firebase-auth";
-import "firebase/firebase-firestore";
 
 const Login = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
+
   function loginUser() {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password) //autenticando usuária logado
-      .then((uid) => {
-        firebase
-          .firestore()
-          .collection("users")
-          .doc(uid.user.uid)
-          .get()
-          .then((doc) => {
-            if (doc.data().workPlace === "kitchen") {
-              history.push("/kitchen");
-            } else {
-              history.push("/hall");
-            }
-          });
-      })
+      .then()
       .catch((error) => alert(error));
   }
+  
   const noRefresh = (event) => {
     event.preventDefault();
     loginUser(email, password);
@@ -94,15 +78,15 @@ const Login = () => {
           </Modal>
         ) : null}
       </form>
-      <section className='section'>
+      <footer className='section'>
         <Image src={fries} alt='logo' class='img-section' />
         <Image src={juice} alt='logo' class='img-section' />
         <Image src={milkshake} alt='logo' class='img-section' />
         <Image src={soda} alt='logo' class='img-section' />
         <Image src={hamburger} alt='logo' class='img-section' />
-      </section>
+      </footer>
     </div>
   );
 };
 
-export default withRouter(Login);
+export default Login;
