@@ -4,7 +4,6 @@ import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
 // import growl from "growl-alert";
 // import "growl-alert/dist/growl-alert.css";
-// import { Link } from "react-router-dom";
 import Menu from "../../components/menu/Menu";
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
@@ -22,8 +21,7 @@ const Hall = () => {
   const [resume, setResume] = useState("");
 
   const getMenu = ({ name, state }) => {
-
-    console.log('name', name)
+    console.log("name", name);
 
     firebase
       .firestore()
@@ -31,7 +29,6 @@ const Hall = () => {
       .doc(name)
       .get()
       .then((docRef) => {
-
         const itemData = docRef.data();
 
         state(() => itemData);
@@ -44,7 +41,6 @@ const Hall = () => {
 
   return (
     <div className='div-hall'>
-      {/* <Link to='/login'> */}
       <figure>
         <Image src={logo} alt='logo' class='logo-hall' />
       </figure>
@@ -86,7 +82,11 @@ const Hall = () => {
         value='brunch'
         onClick={(e) => setMenu(e.target.value)}
       />
-      <Menu type={menu} class='button-hall' items={menu === "breakfast" ? breakfast : brunch} />
+      <Menu
+        type={menu}
+        class='button-hall'
+        items={menu === "breakfast" ? breakfast : brunch}
+      />
       <Button
         name='RESUMO'
         class='button-hall'
@@ -101,7 +101,6 @@ const Hall = () => {
         name='EXIT'
         onClick={() => firebase.auth().signOut()}
       />
-      {/* </Link> */}
     </div>
   );
 };
