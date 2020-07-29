@@ -1,6 +1,9 @@
 import React from "react";
 
 const Button = (props) => {
+
+  console.log('button', props)
+
   return (
     <button
       id={props.id}
@@ -9,7 +12,7 @@ const Button = (props) => {
       onClick={props.onClick}
     >
       {props.name}
-      {props.Price} {props.title}
+      {props.price}
     </button>
   );
 };

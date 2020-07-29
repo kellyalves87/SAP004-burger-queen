@@ -1,29 +1,57 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Hall from '../src/pages/hall/Hall';
-import Kitchen from '../src/pages/kitchen/Kitchen';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import Hall from "../src/pages/hall/Hall";
+import Kitchen from "../src/pages/kitchen/Kitchen";
 import Login from "../src/pages/login/Login";
 import SignUp from "../src/pages/signup/SignUp";
-import { AuthProvider } from "./firebase/Auth";
-import PrivateRoute from './routes/PrivateRoute'
+import firebase from "./firebase-config";
 
 const App = () => {
-  return (
-    <AuthProvider>
-      <Router>
-          {/* <PrivateRoute exact path='/hall' component={Hall} />
-          <Route exact path='/'>
-            <Redirect to='/login' />
-          </Route> */}
-          <Route exact path='/login' component={Login} />
-          <PrivateRoute exact path='/kitchen' component={Kitchen} />
-          <PrivateRoute exact path='/hall' component={Hall} />
-          <Redirect to='/login' />
-          <Route exact path='/signup' component={SignUp} />          
-          </Router>
-    </AuthProvider>
-  );
-};
+  const [loggedUser, setLoggedUser] = useState();
 
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        firebase
+          .firestore()
+          .collection("users")
+          .doc(user.uid)
+          .get()
+          .then((doc) => {
+            if (doc.data().workPlace === "kitchen") {
+              setLoggedUser(() => (
+                <BrowserRouter>
+                  <Redirect to='/kitchen' />
+                  <Switch>
+                    <Route path='/kitchen' component={Kitchen} />
+                  </Switch>
+                </BrowserRouter>
+              ));
+            } else {
+              setLoggedUser(() => (
+                <BrowserRouter>
+                  <Redirect to='/hall' />
+                  <Switch>
+                    <Route path='/hall' component={Hall} />
+                  </Switch>
+                </BrowserRouter>
+              ));
+            }
+          });
+      } else {
+        setLoggedUser(() => (
+          <BrowserRouter>
+            <Switch>
+              <Route path='/login' component={Login} />
+              <Route exact path='/signup' component={SignUp} />
+            </Switch>
+          </BrowserRouter>
+        ));
+      }
+    });
+  }, []);
+
+  return <>{loggedUser}</>;
+};
 
 export default App;
