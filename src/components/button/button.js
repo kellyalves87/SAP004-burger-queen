@@ -10,6 +10,7 @@ const Button = (props) => {
       className={props.class}
       type={props.type}
       onClick={props.onClick}
+      value={props.value}
     >
       {props.name}
       {props.price}

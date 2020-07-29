@@ -21,23 +21,28 @@ const Hall = () => {
   const [resume, setResume] = useState("");
 
   const getMenu = ({ name, state }) => {
-    console.log("name", name);
-
+    
     firebase
-      .firestore()
-      .collection("products")
-      .doc(name)
-      .get()
-      .then((docRef) => {
-        const itemData = docRef.data();
-
-        state(() => itemData);
-      });
+    .firestore()
+    .collection("products")
+    .doc(name)
+    .get()
+    .then((docRef) => {
+      const itemData = docRef.data();
+      
+      state(() => itemData);
+    });
   };
+  
+  const teste = (e) => {
+    setMenu(e.target.value)
+    getMenu({ name: "brunch", state: setBrunch });
+  }
 
   useEffect(() => {
     getMenu({ name: "breakfast", state: setBreakfast });
   }, []);
+  console.log(menu);
 
   return (
     <div className='div-hall'>
@@ -80,7 +85,7 @@ const Hall = () => {
         class='button-hall'
         type='text'
         value='brunch'
-        onClick={(e) => setMenu(e.target.value)}
+        onClick={teste}
       />
       <Menu
         type={menu}
