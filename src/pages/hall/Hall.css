@@ -6,9 +6,8 @@
   font-family: "Fredoka One", cursive;
   color: #97e264;
 }
-.header-hall{
+.header-hall {
   display: flex;
-
 }
 .div-hall {
   background-color: #3d3d3d;
@@ -24,8 +23,8 @@
 }
 .line-hall {
   width: 52.059908vw;
-    margin: auto;
-    height: 5vh;
+  margin: auto;
+  height: 5vh;
 }
 .h1-hall {
   font-family: "Fredoka One", cursive;
@@ -38,7 +37,7 @@
   color: black;
   font-family: "Nixie One", cursive;
   width: 22.210526vw;
-    height: 4.413534vh;
+  height: 4.413534vh;
   border: none;
   border-radius: 9px;
   display: inline-block;
@@ -50,12 +49,12 @@
   color: black;
   padding: 8px;
 } */
-.label-service{
+.label-service {
   font-size: 30px;
 }
 .button-hall {
   display: inline-block;
-  background-color: #97e264; ;
+  background-color: #97e264;
   color: black;
   width: 35.512999vw;
   height: 5.413534vh;
@@ -63,88 +62,88 @@
   font-size: 14px;
   letter-spacing: 2px;
 }
-.menu-itens, .order-resume{
+.menu-itens,
+.order-resume {
   width: 50vw;
 }
 
-.div-option, .div-resume{
-width: 50vw;
-height: 67vh;
+.div-option,
+.div-resume {
+  width: 50vw;
+  height: 67vh;
 }
-.div-resume{
+.div-resume {
   flex-wrap: wrap;
   justify-content: center;
 }
-.section-hall{
+.section-hall {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.b-type{
+.b-type {
   font-weight: bold;
   font-size: 11px;
   width: 23vw;
   height: 8vh;
 }
-.b-food{
+.b-food {
   display: flex;
   justify-content: center;
 }
-.itens-menu{
+.itens-menu {
   overflow: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2vh;
-    height: 65vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2vh;
+  height: 65vh;
 }
-.div-init{
+.div-init {
   display: flex;
   justify-content: space-around;
-
 }
-.fugure-logo{
+.fugure-logo {
   display: flex;
- width: 22vw;
+  width: 22vw;
 }
-.figure-line{
+.figure-line {
   height: 5vh;
 }
-.header-hall{
+.header-hall {
   display: flex;
 }
-.div-name{
+.div-name {
   align-self: center;
   margin: auto;
 }
-.button-exit{
+.button-exit {
   width: 10vw;
   background-color: transparent;
-  border:none;
+  border: none;
 }
-.exit-image{
+.exit-image {
   float: right;
   height: 8vh;
 }
-.resume-order{
+.resume-order {
   height: 50vh;
   width: 50vw;
 }
-.finish-order{
+.finish-order {
   display: flex;
   margin: auto;
   width: 50vw;
 }
-@media(min-width: 768px){
-.h1-hall{
-  font-size: 32px;
-}
-.button-hall{
-  font-weight: bold;
-  font-size: 21px;
-}
-.b-type{
-  width: 19vw; 
-  
-}
+@media (min-width: 768px) {
+  .h1-hall {
+    font-size: 32px;
+  }
+  .button-hall {
+    font-weight: bold;
+    font-size: 21px;
+  }
+  .b-type {
+    width: 19vw;
+  }
 }

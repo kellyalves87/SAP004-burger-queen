@@ -15,7 +15,7 @@ const MenuItem = (props) => {
           }}
           id='add'
         >
-          ADD
+          +
         </button>
         <button
           onClick={(e) => {
@@ -24,7 +24,7 @@ const MenuItem = (props) => {
           }}
           id='sub'
         >
-          SUB
+          -
         </button>
         <button
           onClick={(e) => {
@@ -33,7 +33,7 @@ const MenuItem = (props) => {
           }}
           id='rem'
         >
-          REM
+          Remover
         </button>
       </div>
     </div>
