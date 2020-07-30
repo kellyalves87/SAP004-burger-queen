@@ -199,8 +199,9 @@ const Hall = () => {
             <span>TOTAL: R$ {total}</span>
           </div>
           <div className='finish-order'>
-            <Button class='button-hall' name='CANCELAR' />
-            <Button class='button-hall' name='ENVIAR' />
+          <span className='total-price'>TOTAL: {total}</span>
+            <Button class='button-hall end' name='CANCELAR' />
+            <Button class='button-hall end' name='ENVIAR' />
           </div>
         </div>
       </section>
