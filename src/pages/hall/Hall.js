@@ -96,7 +96,6 @@ const Hall = () => {
 
     if (itemCount === 1) {
       const delItem = order.filter((elem) => elem !== itemCount.item);
-
       setOrder([...delItem]);
       setTotal(total - price * count);
     } else {
@@ -123,10 +122,9 @@ const Hall = () => {
           </figure>
         </div>
         <button
-          class='button-exit'
+          className='button-exit'
           name='EXIT'
-          onClick={() => firebase.auth().signOut()}
-        >
+          onClick={() => firebase.auth().signOut()}>
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
       </header>
@@ -189,7 +187,8 @@ const Hall = () => {
             type='text'
             value={resume}
             onClick={(e) => setResume(e.target.value)}
-          />
+            />
+            <span>TOTAL: {total}</span>
           <div className='resume-order'></div>
           <div className='finish-order'>
           <span className='total-price'>TOTAL: {total}</span>

@@ -17,7 +17,7 @@ const MenuItem = (props) => {
           }}
           id='add'
         >
-          ADD
+          +
         </button>
         <button
         className='btn-item'
@@ -27,7 +27,7 @@ const MenuItem = (props) => {
           }}
           id='sub'
         >
-          SUB
+          -
         </button>
         <button
         className='btn-item'
@@ -37,7 +37,7 @@ const MenuItem = (props) => {
           }}
           id='rem'
         >
-          REM
+          Remover
         </button>
       </div>
     </div>
