@@ -1,25 +1,19 @@
 import React from "react";
-import Button from "../button/button";
+import MenuItem from "./MenuItem";
 
 const Menu = (props) => {
-
-  console.log('menu')
-  console.log(props)
-
   return (
     <>
-      {Object.entries(props.items).map((item, index) => {
+      {Object.entries(props.items).map((item) => {
         return (
-          <Button
-            key={index}
-            id={index}
-            className={props.class}
-            type='text'
-            onClick={props.onClick}
+          <MenuItem
+            key={item[0]}
             name={item[0]}
-          >
-            
-          </Button>
+            price={item[1]}
+            handleClick={props.addItem}
+            handleRemoveItem={props.removeItem}
+            handleSubtractItem={props.subtractItem}
+          />
         );
       })}
     </>

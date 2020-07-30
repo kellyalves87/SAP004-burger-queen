@@ -41,6 +41,7 @@ const App = () => {
       } else {
         setLoggedUser(() => (
           <BrowserRouter>
+            <Redirect to='/login' />
             <Switch>
               <Route path='/login' component={Login} />
               <Route exact path='/signup' component={SignUp} />
