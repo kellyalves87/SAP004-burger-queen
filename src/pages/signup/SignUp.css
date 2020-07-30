@@ -29,7 +29,9 @@
   width: 30px;
   height: 28px;
 }
-
+.div-credentials{
+  text-align: center;
+}
 
 @media (min-width: 320px) {
   .img-section {

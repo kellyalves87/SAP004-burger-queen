@@ -10,10 +10,12 @@
 }
 .item-name{
   letter-spacing: 2px;
-  font-size: 25px;
+  font-size: 19px;
 }
 @media (min-width: 768px){
   .container-menu{margin-top: 0vh;
   }
-
+  .item-name{
+    font-size: 25px;
+  }
 }

@@ -78,7 +78,7 @@ const Login = () => {
           </Modal>
         ) : null}
       </form>
-      <footer className='section'>
+      <footer className='footer-login'>
         <Image src={fries} alt='logo' class='img-section' />
         <Image src={juice} alt='logo' class='img-section' />
         <Image src={milkshake} alt='logo' class='img-section' />

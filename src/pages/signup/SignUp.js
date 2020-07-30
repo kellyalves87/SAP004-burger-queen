@@ -53,7 +53,7 @@ const SignUp = () => {
   return (
     <div className='div-register'>
       <h1 className='bq-title'>BURGER QUEEN</h1>
-      <div>
+      <div className='div-credentials'>
           <Input
             name='name'
             class='credentials'

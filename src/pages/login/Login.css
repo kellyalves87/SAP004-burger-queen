@@ -62,12 +62,19 @@ figure {
   margin-top: 3.007518796992481vh;
   font-size: 15px;
 }
-.section {
+.footer-login {
+  /*
+  
+  position: fixed;
+  width: 100%; */
   display: flex;
   justify-content: space-around;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 13vh;
+    width: 100%;
+    overflow: hidden;
 }
 .line {
   width: 51.059908vw;
@@ -102,7 +109,7 @@ figure {
   figure {
     margin-bottom: 5.360902vh;
   }
-  p {
+  .p-login{
     font-size: 15px;
     letter-spacing: 3px;
   }
@@ -123,7 +130,7 @@ figure {
   }
   .input-login {
     color: black;
-    font-size: 24px;
+    font-size: 30px;
     height: 7.413534vh;
   }
   .h1 {
@@ -136,7 +143,7 @@ figure {
   figure {
     margin-bottom: 5.360902vh;
   }
-  p {
+  .p-login {
     font-size: 25px;
     letter-spacing: 3px;
   }

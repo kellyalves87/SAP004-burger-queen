@@ -74,7 +74,7 @@
   height: 67vh;
 }
 .div-resume{
-  text-align: end;
+  text-align: center;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -134,7 +134,7 @@
   flex-wrap: wrap;
   justify-content: center;
   overflow: auto;
-  height: 46vh;
+  height: 42vh;
   width: 50vw;
 }
 .item-order{
@@ -144,9 +144,10 @@
 .finish-order {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
   margin: auto;
   width: 50vw;
+  height: 18vh;
 }
 .total-price{
   text-align: center;
@@ -169,4 +170,9 @@
 .b-type{
   width: 19vw; 
 }
+.item-order{
+  font-size: 21px;}
+  .total-price{
+    font-size: 26px;
+  }
 }
