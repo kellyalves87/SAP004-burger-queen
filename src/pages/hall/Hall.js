@@ -15,7 +15,7 @@ import "./Hall.css";
 
 const Hall = () => {
   const [startService, setStartService] = useState("");
-  const [numberTable, setNumberTable] = useState(0);
+  const [numberTable, setNumberTable] = useState();
   const [menu, setMenu] = useState("breakfast");
   const [breakfast, setBreakfast] = useState({});
   const [brunch, setBrunch] = useState({});
@@ -87,7 +87,7 @@ const Hall = () => {
 
     const itemIndex = order.findIndex((el) => el.item === item);
 
-    if (itemIndex === -1) {
+    if (itemIndex === -1 || total === 0) {
       return;
     }
 
@@ -124,7 +124,8 @@ const Hall = () => {
         <button
           className='button-exit'
           name='EXIT'
-          onClick={() => firebase.auth().signOut()}>
+          onClick={() => firebase.auth().signOut()}
+        >
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
       </header>
@@ -187,9 +188,16 @@ const Hall = () => {
             type='text'
             value={resume}
             onClick={(e) => setResume(e.target.value)}
-            />
-            <span>TOTAL: {total}</span>
-          <div className='resume-order'></div>
+          />
+          <div className='resume-order'>
+            {order.map((orderItem) => (
+              <>
+                <div>Item: {orderItem.item}</div>
+                <div>Qtde: {orderItem.count}</div>
+              </>
+            ))}
+            <span>TOTAL: R$ {total}</span>
+          </div>
           <div className='finish-order'>
             <Button class='button-hall' name='CANCELAR' />
             <Button class='button-hall' name='ENVIAR' />
