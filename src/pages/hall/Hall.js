@@ -30,7 +30,6 @@ const Hall = () => {
       .get()
       .then((docRef) => {
         const itemData = docRef.data();
-
         state(() => itemData);
       });
   };
@@ -41,14 +40,10 @@ const Hall = () => {
   };
 
   const handleAddItem = (e) => {
-    console.log("handleCick");
-    debugger;
     const item = e.currentTarget.parentElement.firstChild.innerText;
     const price = parseFloat(
       e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
     );
-
-    console.log(item);
 
     const itemIndex = order.findIndex((el) => el.item === item);
     if (itemIndex === -1) {
@@ -65,33 +60,39 @@ const Hall = () => {
   };
 
   const handleRemoveItem = (e) => {
-    console.log("handleRemoveItem");
-    debugger;
     const item = e.currentTarget.parentElement.firstChild.innerText;
     const price = parseFloat(
       e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
     );
-    //const count = e.currentTarget.children[0].children[2].innerText;
 
-    const count = order[item].count;
-    const delItem = order.filter((elem) => elem !== item);
+    const itemIndex = order.findIndex((el) => el.item === item);
+
+    if (itemIndex === -1) {
+      return;
+    }
+
+    const count = order[itemIndex].count;
+    const delItem = order.filter((elem) => elem.item !== item);
 
     setOrder([...delItem]);
     setTotal(total - price * count);
   };
 
   const handleSubtractItem = (e) => {
-    console.log("handleSubtrctItem");
-    debugger;
     const item = e.currentTarget.parentElement.firstChild.innerText;
     const price = parseFloat(
       e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
     );
-    //const count = e.currentTarget.children[0].children[2].innerText;
 
     const itemIndex = order.findIndex((el) => el.item === item);
+
+    if (itemIndex === -1) {
+      return;
+    }
+
     const itemCount = order[itemIndex];
     const count = itemCount.count;
+
     if (itemCount === 1) {
       const delItem = order.filter((elem) => elem !== itemCount.item);
 
