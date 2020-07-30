@@ -9,7 +9,7 @@ import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 import Image from "../../components/image/image";
 import logo from "../../assets/logo.svg";
-import exit from "../../assets/exit.svg"
+import exit from "../../assets/exit.svg";
 import line from "../../assets/line.svg";
 import "./Hall.css";
 
@@ -35,8 +35,7 @@ const Hall = () => {
       });
   };
 
-
-  const getBrunch = (e) => {
+  const allBrunch = (e) => {
     setMenu(e.target.value);
     getMenu({ name: "brunch", state: setBrunch });
   };
@@ -108,7 +107,7 @@ const Hall = () => {
   };
 
   useEffect(() => {
-    getMenu({ name: "breakfast", state: setBreakfast })
+    getMenu({ name: "breakfast", state: setBreakfast });
   }, []);
 
   return (
@@ -118,19 +117,23 @@ const Hall = () => {
           <Image src={logo} alt='logo' class='logo-hall' />
         </figure>
         <div className='div-name'>
-        <h1 className='h1-hall'>BURGER QUEEN</h1>
-        <figure className='figure-line'>
-          <Image src={line} alt='line' class='line-hall' />
-        </figure>
+          <h1 className='h1-hall'>BURGER QUEEN</h1>
+          <figure className='figure-line'>
+            <Image src={line} alt='line' class='line-hall' />
+          </figure>
         </div>
-        <button class='button-exit'
-            name='EXIT'
-            onClick={() => firebase.auth().signOut()}><Image src={exit} alt='exit' class='exit-image' /></button>
+        <button
+          class='button-exit'
+          name='EXIT'
+          onClick={() => firebase.auth().signOut()}
+        >
+          <Image src={exit} alt='exit' class='exit-image' />
+        </button>
       </header>
       <div className='div-init'>
-        <label className='label-service' className='' />
-      INICIAR ATENDIMENTO
-      <Input
+        <label className='label-service' />
+        INICIAR ATENDIMENTO
+        <Input
           name='start-service'
           class='input-service'
           type='text'
@@ -139,8 +142,8 @@ const Hall = () => {
           placeholder='Nome Cliente'
         />
         <label className='label-service' />
-      NÚMERO MESA
-      <Input
+        NÚMERO MESA
+        <Input
           name='number-table'
           class='input-service'
           type='text'
@@ -152,22 +155,22 @@ const Hall = () => {
       <section className='section-hall'>
         <div className='div-option'>
           <div className='b-food'>
-          <Button
-            name='CAFÉ DA MANHÃ '
-            class='button-hall b-type'
-            type='text'
-            value='breakfast'
-            onClick={(e) => setMenu(e.target.value)}
-          />
-          <Button
-            name='ALMOÇO/ JANTAR'
-            class='button-hall b-type'
-            type='text'
-            value='brunch'
-            onClick={getBruch}
-          />
+            <Button
+              name='CAFÉ DA MANHÃ '
+              class='button-hall b-type'
+              type='text'
+              value='breakfast'
+              onClick={(e) => setMenu(e.target.value)}
+            />
+            <Button
+              name='ALMOÇO/ JANTAR'
+              class='button-hall b-type'
+              type='text'
+              value='brunch'
+              onClick={allBrunch}
+            />
           </div>
-          
+
           <div className='itens-menu'>
             <Menu
               type={menu}
@@ -177,7 +180,6 @@ const Hall = () => {
               removeItem={handleRemoveItem}
               subtractItem={handleSubtractItem}
             />
-
           </div>
         </div>
         <div className='div-resume'>
@@ -188,15 +190,16 @@ const Hall = () => {
             value={resume}
             onClick={(e) => setResume(e.target.value)}
           />
-          <div className='resume-order'>
-            
-            </div>          
-         <div className='finish-order'>
-         <Button class='button-hall' name='CANCELAR' />
-          <Button class='button-hall' name='ENVIAR' />
+          <div className='resume-order'></div>
+          <div className='finish-order'>
+            <Button class='button-hall' name='CANCELAR' />
+            <Button class='button-hall' name='ENVIAR' />
             <span>TOTAL: {total}</span>
-         </div>
+          </div>
         </div>
       </section>
+    </div>
+  );
+};
 
 export default Hall;
