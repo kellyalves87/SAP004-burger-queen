@@ -54,8 +54,6 @@ const SignUp = () => {
     <div className='div-register'>
       <h1 className='bq-title'>BURGER QUEEN</h1>
       <div>
-        <label className='label-signup'>
-          Nome
           <Input
             name='name'
             class='credentials'
@@ -64,9 +62,6 @@ const SignUp = () => {
             onChange={(e) => setName(e.target.value)}
             placeholder='Nome'
           />
-        </label>
-        <label className='label-signup'>
-          Email
           <Input
             name='email'
             class='credentials'
@@ -75,9 +70,6 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder='Email'
           />
-        </label>
-        <label className='label-signup'>
-          Senha
           <Input
             name='password'
             class='credentials'
@@ -86,7 +78,6 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder='Senha'
           />
-        </label>
         <Input
           name='workPlace'
           class='options'

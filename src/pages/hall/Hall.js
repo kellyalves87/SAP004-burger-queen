@@ -14,16 +14,16 @@ import line from "../../assets/line.svg";
 import "./Hall.css";
 
 const Hall = () => {
-  const [category, setCategory] = useState('Café da Manhã')
   const [startService, setStartService] = useState("");
   const [numberTable, setNumberTable] = useState(0);
   const [menu, setMenu] = useState("breakfast");
   const [breakfast, setBreakfast] = useState({});
   const [brunch, setBrunch] = useState({});
   const [resume, setResume] = useState("");
+  const [order, setOrder] = useState([]);
+  const [total, setTotal] = useState(0);
 
   const getMenu = ({ name, state }) => {
-
     firebase
       .firestore()
       .collection("products")
@@ -31,20 +31,83 @@ const Hall = () => {
       .get()
       .then((docRef) => {
         const itemData = docRef.data();
-
         state(() => itemData);
       });
   };
 
-  const teste = (e) => {
-    setMenu(e.target.value)
+
+  const getBrunch = (e) => {
+    setMenu(e.target.value);
     getMenu({ name: "brunch", state: setBrunch });
-  }
+  };
+
+  const handleAddItem = (e) => {
+    console.log("handleCick");
+    debugger;
+    const item = e.currentTarget.parentElement.firstChild.innerText;
+    const price = parseFloat(
+      e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
+    );
+
+    console.log(item);
+
+    const itemIndex = order.findIndex((el) => el.item === item);
+    if (itemIndex === -1) {
+      //adicionar novo
+      setOrder([...order, { item, count: 1 }]);
+    } else {
+      //adicionar já existente
+      const newOrder = [...order];
+      newOrder[itemIndex].count += 1;
+      setOrder(newOrder);
+    }
+
+    setTotal(total + price);
+  };
+
+  const handleRemoveItem = (e) => {
+    console.log("handleRemoveItem");
+    debugger;
+    const item = e.currentTarget.parentElement.firstChild.innerText;
+    const price = parseFloat(
+      e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
+    );
+    //const count = e.currentTarget.children[0].children[2].innerText;
+
+    const count = order[item].count;
+    const delItem = order.filter((elem) => elem !== item);
+
+    setOrder([...delItem]);
+    setTotal(total - price * count);
+  };
+
+  const handleSubtractItem = (e) => {
+    console.log("handleSubtrctItem");
+    debugger;
+    const item = e.currentTarget.parentElement.firstChild.innerText;
+    const price = parseFloat(
+      e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
+    );
+    //const count = e.currentTarget.children[0].children[2].innerText;
+
+    const itemIndex = order.findIndex((el) => el.item === item);
+    const itemCount = order[itemIndex];
+    const count = itemCount.count;
+    if (itemCount === 1) {
+      const delItem = order.filter((elem) => elem !== itemCount.item);
+
+      setOrder([...delItem]);
+      setTotal(total - price * count);
+    } else {
+      itemCount.count -= 1;
+      setOrder([...order]);
+      setTotal(total - price);
+    }
+  };
 
   useEffect(() => {
     getMenu({ name: "breakfast", state: setBreakfast })
   }, []);
-  console.log(menu);
 
   return (
     <div className='div-hall'>
@@ -92,14 +155,14 @@ const Hall = () => {
             class='button-hall b-type'
             type='text'
             value='breakfast'
-            onClick={teste}
+            onClick={(e) => setMenu(e.target.value)}
           />
           <Button
             name='ALMOÇO/ JANTAR'
             class='button-hall b-type'
             type='text'
             value='brunch'
-            onClick={teste}
+            onClick={getBruch}
           />
           </div>
           
@@ -108,6 +171,9 @@ const Hall = () => {
               type={menu}
               class='button-hall'
               items={menu === "breakfast" ? breakfast : brunch}
+              addItem={handleAddItem}
+              removeItem={handleRemoveItem}
+              subtractItem={handleSubtractItem}
             />
 
           </div>
@@ -126,12 +192,9 @@ const Hall = () => {
          <div className='finish-order'>
          <Button class='button-hall' name='CANCELAR' />
           <Button class='button-hall' name='ENVIAR' />
+            <span>TOTAL: {total}</span>
          </div>
         </div>
       </section>
-
-    </div>
-  );
-};
 
 export default Hall;

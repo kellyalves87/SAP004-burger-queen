@@ -35,6 +35,7 @@
   text-align: center;
 }
 .input-service {
+  color: black;
   font-family: "Nixie One", cursive;
   width: 22.210526vw;
     height: 4.413534vh;
@@ -43,12 +44,12 @@
   display: inline-block;
   margin-bottom: 18px;
 }
-::placeholder {
+/* ::placeholder {
   font-family: "Nixie One", cursive;
   font-size: 30px;
   color: black;
   padding: 8px;
-}
+} */
 .label-service{
   font-size: 30px;
 }
