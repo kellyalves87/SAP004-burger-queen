@@ -14,7 +14,7 @@ button{
 @media(min-width: 768px){
   button{
     font-size: 17px;
-    height: 6vh;
+    height: 8vh;
     width: 17vw;
     margin-top: 10px;
     margin-right: 10px;

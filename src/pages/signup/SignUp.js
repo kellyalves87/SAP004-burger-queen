@@ -5,6 +5,7 @@ import Input from "../../components/input/input";
 import Button from "../../components/button/button";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
+import './SignUp.css';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -50,7 +51,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className='div-register'>
       <h1 className='bq-title'>BURGER QUEEN</h1>
       <div>
         <label className='label-signup'>
@@ -108,7 +109,7 @@ const SignUp = () => {
         </label>
         <Button
           id='login'
-          class='button-loggin'
+          class='button-create'
           name='CRIAR CONTA'
           type='submit'
           onClick={noRefresh}

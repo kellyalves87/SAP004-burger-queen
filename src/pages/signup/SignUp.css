@@ -1,0 +1,113 @@
+.div-register{
+  background-color: #3D3D3D;
+ 
+}
+.bq-title {
+  font-size: 65px;
+  letter-spacing: 5px;
+  margin: 10px 0 10px 0;
+  text-align: center;
+}
+.label-signup {
+  padding: 10px;
+  height: 10px;
+  font-size: 36px;
+  letter-spacing: 3px;
+}
+.credentials {
+  margin: auto;
+  color: black;
+  color: black;
+  font-family: "Nixie One", cursive;
+  font-size: 26px;
+  display: flex;
+  width: 300px;
+  height: 80px;
+  border-radius: 9px;
+}
+.options {
+  width: 30px;
+  height: 28px;
+}
+
+
+@media (min-width: 320px) {
+  .img-section {
+    height: 60px;
+    width: 40px;
+  }
+  .bq-title {
+    font-size: 24px;
+    letter-spacing: 3px;
+    margin: 20px 0 20px 0;
+  }
+  .label-signup {
+    font-size: 17px;
+  }
+  .credentials {
+    width: 256px;
+    height: 40px;
+  }
+  .options {
+    width: 20px;
+    height: 27px;
+  }
+  .button-create {
+    font-family: Fredoka One;
+    letter-spacing: 2px;
+    width: 54.512999vw;
+    height: 6.413534vh;
+    font-size: 18px;
+  }
+  figure {
+    margin-bottom: 5.360902vh;
+  }
+  p {
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+  .line {
+    margin-top: 1.022556vh;
+    width: 212px;
+  }
+}
+
+@media (min-width: 768px) {
+  .img-section {
+    height: 125px;
+    width: 90px;
+  }
+  .bq-title {
+    font-size: 65px;
+    letter-spacing: 5px;
+    margin: 10px 0 10px 0;
+    text-align: center;
+  }
+  .label-signup {
+    padding: 10px;
+    height: 10px;
+    font-size: 36px;
+    letter-spacing: 3px;
+  }
+  .credentials {
+    font-size: 24px;
+    width: 350px;
+    height: 80px;
+  }
+  .options {
+    width: 30px;
+    height: 28px;
+  }
+  
+  figure {
+    margin-bottom: 5.360902vh;
+  }
+  p {
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+  .line {
+    margin-top: 5.022556vh;
+    width: 500px;
+  }
+}

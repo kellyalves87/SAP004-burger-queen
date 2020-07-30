@@ -18,7 +18,7 @@ const Menu = (props) => {
             type='text'
             onClick={props.onClick}
             name={item[0]}
-            price ={`  R$:${item[1]}`} 
+            price ={`  R$${item[1]}`} 
           >
             
           </Button>
