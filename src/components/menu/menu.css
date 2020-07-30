@@ -1,0 +1,26 @@
+button{
+  font-weight: bold;
+  font-family: Nixie One;
+  letter-spacing: 1px;
+  color: black;
+  font-size: 11px;
+  height: 9vh;
+  width: 24vw;
+  background-color: #FFFCFC;
+  margin-top: 3px;
+  margin-right: 2px;
+  font-size: 11px;
+}
+@media(min-width: 768px){
+  button{
+    font-size: 17px;
+    height: 6vh;
+    width: 17vw;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+}
+
+
+
+    
