@@ -191,15 +191,14 @@ const Hall = () => {
           />
           <div className='resume-order'>
             {order.map((orderItem) => (
-              <>
-                <div>Item: {orderItem.item}</div>
-                <div>Qtde: {orderItem.count}</div>
-              </>
+              <div className='itens-resume'>
+                <div className='item-order'>Item: {orderItem.item}<br></br>
+                Qtde: {orderItem.count}</div>
+              </div>
             ))}
-            <span>TOTAL: R$ {total}</span>
           </div>
           <div className='finish-order'>
-          <span className='total-price'>TOTAL: {total}</span>
+          <span className='total-price'>TOTAL:R$ {total}</span>
             <Button class='button-hall end' name='CANCELAR' />
             <Button class='button-hall end' name='ENVIAR' />
           </div>

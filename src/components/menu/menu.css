@@ -11,9 +11,6 @@ button{
   margin-right: 2px;
   font-size: 11px;
 }
-.card{
-  width: 80px;
-}
 @media(min-width: 768px){
   button{
     font-size: 17px;

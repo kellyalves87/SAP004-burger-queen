@@ -22,9 +22,9 @@
   height: 20.30075187969925vh;
 }
 .line-hall {
-  width: 52.059908vw;
+  width: 61.059908vw;
   margin: auto;
-  height: 5vh;
+  height: 3vh;
 }
 .h1-hall {
   margin-top: 10vh;
@@ -129,9 +129,17 @@
   height: 8vh;
 }
 .resume-order{
+  display: flex;
+  align-content: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
   overflow: auto;
   height: 46vh;
   width: 50vw;
+}
+.item-order{
+  width: 26vw;
+  text-align: initial;
 }
 .finish-order {
   display: flex;
@@ -147,9 +155,12 @@
 .end{
   width: ;
 }
+.itens-resume{
+  text-align: center;
+}
 @media(min-width: 768px){
 .h1-hall{
-  font-size: 32px;
+  font-size: 45px;
 }
 .button-hall{
   font-weight: bold;
@@ -157,4 +168,5 @@
 }
 .b-type{
   width: 19vw; 
+}
 }
