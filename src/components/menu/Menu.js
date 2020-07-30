@@ -1,5 +1,7 @@
 import React from "react";
 import MenuItem from "./MenuItem";
+import'./menu.css';
+
 
 const Menu = (props) => {
   return (
@@ -8,7 +10,7 @@ const Menu = (props) => {
         return (
           <MenuItem
             key={item[0]}
-            name={item[0]}
+            name={item[0]}        
             price={item[1]}
             handleClick={props.addItem}
             handleRemoveItem={props.removeItem}
