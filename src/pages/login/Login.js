@@ -69,7 +69,7 @@ const Login = () => {
           type='submit'
           onClick={noRefresh}
         />
-        <p onClick={() => setIsModalVisible(true)}>
+        <p className='p-login' onClick={() => setIsModalVisible(true)}>
           Ainda não tem cadastro? Registre-se<strong> aqui!</strong>
         </p>
         {isModalVisible ? (
