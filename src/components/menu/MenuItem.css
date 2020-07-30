@@ -1,0 +1,19 @@
+.btn-item{
+  height: 5vh;
+  border-radius: 9px;
+  font-family: Nixie One;
+}
+.container-menu{
+  width: 40vw;
+  height: 23vh;
+  margin-top: 8vh ;
+}
+.item-name{
+  letter-spacing: 2px;
+  font-size: 25px;
+}
+@media (min-width: 768px){
+  .container-menu{margin-top: 0vh;
+  }
+
+}

@@ -28,6 +28,7 @@
     height: 5vh;
 }
 .h1-hall {
+  margin-top: 10vh;
   font-family: "Fredoka One", cursive;
   font-size: 14px;
   color: #97e264;
@@ -72,6 +73,7 @@ width: 50vw;
 height: 67vh;
 }
 .div-resume{
+  text-align: end;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -96,7 +98,7 @@ height: 67vh;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 2vh;
-    height: 65vh;
+    height: 57vh;
 }
 .div-init{
   display: flex;
@@ -127,13 +129,23 @@ height: 67vh;
   height: 8vh;
 }
 .resume-order{
-  height: 50vh;
+  overflow: auto;
+  height: 46vh;
   width: 50vw;
 }
 .finish-order{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   margin: auto;
   width: 50vw;
+}
+.total-price{
+  text-align: center;
+  width: 100vw;
+}
+.end{
+  width: ;
 }
 @media(min-width: 768px){
 .h1-hall{
