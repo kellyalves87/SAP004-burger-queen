@@ -6,36 +6,43 @@
   font-family: "Fredoka One", cursive;
   color: #97e264;
 }
+.header-hall{
+  display: flex;
+
+}
 .div-hall {
   background-color: #3d3d3d;
   height: 100vh;
+  width: 100vw;
 }
-figure {
+/* figure {
   display: flex;
   margin-bottom: 6.360902vh;
-}
+} */
 .logo-hall {
   height: 20.30075187969925vh;
 }
 .line-hall {
-  width: 51.059908vw;
-  margin: auto;
-  margin-top: 10px;
+  width: 52.059908vw;
+    margin: auto;
+    height: 5vh;
 }
 .h1-hall {
   font-family: "Fredoka One", cursive;
-  font-size: 50px;
+  font-size: 14px;
   color: #97e264;
   letter-spacing: 5px;
+  text-align: center;
 }
 .input-service {
   color: black;
   font-family: "Nixie One", cursive;
-  width: 32.210526vw;
-  height: 7.413534vh;
+  width: 22.210526vw;
+    height: 4.413534vh;
   border: none;
   border-radius: 9px;
   display: inline-block;
+  margin-bottom: 18px;
 }
 /* ::placeholder {
   font-family: "Nixie One", cursive;
@@ -48,10 +55,96 @@ figure {
 }
 .button-hall {
   display: inline-block;
+  background-color: #97e264; ;
   color: black;
   width: 35.512999vw;
-  height: 7.413534vh;
+  height: 5.413534vh;
   border-radius: 9px;
-  font-size: 26px;
+  font-size: 14px;
   letter-spacing: 2px;
+}
+.menu-itens, .order-resume{
+  width: 50vw;
+}
+
+.div-option, .div-resume{
+width: 50vw;
+height: 67vh;
+}
+.div-resume{
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.section-hall{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.b-type{
+  font-weight: bold;
+  font-size: 11px;
+  width: 23vw;
+  height: 8vh;
+}
+.b-food{
+  display: flex;
+  justify-content: center;
+}
+.itens-menu{
+  overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2vh;
+    height: 65vh;
+}
+.div-init{
+  display: flex;
+  justify-content: space-around;
+
+}
+.fugure-logo{
+  display: flex;
+ width: 22vw;
+}
+.figure-line{
+  height: 5vh;
+}
+.header-hall{
+  display: flex;
+}
+.div-name{
+  align-self: center;
+  margin: auto;
+}
+.button-exit{
+  width: 10vw;
+  background-color: transparent;
+  border:none;
+}
+.exit-image{
+  float: right;
+  height: 8vh;
+}
+.resume-order{
+  height: 50vh;
+  width: 50vw;
+}
+.finish-order{
+  display: flex;
+  margin: auto;
+  width: 50vw;
+}
+@media(min-width: 768px){
+.h1-hall{
+  font-size: 32px;
+}
+.button-hall{
+  font-weight: bold;
+  font-size: 21px;
+}
+.b-type{
+  width: 19vw; 
+  
+}
 }

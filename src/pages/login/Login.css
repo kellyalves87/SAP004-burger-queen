@@ -81,6 +81,8 @@ p {
     width: 40px;
   }
   .button-login {
+    font-weight: bold;
+    font-family: Fredoka One;
     width: 45.512999vw;
     height: 7.413534vh;
     border-radius: 9px;

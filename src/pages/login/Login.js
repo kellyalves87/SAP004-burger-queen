@@ -78,13 +78,13 @@ const Login = () => {
           </Modal>
         ) : null}
       </form>
-      <section className='section'>
+      <footer className='section'>
         <Image src={fries} alt='logo' class='img-section' />
         <Image src={juice} alt='logo' class='img-section' />
         <Image src={milkshake} alt='logo' class='img-section' />
         <Image src={soda} alt='logo' class='img-section' />
         <Image src={hamburger} alt='logo' class='img-section' />
-      </section>
+      </footer>
     </div>
   );
 };
