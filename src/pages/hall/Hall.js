@@ -35,6 +35,9 @@ const Hall = () => {
       });
   };
 
+  useEffect(() => {
+    getMenu({ name: "breakfast", state: setBreakfast });
+  }, []);
   const allBrunch = (e) => {
     setMenu(e.target.value);
     getMenu({ name: "brunch", state: setBrunch });
@@ -104,10 +107,6 @@ const Hall = () => {
       setTotal(total - price);
     }
   };
-
-  useEffect(() => {
-    getMenu({ name: "breakfast", state: setBreakfast });
-  }, []);
 
   return (
     <div className='div-hall'>
@@ -192,13 +191,16 @@ const Hall = () => {
           <div className='resume-order'>
             {order.map((orderItem) => (
               <div className='itens-resume'>
-                <div className='item-order'>Item: {orderItem.item}<br></br>
-                Qtde: {orderItem.count}</div>
+                <div className='item-order'>
+                  Item: {orderItem.item}
+                  <br></br>
+                  Qtde: {orderItem.count}
+                </div>
               </div>
             ))}
           </div>
           <div className='finish-order'>
-          <span className='total-price'>TOTAL:R$ {total}</span>
+            <span className='total-price'>TOTAL:R$ {total}</span>
             <Button class='button-hall end' name='CANCELAR' />
             <Button class='button-hall end' name='ENVIAR' />
           </div>
