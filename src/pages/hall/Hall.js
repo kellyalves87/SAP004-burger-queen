@@ -108,11 +108,13 @@ const Hall = () => {
 
   const sendOrders = (e) => {
     e.preventDefault();
-    debugger
     const sendOrder = {
       name: nameCustomer,
       table: numberTable,
       order: order,
+      ready: false,
+      created_at: new Date(),
+      updated_at: null,
     };
     firebase.firestore().collection("orders").add(sendOrder);
   };
