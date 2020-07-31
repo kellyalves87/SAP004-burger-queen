@@ -15,6 +15,7 @@ const Menu = (props) => {
             handleClick={props.addItem}
             handleRemoveItem={props.removeItem}
             handleSubtractItem={props.subtractItem}
+            order={props.order}
           />
         );
       })}

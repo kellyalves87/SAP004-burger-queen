@@ -95,7 +95,7 @@ const SignUp = () => {
           value='hall'
           onChange={(e) => setWorkplace(e.target.value)}
         />
-        <label htmlFor='salão' class='label-signup'>
+        <label htmlFor='salão' className='label-signup'>
           SALÃO
         </label>
         <Button

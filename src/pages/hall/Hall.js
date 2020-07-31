@@ -14,8 +14,8 @@ import line from "../../assets/line.svg";
 import "./Hall.css";
 
 const Hall = () => {
-  const [startService, setStartService] = useState("");
-  const [numberTable, setNumberTable] = useState();
+  const [nameCustomer, setNameCustomer] = useState("");
+  const [numberTable, setNumberTable] = useState("");
   const [menu, setMenu] = useState("breakfast");
   const [breakfast, setBreakfast] = useState({});
   const [brunch, setBrunch] = useState({});
@@ -51,10 +51,8 @@ const Hall = () => {
 
     const itemIndex = order.findIndex((el) => el.item === item);
     if (itemIndex === -1) {
-      //adicionar novo
       setOrder([...order, { item, count: 1 }]);
     } else {
-      //adicionar já existente
       const newOrder = [...order];
       newOrder[itemIndex].count += 1;
       setOrder(newOrder);
@@ -108,6 +106,17 @@ const Hall = () => {
     }
   };
 
+  const sendOrders = (e) => {
+    e.preventDefault();
+    debugger
+    const sendOrder = {
+      name: nameCustomer,
+      table: numberTable,
+      order: order,
+    };
+    firebase.firestore().collection("orders").add(sendOrder);
+  };
+
   return (
     <div className='div-hall'>
       <header className='header-hall'>
@@ -132,11 +141,11 @@ const Hall = () => {
         <label className='label-service' />
         INICIAR ATENDIMENTO
         <Input
-          name='start-service'
+          name='name-customer'
           class='input-service'
           type='text'
-          value={startService}
-          onChange={(e) => setStartService(e.target.value)}
+          value={nameCustomer}
+          onChange={(e) => setNameCustomer(e.target.value)}
           placeholder='Nome Cliente'
         />
         <label className='label-service' />
@@ -201,8 +210,13 @@ const Hall = () => {
           </div>
           <div className='finish-order'>
             <span className='total-price'>TOTAL:R$ {total}</span>
-            <Button class='button-hall end' name='CANCELAR' />
-            <Button class='button-hall end' name='ENVIAR' />
+            <Button class='button-hall-end' name='CANCELAR' />
+            <Button
+              class='button-hall-end'
+              name='ENVIAR'
+              type='submit'
+              onClick={(e) => sendOrders(e)}
+            />
           </div>
         </div>
       </section>
