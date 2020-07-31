@@ -12,8 +12,12 @@ import logo from "../../assets/logo.svg";
 import exit from "../../assets/exit.svg";
 import line from "../../assets/line.svg";
 import "./Hall.css";
+import Modal from "../../components/modal/modal";
+import Kitchen from "../kitchen/Kitchen";
+
 
 const Hall = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [startService, setStartService] = useState("");
   const [numberTable, setNumberTable] = useState();
   const [menu, setMenu] = useState("breakfast");
@@ -128,6 +132,12 @@ const Hall = () => {
         >
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
+        <Button onClick={() => setIsModalVisible(true)} name="PEDIDOS" />       
+        {isModalVisible ? (
+          <Modal onClose={() => setIsModalVisible(false)}>
+            { <Kitchen/>}
+          </Modal>
+        ) : null}
       </header>
       <div className='div-init'>
         <label className='label-service' />
@@ -200,7 +210,8 @@ const Hall = () => {
           <div className='finish-order'>
           <span className='total-price'>TOTAL:R$ {total}</span>
             <Button class='button-hall end' name='CANCELAR' />
-            <Button class='button-hall end' name='ENVIAR' />
+            <Button class='button-hall end' name='ENVIAR'
+             />
           </div>
         </div>
       </section>
