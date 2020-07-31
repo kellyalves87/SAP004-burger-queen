@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className='div-login'>
-      <figure>
+      <figure className='figure-login'> 
         <Image src={logo} alt='logo' class='logo' />
       </figure>
       <h1 className='h1'>BURGER QUEEN</h1>
