@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
-import {Link} from 'react-router-dom'
+import "firebase/firebase-auth";
+import "firebase/firebase-firestore";
 import Button from '../../components/button/button';
 import './Kitchen.css'
 import logo from "../../assets/logo.svg";
@@ -69,6 +70,10 @@ const Kitchen = () => {
         </div>
       </section>
       </div> 
+    <>
+      <h1>COZINHA</h1>
+      <Button  name ='Exit'onClick={() => firebase.auth().signOut() }/>
+    </> 
   );
 };
 
