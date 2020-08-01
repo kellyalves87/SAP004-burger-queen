@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
-import "firebase/firebase-auth";
-import "firebase/firebase-firestore";
+import {Link} from 'react-router-dom'
 import Button from '../../components/button/button';
 import './Kitchen.css'
 import logo from "../../assets/logo.svg";
@@ -14,7 +13,10 @@ import OrderItem from "../../components/menu/OrderItem";
 
 
 const Kitchen = () => {
-  const [orders, setOrders] = useState([])
+  const [done, setDone] = useState([]);
+  const [pending, setPending] = useState([]);
+  const [orders, setOrders] = useState([]);
+
   useEffect(()=>{
     firebase
     .firestore()
@@ -26,9 +28,31 @@ const Kitchen = () => {
         //doc.data pega todos os itens dentro do pedido
       })) 
       setOrders(pedidos)
-    })
 
+      setPending(pedidos.filter(doc => doc.status === false))
+       setDone(pedidos.filter(doc => doc.status === 'done'))
+    })
   },[])
+
+  function orderDone(item){
+      firebase
+      .firestore()    
+      .collection('orders')
+      .doc(item.id)
+      .update({
+        ready: true,
+        time: new Date().getTime()
+      })
+
+      const newPending = pending.filter((el) => el.id !== item.id);
+      setPending(newPending);
+
+      const newDone = [...done, {...item, status: 'done', time: new Date().getTime()}];
+      setDone(newDone);
+
+      
+  }; 
+
 
 
   return (
@@ -53,7 +77,11 @@ const Kitchen = () => {
         <h1 className='h1-orders'>PEDIDOS PENDENTES</h1>
         <div>
           {orders.map((item)=> (
-            <div>
+            <div className="div-order1">
+              <Button name='PRONTO' onClick={(e) => {
+                orderDone(item)
+                e.preventDefault()
+              }} />
               {item.name}
               {(item.order).map((i)=>(
                 <div>{i.count}
@@ -70,10 +98,6 @@ const Kitchen = () => {
         </div>
       </section>
       </div> 
-    <>
-      <h1>COZINHA</h1>
-      <Button  name ='Exit'onClick={() => firebase.auth().signOut() }/>
-    </> 
   );
 };
 
