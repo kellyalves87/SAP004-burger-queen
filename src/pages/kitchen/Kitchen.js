@@ -17,10 +17,14 @@ const Kitchen = () => {
   const [pending, setPending] = useState([]);
   const [orders, setOrders] = useState([]);
 
+
+  
+
   useEffect(()=>{
     firebase
     .firestore()
     .collection("orders")
+    .orderBy("created_at", "desc")
     .get().then((snapshot)=>{
       const pedidos = snapshot.docs.map((doc) =>({
         id: doc.id,
@@ -30,27 +34,21 @@ const Kitchen = () => {
       setOrders(pedidos)
 
       setPending(pedidos.filter(doc => doc.status === false))
-       setDone(pedidos.filter(doc => doc.status === 'done'))
+      setDone(pedidos.filter(doc => doc.status === true))
     })
   },[])
 
   function orderDone(item){
       firebase
       .firestore()    
-      .collection('orders')
+      .collection("orders")
       .doc(item.id)
       .update({
         ready: true,
-        time: new Date().getTime()
-      })
-
-      const newPending = pending.filter((el) => el.id !== item.id);
-      setPending(newPending);
-
-      const newDone = [...done, {...item, status: 'done', time: new Date().getTime()}];
-      setDone(newDone);
-
-      
+        updated_at:new Date(),
+      }) 
+      console.log('foi')
+            
   }; 
 
 
@@ -86,7 +84,7 @@ const Kitchen = () => {
               {(item.order).map((i)=>(
                 <div>{i.count}
                 {i.item}
-                 </div>
+                </div>
               ))}
             </div>
           ))}
@@ -94,7 +92,10 @@ const Kitchen = () => {
         </div>
         </div>
         <div className='div-orderFinished'>
-         <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
+          <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
+          <div> 
+            
+          </div>
         </div>
       </section>
       </div> 
