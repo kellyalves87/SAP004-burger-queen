@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
-// import growl from "growl-alert";
-// import "growl-alert/dist/growl-alert.css";
 import Menu from "../../components/menu/Menu";
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
@@ -11,13 +9,12 @@ import Image from "../../components/image/image";
 import logo from "../../assets/logo.svg";
 import exit from "../../assets/exit.svg";
 import line from "../../assets/line.svg";
-import "./Hall.css";
 import Modal from "../../components/modal/modal";
 import Kitchen from "../kitchen/Kitchen";
-
+import "./Hall.css";
 
 const Hall = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false); 
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [nameCustomer, setNameCustomer] = useState("");
   const [numberTable, setNumberTable] = useState("");
   const [menu, setMenu] = useState("breakfast");
@@ -142,16 +139,11 @@ const Hall = () => {
         >
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
-        <Button onClick={() => setIsModalVisible(true)} name="PEDIDOS" />       
         {isModalVisible ? (
-          <Modal onClose={() => setIsModalVisible(false)}>
-            { <Kitchen/>}
-          </Modal>
+          <Modal onClose={() => setIsModalVisible(false)}>{<Kitchen />}</Modal>
         ) : null}
       </header>
       <div className='div-init'>
-        <label className='label-service' />
-        INICIAR ATENDIMENTO
         <Input
           name='name-customer'
           class='input-service'
@@ -160,8 +152,6 @@ const Hall = () => {
           onChange={(e) => setNameCustomer(e.target.value)}
           placeholder='Nome Cliente'
         />
-        <label className='label-service' />
-        NÚMERO MESA
         <Input
           name='number-table'
           class='input-service'

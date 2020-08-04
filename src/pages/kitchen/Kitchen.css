@@ -37,14 +37,15 @@
     width: 45vw;
     overflow: auto;
   }
-  .figure-kitchen{
+  /* .figure-kitchen{
 
-  }
+  } */
   .logo-kitchen{
     height: 9vh;
   }
   .h1-kitchen{
     align-self: center;
+    letter-spacing: 3px;
   }
   .exit-image{
   width: 12vw;
@@ -58,5 +59,6 @@
     }
     .h1-orders{
       font-size: 27px;
+      letter-spacing: 2px;
     }
   }

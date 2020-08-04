@@ -14,10 +14,6 @@
   height: 100vh;
   width: 100vw;
 }
-/* figure {
-  display: flex;
-  margin-bottom: 6.360902vh;
-} */
 .logo-hall {
   height: 20.30075187969925vh;
 }
@@ -37,29 +33,20 @@
 .input-service {
   color: black;
   font-family: "Nixie One", cursive;
-  width: 22.210526vw;
+  width: 29.210526vw;
   height: 4.413534vh;
   border: none;
-  border-radius: 9px;
+  border-radius: 6px;
   display: inline-block;
   margin-bottom: 18px;
-}
-/* ::placeholder {
-  font-family: "Nixie One", cursive;
-  font-size: 30px;
-  color: black;
-  padding: 8px;
-} */
-.label-service {
-  font-size: 30px;
 }
 .button-hall {
   display: inline-block;
   background-color: #97e264;
   color: black;
-  width: 35.512999vw;
-  height: 5.413534vh;
-  border-radius: 9px;
+  width: 14.512999vw;
+  height: 6.413534vh;
+  border-radius: 6px;
   font-size: 14px;
   letter-spacing: 2px;
 }
@@ -67,13 +54,16 @@
 .order-resume {
   width: 50vw;
 }
-
+.icons-item {
+  height: 25px;
+  width: 25px;
+}
 .div-option,
 .div-resume {
   width: 50vw;
   height: 67vh;
 }
-.div-resume{
+.div-resume {
   text-align: center;
   flex-wrap: wrap;
   justify-content: center;
@@ -95,11 +85,11 @@
 }
 .itens-menu {
   overflow: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2vh;
-    height: 57vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2vh;
+  height: 57vh;
 }
 .div-init {
   display: flex;
@@ -128,7 +118,7 @@
   float: right;
   height: 8vh;
 }
-.resume-order{
+.resume-order {
   display: flex;
   align-content: baseline;
   flex-wrap: wrap;
@@ -137,7 +127,7 @@
   height: 42vh;
   width: 50vw;
 }
-.item-order{
+.item-order {
   width: 26vw;
   text-align: initial;
 }
@@ -149,27 +139,94 @@
   width: 50vw;
   height: 18vh;
 }
-.total-price{
+.total-price {
   text-align: center;
   width: 100vw;
 }
-.itens-resume{
+.itens-resume {
   text-align: center;
 }
-@media(min-width: 768px){
-.h1-hall{
-  font-size: 45px;
+@media (min-width: 320px) {
+  .h1-hall {
+    margin-top: 7vh;
+    font-family: "Fredoka One", cursive;
+    font-size: 16px;
+    color: #97e264;
+    letter-spacing: 5px;
+    text-align: center;
+  }
+  .logo-hall {
+    height: 17.300752vh;
+  }
+  .input-service {
+    width: 42.210526vw;
+    height: 5.413534vh;
+    margin-bottom: 6px;
+  }
+  .b-type {
+    width: 30vw;
+    height: 7vh;
+  }
+  .div-option,
+  .div-resume {
+    width: 46vw;
+  }
+  button {
+    font-family: "Fredoka One", cursive;
 }
-.button-hall{
-  font-weight: bold;
-  font-size: 21px;
+.card{
+  height: 74px;
 }
-.b-type{
-  width: 19vw; 
+  .button-hall {
+    font-family: "Fredoka One", cursive;
+    width: 32.512999vw;
+    height: 6.413534vh;
+    font-size: 11px;
+  }
+  .item-name {
+    font-size: 13px;
 }
-.item-order{
-  font-size: 21px;}
-  .total-price{
+.itens-menu {
+  margin-top: -7vh;
+}
+.icons-item {
+  height: 16px;
+  width: 16px;
+}
+p{
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+  .exit-image {
+    margin: 5px;
+    float: right;
+    height: 6vh;
+  }
+}
+@media (min-width: 768px) {
+  .div-option, .div-resume {
+    width: 50vw;
+}
+  .h1-hall {
+    font-size: 45px;
+  }
+  .button-hall {
+    font-weight: bold;
+    font-size: 21px;
+    width: 30vw;
+  }
+  .b-type {
+    width: 20vw;
+    height: 6vh;
+  }
+  .item-name{
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .item-order {
+    font-size: 21px;
+  }
+  .total-price {
     font-size: 26px;
   }
 }

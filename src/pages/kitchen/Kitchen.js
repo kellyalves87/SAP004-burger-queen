@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
-import "firebase/firebase-auth";
-import "firebase/firebase-firestore";
-import Button from '../../components/button/button';
-import './Kitchen.css'
+import Button from "../../components/button/button";
 import logo from "../../assets/logo.svg";
-import Image from '../../components/image/image'
+import Image from "../../components/image/image";
 import exit from "../../assets/exit.svg";
+import "./Kitchen.css";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
-import Order from "../../components/menu/order";
-import OrderItem from "../../components/menu/OrderItem";
+// import Order from "../../components/menu/order";
+// import OrderItem from "../../components/menu/OrderItem";
 
 
 const Kitchen = () => {
@@ -38,7 +36,6 @@ const Kitchen = () => {
           <Image src={logo} alt='logo' class='logo-kitchen' />
         </figure>
         <h1 className ='h1-kitchen'>BURGER QUEEN</h1>
-        <Link to='/login' >
         <button
           className='button-exit'
           name='EXIT'
@@ -46,7 +43,6 @@ const Kitchen = () => {
         >
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
-        </Link> 
       </nav>
       <section className='section-kitchen'>
         <div className='div-orderRecived'>
@@ -69,11 +65,9 @@ const Kitchen = () => {
          <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
         </div>
       </section>
-      </div> 
-    <>
       <h1>COZINHA</h1>
       <Button  name ='Exit'onClick={() => firebase.auth().signOut() }/>
-    </> 
+      </div>    
   );
 };
 

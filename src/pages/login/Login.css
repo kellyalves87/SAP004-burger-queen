@@ -63,18 +63,14 @@ figure {
   font-size: 15px;
 }
 .footer-login {
-  /*
-  
-  position: fixed;
-  width: 100%; */
   display: flex;
   justify-content: space-around;
   position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 13vh;
-    width: 100%;
-    overflow: hidden;
+  left: 0;
+  bottom: 0;
+  height: 13vh;
+  width: 100%;
+  overflow: hidden;
 }
 .line {
   width: 51.059908vw;
@@ -90,12 +86,15 @@ figure {
   .button-login {
     font-weight: bold;
     font-family: Fredoka One;
+    letter-spacing: 3px;
     width: 45.512999vw;
     height: 7.413534vh;
     border-radius: 9px;
-    font-size: 23px;
+    font-size: 21px;
   }
   .input-login {
+    color: black;
+    border-radius: 6px;
     width: 69.210526vw;
     height: 5.413534vh;
   }
@@ -109,13 +108,16 @@ figure {
   .figure-login {
     margin-bottom: 5.360902vh;
   }
-  .p-login{
+  .p-login {
     font-size: 15px;
     letter-spacing: 3px;
   }
   .line {
     margin-top: 1.022556vh;
     width: 212px;
+  }
+  .footer-login {
+    height: 10vh;
   }
 }
 
@@ -150,5 +152,8 @@ figure {
   .line {
     margin-top: 5.022556vh;
     width: 500px;
+  }
+  .footer-login{
+    height: 12vh;
   }
 }

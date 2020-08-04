@@ -1,21 +1,21 @@
-.btn-item{
-  height: 5vh;
-  border-radius: 9px;
+.btn-item {
+  background-color: #3d3d3d;
+  height: 4vh;
+  width: 40px;
+  border-radius: 24px;
   font-family: Nixie One;
 }
-.container-menu{
+.container-menu {
   width: 40vw;
-  height: 23vh;
-  margin-top: 8vh ;
+  height: 13vh;
+  margin-top: 8vh;
 }
-.item-name{
+/* .item-name {
   letter-spacing: 2px;
   font-size: 19px;
-}
-@media (min-width: 768px){
-  .container-menu{margin-top: 0vh;
+} */
+/* @media (min-width: 768px) {
+  .item-name {
+    font-size: 22px;
   }
-  .item-name{
-    font-size: 25px;
-  }
-}
+} */
