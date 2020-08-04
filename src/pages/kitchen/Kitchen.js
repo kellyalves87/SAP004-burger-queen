@@ -8,8 +8,9 @@ import Image from '../../components/image/image'
 import exit from "../../assets/exit.svg";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
-import Order from "../../components/menu/order";
-import OrderItem from "../../components/menu/OrderItem";
+// import Order from "../../components/menu/order";
+// import OrderItem from "../../components/menu/OrderItem";
+import OrderHistory from "../../components/menu/OrderHistory"
 
 
 const Kitchen = () => {
@@ -18,7 +19,7 @@ const Kitchen = () => {
   const [orders, setOrders] = useState([]);
 
 
-  
+
 
   useEffect(()=>{
     firebase
@@ -28,9 +29,9 @@ const Kitchen = () => {
     .get().then((snapshot)=>{
       const pedidos = snapshot.docs.map((doc) =>({
         id: doc.id,
-        ...doc.data() 
+        ...doc.data()
         //doc.data pega todos os itens dentro do pedido
-      })) 
+      }))
       setOrders(pedidos)
 
       setPending(pedidos.filter(doc => doc.status === false))
@@ -40,18 +41,23 @@ const Kitchen = () => {
 
   function orderDone(item){
       firebase
-      .firestore()    
+      .firestore()
       .collection("orders")
       .doc(item.id)
       .update({
-        ready: true,
-        updated_at:new Date(),
-      }) 
+        ready: "done",
+        updated_at: new Date(),
+      })
       console.log('foi')
-            
-  }; 
+      
 
+      const newDone = [...done, {...item, ready: 'done', updated_at: new Date().getTime()}];
+      setDone(newDone);
+  };
 
+function orferHistory(item){
+
+}
 
   return (
     <div className='div-kitchen'>
@@ -68,7 +74,7 @@ const Kitchen = () => {
         >
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
-        </Link> 
+        </Link>
       </nav>
       <section className='section-kitchen'>
         <div className='div-orderRecived'>
@@ -93,12 +99,26 @@ const Kitchen = () => {
         </div>
         <div className='div-orderFinished'>
           <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
-          <div> 
+          <div>
+          <div>
+          {done.map((item) =>
+          <div key={item.id} >
             
+            <OrderHistory
+              table={item.table}
+              name={item.name}
+              order={item.order.map((i)=>(
+                <div>{i.count}
+                {i.item}
+              </div> ))}
+              />
+          </div>
+          )}
+        </div>
           </div>
         </div>
       </section>
-      </div> 
+      </div>
   );
 };
 
