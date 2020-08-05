@@ -146,6 +146,7 @@
 .itens-resume {
   text-align: center;
 }
+
 @media (min-width: 320px) {
   .h1-hall {
     margin-top: 7vh;
@@ -173,6 +174,7 @@
   }
   button {
     font-family: "Fredoka One", cursive;
+    background-color: #97e264;
 }
 .card{
   height: 74px;
