@@ -6,10 +6,10 @@ import Button from "../../components/button/button";
 import logo from "../../assets/logo.svg";
 import Image from "../../components/image/image";
 import exit from "../../assets/exit.svg";
+import OrderHistory from "../../components/menu/OrderHistory";
 import "./Kitchen.css";
 // import Order from "../../components/menu/order";
 // import OrderItem from "../../components/menu/OrderItem";
-import OrderHistory from "../../components/menu/OrderHistory";
 
 const Kitchen = () => {
   const [done, setDone] = useState([]);
@@ -26,31 +26,35 @@ const Kitchen = () => {
         const pedidos = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
+          //doc.data pega todos os itens dentro do pedido
         }));
-        setOrders(pedidos);
+        // setOrders(pedidos)
 
-        setPending(pedidos.filter((doc) => doc.status === false));
-        setDone(pedidos.filter((doc) => doc.status === true));
+        setOrders(pedidos.filter((doc) => doc.ready === "pending"));
+        setDone(pedidos.filter((doc) => doc.ready === "done"));
       });
   }, []);
 
-  function orderDone(item) {
-    firebase.firestore().collection("orders").doc(item.id).update({
+  function orderDone(item){
+    firebase
+    .firestore()
+    .collection("orders")
+    .doc(item.id)
+    .update({
       ready: "done",
       updated_at: new Date(),
-    });
-    console.log("foi");
+    })
+    console.log('foi')
 
-    const newDone = [
-      ...done,
-      { ...item, ready: "done", updated_at: new Date().getTime() },
-    ];
+    const newPending = pending.filter((el) => el.id !== item.id);
+    setPending(newPending);
+
+
+    const newDone = [...done, {...item, ready: 'done', updated_at: new Date().getTime()}];
     setDone(newDone);
-  }
+};
 
-  // function orderHistory(item){
-
-  // }
+  // function orderHistory(item) {}
 
   return (
     <div className='div-kitchen'>
@@ -116,5 +120,4 @@ const Kitchen = () => {
     </div>
   );
 };
-
 export default Kitchen;

@@ -113,9 +113,9 @@ const Hall = () => {
       name: nameCustomer,
       table: numberTable,
       order: order,
-      ready: "pending",
+      ready: false,
       created_at: new Date(),
-      updated_at: null,
+      updated_at: "",
     };
     firebase.firestore().collection("orders").add(sendOrder);
   };
