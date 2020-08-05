@@ -33,10 +33,10 @@ const Kitchen = () => {
         ...doc.data()
         //doc.data pega todos os itens dentro do pedido
       }))
-      setOrders(pedidos)
+      // setOrders(pedidos)
 
-      setPending(pedidos.filter(doc => doc.status === false))
-      setDone(pedidos.filter(doc => doc.status === true))
+      setOrders(pedidos.filter(doc => doc.ready === "pending"))
+      setDone(pedidos.filter(doc => doc.ready === "done"))
     })
   },[])
 
@@ -50,7 +50,10 @@ const Kitchen = () => {
         updated_at: new Date(),
       })
       console.log('foi')
-      
+
+      const newPending = pending.filter((el) => el.id !== item.id);
+      setPending(newPending);
+
 
       const newDone = [...done, {...item, ready: 'done', updated_at: new Date().getTime()}];
       setDone(newDone);
