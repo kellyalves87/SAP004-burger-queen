@@ -53,6 +53,9 @@
   .h1-orders{
     font-size: 16px;
   }
+  .div-order1{
+    border: 1px solid black;
+  }
   @media(min-width: 762px){
     .h1-kitchen{
       font-size: 43px;

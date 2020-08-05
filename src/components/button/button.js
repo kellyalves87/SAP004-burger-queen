@@ -8,6 +8,7 @@ const Button = (props) => {
       type={props.type}
       onClick={props.onClick}
       value={props.value}
+      handleClick={props.handleClick}
     >
       {props.name}
       {props.price}
