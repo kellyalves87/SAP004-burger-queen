@@ -58,24 +58,7 @@ const OrderSent = () => {
   return (
     <div className='div-kitchen'>      
       <section className='section-kitchen'>
-        <div className='div-orderRecived'>
-        <h1 className='h1-orders'>PEDIDOS PENDENTES</h1>
-        <div >
-          {pending.map((item) => 
-          <div key={item.id}>
-            <OrderHistory
-              table={item.table}
-              name={item.name}
-              order={item.order.map((i)=>(
-                <div>{i.count}
-                {i.item}
-              </div> ))}
-            />            
-          </div>
-          )}
-        </div>
-      </div>
-        <div className='div-orderFinished'>
+         <div className='div-orderFinished'>
           <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
           <div>
           <div>
@@ -95,6 +78,24 @@ const OrderSent = () => {
         </div>
           </div>
         </div>
+        <div className='div-orderRecived'>
+        <h1 className='h1-orders'>PEDIDOS ENTREGUES</h1>
+        <div >
+          {/* {pending.map((item) => 
+          <div key={item.id}>
+            <OrderHistory
+              table={item.table}
+              name={item.name}
+              order={item.order.map((i)=>(
+                <div>{i.count}
+                {i.item}
+              </div> ))}
+            />            
+          </div>
+          )} */}
+        </div>
+      </div>
+
       </section>
       </div>
   );
