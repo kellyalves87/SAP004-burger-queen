@@ -14,6 +14,7 @@ import line from "../../assets/line.svg";
 import "./Hall.css";
 import Modal from "../../components/modal/modal";
 import Kitchen from "../kitchen/Kitchen";
+import OrderSent from "../hall/orders";
 
 
 const Hall = () => {
@@ -145,7 +146,7 @@ const Hall = () => {
         <Button onClick={() => setIsModalVisible(true)} name="PEDIDOS" />       
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>
-            { <Kitchen/>}
+            { <OrderSent/>}
           </Modal>
         ) : null}
       </header>
