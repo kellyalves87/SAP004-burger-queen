@@ -4,17 +4,23 @@ button{
   letter-spacing: 1px;
   color: black;
   font-size: 11px;
-  height: 9vh;
+  height: 7vh;
   width: 24vw;
   background-color: #FFFCFC;
+  border-radius: 6px;
   margin-top: 3px;
   margin-right: 2px;
   font-size: 11px;
 }
 @media(min-width: 768px){
   button{
+    font-weight: bold;
     font-size: 17px;
-    height: 8vh;
+    font-family: "Fredoka One", cursive;
+    color: black;
+    background-color: #97e264;
+    letter-spacing: 2px;
+    height: 6vh;
     width: 17vw;
     margin-top: 10px;
     margin-right: 10px;

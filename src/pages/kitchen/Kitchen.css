@@ -1,65 +1,104 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Fredoka One", cursive;
-    color: #97e264;
-  }
-  .div-kitchen{
-    background-color: #3d3d3d;
-    height: 100vh;
-    width: 100vw;
-  }
-  .section-kitchen{
-    text-align: center;
-    justify-content: space-around;
-    display: flex;
-    height: 90vh;
-    width: 100vw;
-  }
-.nav-kitchen{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka One", cursive;
+  color: #97e264;
+}
+.div-kitchen {
+  background-color: #3d3d3d;
+  height: 100vh;
+  width: 100vw;
+}
+.section-kitchen {
+  text-align: center;
+  justify-content: space-around;
+  display: flex;
+  height: 70vh;
+  width: 100vw;
+}
+.nav-kitchen {
   justify-content: space-between;
   display: flex;
-    width: 100vw;
-    height: 10vh;    
-  }
-  .div-orderRecived{
-    border: 2px solid black;
-    float: left;
-    height: 90vh;
-    width: 45vw;
-    overflow: auto;
-  }
-  .div-orderFinished{
-    border: 2px solid black;
-    float: right;
-    height: 90vh;
-    width: 45vw;
-    overflow: auto;
-  }
-  .figure-kitchen{
-
-  }
-  .logo-kitchen{
-    height: 9vh;
-  }
-  .h1-kitchen{
-    align-self: center;
-  }
-  .exit-image{
+  width: 100vw;
+  height: 16vh;
+}
+.div-orderRecived {
+  border: 2px solid #97e264;
+  float: left;
+  height: 90vh;
+  width: 45vw;
+  overflow: auto;
+}
+.div-orderFinished {
+  border: 2px solid #97e264;
+  float: right;
+  height: 90vh;
+  width: 45vw;
+  overflow: auto;
+}
+.logo-kitchen {
+  height: 9vh;
+}
+.h1-kitchen {
+  align-self: center;
+  letter-spacing: 3px;
+}
+.exit-image {
   width: 12vw;
 }
-  .h1-orders{
+.h1-orders {
+  font-size: 16px;
+}
+.div-order1 {
+  border: 1px solid black;
+}
+
+@media (min-width: 320px) {
+  .nav-kitchen {
+    height: 19vh;
+  }
+  .logo-kitchen {
+    height: 17.300752vh;
+  }
+  .line-kitchen {
+    width: 63.059908vw;
+    margin: auto;
+    height: 3vh;
+  }
+  .h1-kitchen {
+    margin-left: -209px;
+    font-family: "Fredoka One", cursive;
     font-size: 16px;
+    color: #97e264;
+    letter-spacing: 5px;
+    text-align: center;
   }
-  .div-order1{
-    border: 1px solid black;
+  .h1-orders {
+    font-size: 12px;
   }
-  @media(min-width: 762px){
-    .h1-kitchen{
-      font-size: 43px;
-    }
-    .h1-orders{
-      font-size: 27px;
-    }
+  .div-orderRecived, .div-orderFinished {
+    justify-content: center;
+    height: 78vh;
   }
+  .exit-image {
+    margin: 5px;
+    float: right;
+    height: 6vh;
+  }
+}
+@media (min-width: 768px) {
+  .h1-kitchen {
+    font-size: 43px;
+  }
+  .h1-orders {
+    font-size: 27px;
+    letter-spacing: 2px;
+  }
+  .line-kitchen {
+    width: 24.059908vw;
+  }
+  .ready-orders {
+    font-size: 20px;
+  }
+}

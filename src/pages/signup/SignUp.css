@@ -1,6 +1,6 @@
-.div-register{
-  background-color: #3D3D3D;
- 
+.div-register {
+  margin: 22px;
+  background-color: #3d3d3d;
 }
 .bq-title {
   font-size: 65px;
@@ -15,21 +15,31 @@
   letter-spacing: 3px;
 }
 .credentials {
-  margin: auto;
-  color: black;
+  margin: 30px;
   color: black;
   font-family: "Nixie One", cursive;
   font-size: 26px;
   display: flex;
   width: 300px;
-  height: 80px;
+  height: 70px;
   border-radius: 9px;
+}
+.button-create {
+  border-radius: 7px;
+  font-family: Fredoka One;
+  letter-spacing: 6px;
+  margin: 10px;
+  width: 65.512999vw;
+  height: 7.413534vh;
+  font-size: 35px;
 }
 .options {
   width: 30px;
   height: 28px;
 }
-.div-credentials{
+.div-credentials {
+  display: block;
+  padding: 7px;
   text-align: center;
 }
 
@@ -47,19 +57,23 @@
     font-size: 17px;
   }
   .credentials {
+    margin: 20px;
+    margin-left: 26px;
     width: 256px;
     height: 40px;
   }
   .options {
     width: 20px;
-    height: 27px;
+    height: 17px;
   }
   .button-create {
+    border-radius: 7px;
     font-family: Fredoka One;
     letter-spacing: 2px;
-    width: 54.512999vw;
-    height: 6.413534vh;
-    font-size: 18px;
+    margin: 10px;
+    width: 46.512999vw;
+    height: 7.413534vh;
+    font-size: 16px;
   }
   figure {
     margin-bottom: 5.360902vh;
@@ -86,27 +100,39 @@
     text-align: center;
   }
   .label-signup {
-    padding: 10px;
+    padding: 7px;
     height: 10px;
-    font-size: 36px;
+    font-size: 32px;
     letter-spacing: 3px;
   }
   .credentials {
+    margin: 30px;
+    margin-left: 181px;
     font-size: 24px;
     width: 350px;
     height: 80px;
+  }
+  .button-create {
+    border-radius: 10px;
+    font-family: Fredoka One;
+    letter-spacing: 2px;
+    width: 44.512999vw;
+    height: 6.413534vh;
+    font-size: 26px;
   }
   .options {
     width: 30px;
     height: 28px;
   }
-  
+
   figure {
     margin-bottom: 5.360902vh;
   }
   p {
-    font-size: 25px;
-    letter-spacing: 3px;
+    text-align: right;
+    margin-top: -2vh;
+    font-size: 20px;
+    letter-spacing: 2px;
   }
   .line {
     margin-top: 5.022556vh;

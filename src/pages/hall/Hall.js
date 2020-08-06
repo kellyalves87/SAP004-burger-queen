@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
-// import growl from "growl-alert";
-// import "growl-alert/dist/growl-alert.css";
+import growl from "growl-alert";
+import "growl-alert/dist/growl-alert.css";
 import Menu from "../../components/menu/Menu";
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
@@ -11,14 +11,13 @@ import Image from "../../components/image/image";
 import logo from "../../assets/logo.svg";
 import exit from "../../assets/exit.svg";
 import line from "../../assets/line.svg";
-import "./Hall.css";
 import Modal from "../../components/modal/modal";
 import Kitchen from "../kitchen/Kitchen";
 import OrderSent from "../hall/orders";
-
+import "./Hall.css";
 
 const Hall = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false); 
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [nameCustomer, setNameCustomer] = useState("");
   const [numberTable, setNumberTable] = useState("");
   const [menu, setMenu] = useState("breakfast");
@@ -111,6 +110,11 @@ const Hall = () => {
     }
   };
 
+  const option = {
+    fadeAway: true,
+    fadeAwayTimeout: 2000,
+  };
+
   const sendOrders = (e) => {
     e.preventDefault();
     const sendOrder = {
@@ -120,9 +124,28 @@ const Hall = () => {
       ready: 'pending',
       created_at: new Date(),
       updated_at:"",
+
     };
-    firebase.firestore().collection("orders").add(sendOrder);
+    if (nameCustomer && numberTable && order.length) {
+      firebase
+        .firestore()
+        .collection("orders")
+        .add(sendOrder)
+        .then(() => {
+          growl.success({ text: "Pedido enviado com sucesso!", ...option });
+        });
+    } else if (!order.length) {
+      growl.warning({ text: "Adicione um item", ...option });
+    } else if (!nameCustomer) {
+      growl.warning({ text: "Preencha nome", ...option });
+    } else if (!numberTable) {
+      growl.warning({ text: "Preencha mesa", ...option });
+    }
   };
+
+  // const cancelButton = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <div className='div-hall'>
@@ -143,16 +166,14 @@ const Hall = () => {
         >
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
-        <Button onClick={() => setIsModalVisible(true)} name="PEDIDOS" />       
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>
             { <OrderSent/>}
           </Modal>
+
         ) : null}
       </header>
       <div className='div-init'>
-        <label className='label-service' />
-        INICIAR ATENDIMENTO
         <Input
           name='name-customer'
           class='input-service'
@@ -161,8 +182,6 @@ const Hall = () => {
           onChange={(e) => setNameCustomer(e.target.value)}
           placeholder='Nome Cliente'
         />
-        <label className='label-service' />
-        NÚMERO MESA
         <Input
           name='number-table'
           class='input-service'
@@ -223,7 +242,11 @@ const Hall = () => {
           </div>
           <div className='finish-order'>
             <span className='total-price'>TOTAL:R$ {total}</span>
-            <Button class='button-hall-end' name='CANCELAR' />
+            <Button
+              class='button-hall-end'
+              name='CANCELAR'
+              // onClick={(e) => cancelButton(e)}
+            />
             <Button
               class='button-hall-end'
               name='ENVIAR'
