@@ -4,6 +4,7 @@ import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
 import Button from "../../components/button/button";
 import logo from "../../assets/logo.svg";
+import line from "../../assets/line.svg";
 import Image from "../../components/image/image";
 import exit from "../../assets/exit.svg";
 import OrderHistory from "../../components/menu/OrderHistory";
@@ -62,6 +63,9 @@ const Kitchen = () => {
         <figure className='figure-kitchen'>
           <Image src={logo} alt='logo' class='logo-kitchen' />
         </figure>
+        <figure className='figure-line'>
+            <Image src={line} alt='line' class='line-kitchen' />
+          </figure>
         <h1 className='h1-kitchen'>BURGER QUEEN</h1>
         <button
           className='button-exit'
@@ -98,7 +102,7 @@ const Kitchen = () => {
         <div className='div-orderFinished'>
           <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
           <div>
-            <div>
+            <div className='ready-orders'>
               {done.map((item) => (
                 <div key={item.id}>
                   <OrderHistory
