@@ -70,7 +70,7 @@ const Login = () => {
           onClick={noRefresh}
         />
         <p className='p-login' onClick={() => setIsModalVisible(true)}>
-          Ainda não tem cadastro? Registre-se<strong> aqui!</strong>
+          Ainda não tem cadastro? Registre-se<strong> AQUI!</strong>
         </p>
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>

@@ -14,7 +14,7 @@
   text-align: center;
   justify-content: space-around;
   display: flex;
-  height: 90vh;
+  height: 70vh;
   width: 100vw;
 }
 .nav-kitchen {
@@ -24,14 +24,14 @@
   height: 16vh;
 }
 .div-orderRecived {
-  border: 2px solid black;
+  border: 2px solid #97e264;
   float: left;
   height: 90vh;
   width: 45vw;
   overflow: auto;
 }
 .div-orderFinished {
-  border: 2px solid black;
+  border: 2px solid #97e264;
   float: right;
   height: 90vh;
   width: 45vw;

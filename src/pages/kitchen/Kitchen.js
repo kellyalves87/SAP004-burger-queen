@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
+import growl from "growl-alert";
+import "growl-alert/dist/growl-alert.css";
 import Button from "../../components/button/button";
 import logo from "../../assets/logo.svg";
 import line from "../../assets/line.svg";
@@ -36,6 +38,11 @@ const Kitchen = () => {
       });
   }, []);
 
+  const option = {
+    fadeAway: true,
+    fadeAwayTimeout: 2000,
+  };
+
   function orderDone(item){
     firebase
     .firestore()
@@ -53,6 +60,8 @@ const Kitchen = () => {
 
     const newDone = [...done, {...item, ready: 'done', updated_at: new Date().getTime()}];
     setDone(newDone);
+
+    growl.success({text: 'Pedido pronto para entrega!', ...option})
 };
 
   // function orderHistory(item) {}

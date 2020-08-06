@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
+import growl from "growl-alert";
+import "growl-alert/dist/growl-alert.css";
 import Menu from "../../components/menu/Menu";
 import Input from "../../components/input/input";
 import Button from "../../components/button/button";
@@ -107,6 +109,11 @@ const Hall = () => {
     }
   };
 
+  const option = {
+    fadeAway: true,
+    fadeAwayTimeout: 2000,
+  };
+
   const sendOrders = (e) => {
     e.preventDefault();
     const sendOrder = {
@@ -117,8 +124,26 @@ const Hall = () => {
       created_at: new Date(),
       updated_at: "",
     };
-    firebase.firestore().collection("orders").add(sendOrder);
+    if (nameCustomer && numberTable && order.length) {
+      firebase
+        .firestore()
+        .collection("orders")
+        .add(sendOrder)
+        .then(() => {
+          growl.success({ text: "Pedido enviado com sucesso!", ...option });
+        });
+    } else if (!order.length) {
+      growl.warning({ text: "Adicione um item", ...option });
+    } else if (!nameCustomer) {
+      growl.warning({ text: "Preencha nome", ...option });
+    } else if (!numberTable) {
+      growl.warning({ text: "Preencha mesa", ...option });
+    }
   };
+
+  // const cancelButton = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <div className='div-hall'>
@@ -212,7 +237,11 @@ const Hall = () => {
           </div>
           <div className='finish-order'>
             <span className='total-price'>TOTAL:R$ {total}</span>
-            <Button class='button-hall-end' name='CANCELAR' />
+            <Button
+              class='button-hall-end'
+              name='CANCELAR'
+              // onClick={(e) => cancelButton(e)}
+            />
             <Button
               class='button-hall-end'
               name='ENVIAR'
