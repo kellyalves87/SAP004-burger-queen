@@ -8,7 +8,6 @@ import Image from '../../components/image/image'
 import exit from "../../assets/exit.svg";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
-// import Order from "../../components/menu/order";
 // import OrderItem from "../../components/menu/OrderItem";
 import OrderHistory from "../../components/menu/OrderHistory"
 
@@ -16,7 +15,7 @@ import OrderHistory from "../../components/menu/OrderHistory"
 const Kitchen = () => {
   const [done, setDone] = useState([]);
   const [pending, setPending] = useState([]);
-  const [orders, setOrders] = useState([]);
+  // const [orders, setOrders] = useState([]);
 
 
 
@@ -34,7 +33,7 @@ const Kitchen = () => {
       }))
       // setOrders(pedidos)
 
-      setOrders(pedidos.filter(doc => doc.ready === "pending"))
+      setPending(pedidos.filter(doc => doc.ready === "pending"))
       setDone(pedidos.filter(doc => doc.ready === "done"))
     })
   },[])
@@ -43,6 +42,7 @@ const Kitchen = () => {
       firebase
       .firestore()
       .collection("orders")
+      .orderBy("updated_at", "desc")
       .doc(item.id)
       .update({
         ready: "done",
@@ -53,14 +53,10 @@ const Kitchen = () => {
       const newPending = pending.filter((el) => el.id !== item.id);
       setPending(newPending);
 
-
-      const newDone = [...done, {...item, ready: 'done', updated_at: new Date().getTime()}];
+      const newDone = [...done, {...item, ready: 'done', updated_at: new Date()}];
       setDone(newDone);
   };
 
-function orferHistory(item){
-
-}
 
   return (
     <div className='div-kitchen'>
@@ -82,24 +78,29 @@ function orferHistory(item){
       <section className='section-kitchen'>
         <div className='div-orderRecived'>
         <h1 className='h1-orders'>PEDIDOS PENDENTES</h1>
-        <div>
-          {orders.map((item)=> (
-            <div className="div-order1">
-              <Button name='PRONTO' onClick={(e) => {
-                orderDone(item)
-                e.preventDefault()
-              }} />
-              {item.name}
-              {(item.order).map((i)=>(
+        <div >
+          {pending.map((item) => 
+          <div key={item.id}>
+            <OrderHistory
+              table={item.table}
+              name={item.name}
+              order={item.order.map((i)=>(
                 <div>{i.count}
                 {i.item}
-                </div>
-              ))}
-            </div>
-          ))}
-
+              </div> ))}
+            />
+            <Button
+              name='PRONTO'
+              onClick={(e) => {
+                orderDone(item)
+                e.preventDefault()
+              }}
+              title={'Pedido Pronto'}
+            />
+          </div>
+          )}
         </div>
-        </div>
+      </div>
         <div className='div-orderFinished'>
           <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
           <div>
