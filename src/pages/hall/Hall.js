@@ -13,6 +13,7 @@ import exit from "../../assets/exit.svg";
 import line from "../../assets/line.svg";
 import Modal from "../../components/modal/modal";
 import Kitchen from "../kitchen/Kitchen";
+import OrderSent from "../hall/orders";
 import "./Hall.css";
 
 const Hall = () => {
@@ -120,9 +121,10 @@ const Hall = () => {
       name: nameCustomer,
       table: numberTable,
       order: order,
-      ready: "pending",
+      ready: 'pending',
       created_at: new Date(),
-      updated_at: "",
+      updated_at:"",
+
     };
     if (nameCustomer && numberTable && order.length) {
       firebase
@@ -165,7 +167,10 @@ const Hall = () => {
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
         {isModalVisible ? (
-          <Modal onClose={() => setIsModalVisible(false)}>{<Kitchen />}</Modal>
+          <Modal onClose={() => setIsModalVisible(false)}>
+            { <OrderSent/>}
+          </Modal>
+
         ) : null}
       </header>
       <div className='div-init'>
