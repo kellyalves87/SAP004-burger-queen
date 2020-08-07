@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
-import {Link} from 'react-router-dom'
-import Button from '../../components/button/button';
-// import './Kitchen.css'
-import logo from "../../assets/logo.svg";
-import Image from '../../components/image/image'
-import exit from "../../assets/exit.svg";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
+// import {Link} from 'react-router-dom'
+// import Button from '../../components/button/button';
+// import './Kitchen.css'
+// import logo from "../../assets/logo.svg";
+// import Image from '../../components/image/image'
+// import exit from "../../assets/exit.svg";
 // import OrderItem from "../../components/menu/OrderItem";
 import OrderHistory from "../../components/menu/OrderHistory"
 

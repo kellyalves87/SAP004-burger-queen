@@ -12,7 +12,6 @@ import logo from "../../assets/logo.svg";
 import exit from "../../assets/exit.svg";
 import line from "../../assets/line.svg";
 import Modal from "../../components/modal/modal";
-import Kitchen from "../kitchen/Kitchen";
 import OrderSent from "../hall/orders";
 import "./Hall.css";
 

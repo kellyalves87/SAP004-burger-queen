@@ -27,7 +27,6 @@ const Kitchen = () => {
         const pedidos = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-          //doc.data pega todos os itens dentro do pedido
         }));
         // setOrders(pedidos)
 
