@@ -6,6 +6,9 @@
   font-family: "Fredoka One", cursive;
   color: #97e264;
 }
+li {
+  list-style-type: none;
+}
 .header-hall {
   display: flex;
 }
@@ -18,7 +21,7 @@
   height: 20.30075187969925vh;
 }
 .line-hall {
-  width: 61.059908vw;
+  width: 34.06vw;
   margin: auto;
   height: 3vh;
 }
@@ -27,7 +30,7 @@
   font-family: "Fredoka One", cursive;
   font-size: 14px;
   color: #97e264;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   text-align: center;
 }
 .input-service {
@@ -110,7 +113,8 @@
   margin: auto;
 }
 .button-exit {
-  width: 10vw;
+  float: inline-end;
+  width: 16vw;
   background-color: transparent;
   border: none;
 }
@@ -151,7 +155,7 @@
   .h1-hall {
     margin-top: 7vh;
     font-family: "Fredoka One", cursive;
-    font-size: 16px;
+    font-size: 12px;
     color: #97e264;
     letter-spacing: 5px;
     text-align: center;
@@ -177,7 +181,7 @@
     background-color: #97e264;
   }
   .card {
-    height: 13vh;
+    /* height: 13vh; */
   }
   .button-hall {
     font-family: "Fredoka One", cursive;
@@ -185,9 +189,7 @@
     height: 6.413534vh;
     font-size: 11px;
   }
-  .item-name {
-    font-size: 13px;
-  }
+  
   /* .itens-menu {
     margin-top: -7vh;
   } */
@@ -195,10 +197,10 @@
     height: 16px;
     width: 16px;
   }
-  p {
+  /* p {
     font-size: 12px;
     letter-spacing: 2px;
-  }
+  } */
   .exit-image {
     margin: 5px;
     float: right;

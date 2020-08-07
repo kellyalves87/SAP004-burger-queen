@@ -6,8 +6,19 @@
   font-family: Nixie One;
 }
 .container-menu {
+  border: 1px solid;
   width: 40vw;
-  height: 13vh;
-  margin-top: 8vh;
+  height: auto;
+  margin-top: 2vh;
 }
-
+.price{
+  
+  letter-spacing: 3px;
+}
+.item-name {
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+@media(min-widyh:800px){
+  font-size: 19px;
+}
