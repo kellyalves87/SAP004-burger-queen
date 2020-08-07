@@ -12,7 +12,7 @@ import logo from "../../assets/logo.svg";
 import exit from "../../assets/exit.svg";
 import line from "../../assets/line.svg";
 import Modal from "../../components/modal/modal";
-import OrderSent from "../hall/orders";
+import OrderSent from "../hall/ordersHall/orders";
 import "./Hall.css";
 
 const Hall = () => {
@@ -121,9 +121,10 @@ const Hall = () => {
       table: numberTable,
       order: order,
       ready: 'pending',
-      created_at: new Date(),
+      total,
+      created_at: new Date().getTime(),
       updated_at:"",
-
+      status:"",
     };
     if (nameCustomer && numberTable && order.length) {
       firebase
@@ -157,6 +158,7 @@ const Hall = () => {
           <figure className='figure-line'>
             <Image src={line} alt='line' class='line-hall' />
           </figure>
+
         </div>
         <button
           className='button-exit'
@@ -165,6 +167,9 @@ const Hall = () => {
         >
           <Image src={exit} alt='exit' class='exit-image' />
         </button>
+        <p className='show-orders' onClick={() => setIsModalVisible(true)}>
+         PEDIDOS
+        </p>
         {isModalVisible ? (
           <Modal onClose={() => setIsModalVisible(false)}>
             { <OrderSent/>}
@@ -208,6 +213,7 @@ const Hall = () => {
               onClick={allBrunch}
             />
           </div>
+
 
           <div className='itens-menu'>
             <Menu

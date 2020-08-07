@@ -177,7 +177,7 @@
     background-color: #97e264;
   }
   .card {
-    height: 74px;
+    height: 13vh;
   }
   .button-hall {
     font-family: "Fredoka One", cursive;
@@ -188,9 +188,9 @@
   .item-name {
     font-size: 13px;
   }
-  .itens-menu {
-    /* margin-top: -7vh; */
-  }
+  /* .itens-menu {
+    margin-top: -7vh;
+  } */
   .icons-item {
     height: 16px;
     width: 16px;

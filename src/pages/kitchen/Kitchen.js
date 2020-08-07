@@ -2,21 +2,13 @@ import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
-import { Link } from "react-router-dom";
-import Button from "../../components/button/button";
-import logo from "../../assets/logo.svg";
-import Image from "../../components/image/image";
-import exit from "../../assets/exit.svg";
-// import Order from "../../components/menu/order";
-// import OrderItem from "../../components/menu/OrderItem";
-import OrderHistory from "../../components/menu/OrderHistory";
-import "./Kitchen.css";
+import OrderHistory from "../../components/menu/OrderHistory"
+
 
 const Kitchen = () => {
   const [done, setDone] = useState([]);
   const [pending, setPending] = useState([]);
-  // const [orders, setOrders] = useState([]);
-
+  
   useEffect(() => {
     firebase
       .firestore()
@@ -43,20 +35,27 @@ const Kitchen = () => {
       .doc(item.id)
       .update({
         ready: "done",
-        updated_at: new Date(),
-      });
-    console.log("foi");
+        updated_at: new Date().getTime(),
+      })    
 
     const newPending = pending.filter((el) => el.id !== item.id);
     setPending(newPending);
 
-    const newDone = [
-      ...done,
-      { ...item, ready: "done", updated_at: new Date() },
-    ];
+    const newDone = [...done, { ...item, ready: 'done', updated_at: new Date() }];
     setDone(newDone);
-  }
+  };
 
+  function time(readyTime, finalTime){
+    const diffTime = finalTime - readyTime
+    const teste = diffTime / 1000 / 60;
+    if (teste <= 60){
+    return `Pedido entregue em ${Math.abs(Math.round(teste))} min`;
+    } else {
+      const teste2 = diffTime / 1000 / 60 / 60;
+      return `Pedido entregue em ${Math.abs(Math.round(teste2))} horas`;
+    }
+    }
+    
   return (
     <div className='div-kitchen'>
       <nav className='nav-kitchen'>
@@ -64,7 +63,7 @@ const Kitchen = () => {
           <Image src={logo} alt='logo' class='logo-kitchen' />
         </figure>
         <h1 className='h1-kitchen'>BURGER QUEEN</h1>
-        <Link to='/login'>
+        <Link to='/login' >
           <button
             className='button-exit'
             name='EXIT'
@@ -78,17 +77,16 @@ const Kitchen = () => {
         <div className='div-orderRecived'>
           <h1 className='h1-orders'>PEDIDOS PENDENTES</h1>
           <div>
-            {pending.map((item) => (
+            {pending.map((item) =>
               <div key={item.id}>
-                <OrderHistory
+                <OrderHistory                      
                   table={item.table}
                   name={item.name}
-                  order={item.order.map((i) => (
-                    <div>
-                      {i.count}
+                  order={item.order.map((i, index) => (
+                    <div key={index} >{i.count}
                       {i.item}
-                    </div>
-                  ))}
+                      
+                    </div>))}
                 />
                 <Button
                   name='PRONTO'
@@ -106,20 +104,19 @@ const Kitchen = () => {
           <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
           <div>
             <div>
-              {done.map((item) => (
+              {done.map((item) =>
                 <div key={item.id}>
                   <OrderHistory
+                    sendTime={time(item.created_at, item.updated_at)}
                     table={item.table}
                     name={item.name}
-                    order={item.order.map((i) => (
-                      <div>
-                        {i.count}
+                    order={item.order.map((i, index) => (
+                      <div key={index}>{i.count}
                         {i.item}
-                      </div>
-                    ))}
+                      </div>))}
                   />
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
