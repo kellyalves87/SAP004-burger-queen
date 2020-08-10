@@ -3,7 +3,7 @@ import React from 'react'
 const OrderHistory = (props) => {
   return (
     <div>
-      <div >
+      <div className='client-info'>
         <div > Mesa: {props.table} </div>
         <div > Cliente: {props.name} </div>
       </div>

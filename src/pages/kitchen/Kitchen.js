@@ -8,7 +8,7 @@ import Button from "../../components/button/button";
 import logo from "../../assets/logo.svg";
 import exit from "../../assets/exit.svg";
 import OrderHistory from "../../components/menu/OrderHistory"
-
+import'./Kitchen.css'
 
 const Kitchen = () => {
   const [done, setDone] = useState([]);

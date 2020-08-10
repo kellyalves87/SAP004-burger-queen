@@ -25,6 +25,12 @@ li {
   margin: auto;
   height: 3vh;
 }
+.client-info{
+  display: flex;
+justify-content: space-evenly;
+margin: 10px;
+margin-bottom: 10px;
+}
 .h1-hall {
   margin-top: 10vh;
   font-family: "Fredoka One", cursive;

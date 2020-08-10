@@ -1,4 +1,17 @@
 .container-orders{
+  display: flex;
+  justify-content: space-around;
   height: 90vh;
   width: 90vw;
+}
+.container-order{
+  border: 1px solid;
+  margin: 10px;
+}
+.orders{
+  width: 40vw;
+  height: 80vh;
+  text-align: center;
+  overflow: auto;
+  border: 3px solid;
 }
