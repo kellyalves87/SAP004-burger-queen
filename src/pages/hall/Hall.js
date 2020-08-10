@@ -69,16 +69,13 @@ const Hall = () => {
     const price = parseFloat(
       e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
     );
-
     const itemIndex = order.findIndex((el) => el.item === item);
-
     if (itemIndex === -1) {
       return;
     }
 
     const count = order[itemIndex].count;
     const delItem = order.filter((elem) => elem.item !== item);
-
     setOrder([...delItem]);
     setTotal(total - price * count);
   };
@@ -88,16 +85,13 @@ const Hall = () => {
     const price = parseFloat(
       e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
     );
-
     const itemIndex = order.findIndex((el) => el.item === item);
-
     if (itemIndex === -1 || total === 0) {
       return;
     }
 
     const itemCount = order[itemIndex];
     const count = itemCount.count;
-
     if (itemCount === 1) {
       const delItem = order.filter((elem) => elem !== itemCount.item);
       setOrder([...delItem]);
@@ -120,11 +114,12 @@ const Hall = () => {
       name: nameCustomer,
       table: numberTable,
       order: order,
-      ready: 'pending',
+      ready: "pending",
       total,
       created_at: new Date().getTime(),
       updated_at: "",
       status: "",
+
     };
     if (nameCustomer && numberTable && order.length) {
       firebase
@@ -133,6 +128,14 @@ const Hall = () => {
         .add(sendOrder)
         .then(() => {
           growl.success({ text: "Pedido enviado com sucesso!", ...option });
+          const clearOrder = () => {
+            setNameCustomer('');
+            setNumberTable('');
+            setResume('');
+            setOrder([]);
+            setTotal(0);
+          }
+          clearOrder()
         });
     } else if (!order.length) {
       growl.warning({ text: "Adicione um item", ...option });
@@ -141,11 +144,12 @@ const Hall = () => {
     } else if (!numberTable) {
       growl.warning({ text: "Preencha mesa", ...option });
     }
+    
   };
 
-  // const cancelButton = (e) => {
-  //   e.preventDefault();
-  // };
+  const cancelButton = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div className='div-hall'>
@@ -168,7 +172,6 @@ const Hall = () => {
             <Image src={exit} alt='exit' class='exit-image' />
           </button></li>
           <li>
-
             <p className='show-orders' onClick={() => setIsModalVisible(true)}>
               <u>PEDIDOS</u>
             </p>
@@ -180,7 +183,6 @@ const Hall = () => {
             ) : null}
           </li>
         </ul>
-
       </header>
       <div className='div-init'>
         <Input
@@ -219,7 +221,6 @@ const Hall = () => {
             />
           </div>
 
-
           <div className='itens-menu'>
             <Menu
               type={menu}
@@ -240,8 +241,8 @@ const Hall = () => {
             onClick={(e) => setResume(e.target.value)}
           />
           <div className='resume-order'>
-            {order.map((orderItem) => (
-              <div className='itens-resume'>
+            {order.map((orderItem, index) => (
+              <div key={`${index}_${orderItem.count}`} className='itens-resume'>
                 <div className='item-order'>
                   Item: {orderItem.item}
                   <br></br>
@@ -254,14 +255,15 @@ const Hall = () => {
             <span className='total-price'>TOTAL:R$ {total}</span>
             <Button
               class='button-hall-end'
+              type="submit"
               name='CANCELAR'
-            // onClick={(e) => cancelButton(e)}
+              onCancel={(e) => cancelButton(e)}
             />
             <Button
               class='button-hall-end'
               name='ENVIAR'
               type='submit'
-              onClick={(e) => sendOrders(e)}
+              onClick={(e) => sendOrders(e)}              
             />
           </div>
         </div>
