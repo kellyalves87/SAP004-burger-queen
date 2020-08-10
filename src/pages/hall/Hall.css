@@ -33,6 +33,7 @@
 .input-service {
   color: black;
   font-family: "Nixie One", cursive;
+  font-size: 32px;
   width: 29.210526vw;
   height: 4.413534vh;
   border: none;
@@ -160,6 +161,7 @@
     height: 17.300752vh;
   }
   .input-service {
+    font-size: 18px;
     width: 42.210526vw;
     height: 5.413534vh;
     margin-bottom: 6px;
@@ -221,6 +223,9 @@
   .b-type {
     width: 20vw;
     height: 6vh;
+  }
+  .input-service {
+    font-size: 26px;
   }
   .item-name {
     font-size: 20px;

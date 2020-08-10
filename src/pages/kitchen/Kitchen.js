@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
+import Image from "../../components/image/image";
+import {Link} from "react-router-dom";
+import Button from "../../components/button/button";
+import logo from "../../assets/logo.svg";
+import exit from "../../assets/exit.svg";
 import OrderHistory from "../../components/menu/OrderHistory"
 
 
@@ -20,7 +25,6 @@ const Kitchen = () => {
           id: doc.id,
           ...doc.data(),
         }));
-        // setOrders(pedidos)
 
         setPending(pedidos.filter((doc) => doc.ready === "pending"));
         setDone(pedidos.filter((doc) => doc.ready === "done"));
@@ -31,7 +35,6 @@ const Kitchen = () => {
     firebase
       .firestore()
       .collection("orders")
-      // .orderBy("updated_at", "desc")
       .doc(item.id)
       .update({
         ready: "done",
@@ -55,7 +58,7 @@ const Kitchen = () => {
       return `Pedido entregue em ${Math.abs(Math.round(teste2))} horas`;
     }
     }
-    
+
   return (
     <div className='div-kitchen'>
       <nav className='nav-kitchen'>
@@ -84,8 +87,7 @@ const Kitchen = () => {
                   name={item.name}
                   order={item.order.map((i, index) => (
                     <div key={index} >{i.count}
-                      {i.item}
-                      
+                      {i.item}                      
                     </div>))}
                 />
                 <Button
@@ -97,7 +99,7 @@ const Kitchen = () => {
                   title={"Pedido Pronto"}
                 />
               </div>
-            ))}
+            )}
           </div>
         </div>
         <div className='div-orderFinished'>
