@@ -82,6 +82,7 @@ function OrderSent() {
                   </div>))}
               />
               <Button
+              name='ENTREGAR'
                 onClick={(e) => {
                   orderDelivered(item)
                   e.preventDefault()
