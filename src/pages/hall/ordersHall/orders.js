@@ -8,9 +8,6 @@ import growl from 'growl-alert';
 import 'growl-alert/dist/growl-alert.css';
 import "./orders.css"
 
-
-
-
 const option = {
   fadeAway: true,
   fadeAwayTimeout: 2000,
@@ -30,6 +27,7 @@ function OrderSent() {
           id: doc.id,
           ...doc.data()
         }))
+
         setDone(pedidos.filter(doc => doc.ready === 'done' && doc.status ===""))
         setDelivered(pedidos.filter(doc => doc.status === 'delivered'))
       })
