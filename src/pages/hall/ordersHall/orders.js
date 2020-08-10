@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../../firebase-config"
-// import firestore from '../utils/Firebase';
 import Button from '../../../components/button/button';
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
@@ -49,7 +48,7 @@ function OrderSent() {
     const newDone = done.filter((el) => el.id !== item.id);
     setDone(newDone);
 
-    const newDelivered = [...delivered, { ...item, status: 'delivered',updated_at: new Date() }];
+    const newDelivered = [...delivered, { ...item, status: 'delivered', updated_at: new Date() }];
     setDelivered(newDelivered);
 
     growl.success({ text: 'Pedido entregue!', ...option })
@@ -83,6 +82,7 @@ function OrderSent() {
                   </div>))}
               />
               <Button
+              name='ENTREGAR'
                 onClick={(e) => {
                   orderDelivered(item)
                   e.preventDefault()

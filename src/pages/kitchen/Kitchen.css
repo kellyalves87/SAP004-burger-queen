@@ -23,6 +23,12 @@
   width: 100vw;
   height: 16vh;
 }
+.div2{
+  font-family: Fira Code;
+  border: 1px solid;
+ margin: 10px;
+ background-color: #96e2643b;
+}
 .div-orderRecived {
   border: 2px solid #97e264;
   float: left;

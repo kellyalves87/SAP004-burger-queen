@@ -118,7 +118,8 @@ const Hall = () => {
       total,
       created_at: new Date().getTime(),
       updated_at: "",
-      status:"",
+      status: "",
+
     };
     if (nameCustomer && numberTable && order.length) {
       firebase
@@ -162,21 +163,26 @@ const Hall = () => {
             <Image src={line} alt='line' class='line-hall' />
           </figure>
         </div>
-        <button
-          className='button-exit'
-          name='EXIT'
-          onClick={() => firebase.auth().signOut()}
-        >
-          <Image src={exit} alt='exit' class='exit-image' />
-        </button>
-        <p className='show-orders' onClick={() => setIsModalVisible(true)}>
-          PEDIDOS
-        </p>
-        {isModalVisible ? (
-          <Modal onClose={() => setIsModalVisible(false)}>
-            {<OrderSent />}
-          </Modal>
-        ) : null}
+        <ul>
+          <li> <button
+            className='button-exit'
+            name='EXIT'
+            onClick={() => firebase.auth().signOut()}
+          >
+            <Image src={exit} alt='exit' class='exit-image' />
+          </button></li>
+          <li>
+            <p className='show-orders' onClick={() => setIsModalVisible(true)}>
+              <u>PEDIDOS</u>
+            </p>
+            {isModalVisible ? (
+              <Modal onClose={() => setIsModalVisible(false)}>
+                {<OrderSent />}
+              </Modal>
+
+            ) : null}
+          </li>
+        </ul>
       </header>
       <div className='div-init'>
         <Input

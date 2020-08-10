@@ -78,10 +78,10 @@
   figure {
     margin-bottom: 5.360902vh;
   }
-  p {
+  /* p {
     font-size: 15px;
     letter-spacing: 3px;
-  }
+  } */
   .line {
     margin-top: 1.022556vh;
     width: 212px;
@@ -128,12 +128,12 @@
   figure {
     margin-bottom: 5.360902vh;
   }
-  p {
+  /* p {
     text-align: right;
     margin-top: -2vh;
     font-size: 20px;
     letter-spacing: 2px;
-  }
+  } */
   .line {
     margin-top: 5.022556vh;
     width: 500px;
