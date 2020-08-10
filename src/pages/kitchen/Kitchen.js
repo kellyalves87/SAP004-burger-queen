@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
-import { Link } from 'react-router-dom'
-import Button from '../../components/button/button';
-import './Kitchen.css'
-import logo from "../../assets/logo.svg";
-import Image from '../../components/image/image'
-import exit from "../../assets/exit.svg";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
+import Image from "../../components/image/image";
+import {Link} from "react-router-dom";
+import Button from "../../components/button/button";
+import logo from "../../assets/logo.svg";
+import exit from "../../assets/exit.svg";
 import OrderHistory from "../../components/menu/OrderHistory"
 
 
@@ -20,24 +19,22 @@ const Kitchen = () => {
       .firestore()
       .collection("orders")
       .orderBy("created_at", "desc")
-      .get().then((snapshot) => {
+      .get()
+      .then((snapshot) => {
         const pedidos = snapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data()
-          //doc.data pega todos os itens dentro do pedido
-        }))
-        // setOrders(pedidos)
+          ...doc.data(),
+        }));
 
-        setPending(pedidos.filter(doc => doc.ready === "pending"))
-        setDone(pedidos.filter(doc => doc.ready === "done"))
-      })
-  }, [])
+        setPending(pedidos.filter((doc) => doc.ready === "pending"));
+        setDone(pedidos.filter((doc) => doc.ready === "done"));
+      });
+  }, []);
 
   function orderDone(item) {
     firebase
       .firestore()
       .collection("orders")
-      // .orderBy("updated_at", "desc")
       .doc(item.id)
       .update({
         ready: "done",
@@ -51,10 +48,7 @@ const Kitchen = () => {
     setDone(newDone);
   };
 
-
-
-
-  function time(readyTime, finalTime) {
+  function time(readyTime, finalTime){
     const diffTime = finalTime - readyTime
     const teste = diffTime / 1000 / 60;
     if (teste <= 60) {
@@ -64,14 +58,6 @@ const Kitchen = () => {
       return `Pedido entregue em ${Math.abs(Math.round(teste2))} horas`;
     }
   }
-
-
-
-
-
-
-
-
 
   return (
     <div className='div-kitchen'>
@@ -102,16 +88,15 @@ const Kitchen = () => {
                   order={item.order.map((i, index) => (
                     <div key={index} >{i.count}
                       {i.item}
-
                     </div>))}
                 />
                 <Button
                   name='PRONTO'
                   onClick={(e) => {
-                    orderDone(item)
-                    e.preventDefault()
+                    orderDone(item);
+                    e.preventDefault();
                   }}
-                  title={'Pedido Pronto'}
+                  title={"Pedido Pronto"}
                 />
               </div>
             )}
