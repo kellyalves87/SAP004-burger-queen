@@ -30,7 +30,7 @@ function OrderSent() {
           id: doc.id,
           ...doc.data()
         }))
-        setDone(pedidos.filter(doc => doc.status === ''))
+        setDone(pedidos.filter(doc => doc.ready === 'done' && doc.status ===""))
         setDelivered(pedidos.filter(doc => doc.status === 'delivered'))
       })
   }, []);
@@ -38,7 +38,7 @@ function OrderSent() {
   function orderDelivered(item) {
     firebase
       .firestore()
-      .collection("orders")      
+      .collection("orders")
       .doc(item.id)
       .update({
         updated_at: new Date().getTime(),
@@ -98,7 +98,7 @@ function OrderSent() {
         <p >PEDIDOS ENTREGUES</p>
         <div>
           {delivered.map((item) =>
-            <div key={item.id}  className='container-order'>
+            <div key={item.id} className='container-order'>
               <OrderHistory
                 sendTime={time(item.created_at, item.updated_at)}
                 table={item.table}
