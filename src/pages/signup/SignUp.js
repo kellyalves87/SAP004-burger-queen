@@ -22,6 +22,22 @@ const SignUp = () => {
   const history = useHistory();
 
   const handleSignUp = () => {
+    if (!name) {
+      growl.error({ text: "Preencha seu nome", ...validateRegister });
+      return;
+    } else if (!email) {
+      growl.error({ text: "Preencha um e-mail válido!", ...validateRegister });
+      return;
+    } else if (!password) {
+      growl.error({ text: "Insira uma senha!", ...validateRegister });
+      return;
+    } else if (!workPlace) {
+      growl.error({
+        text: "Escolha uma área de trabalho",
+        ...validateRegister,
+      });
+      return;
+    }
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -50,20 +66,12 @@ const SignUp = () => {
             })
           );
       })
-      .catch((error) => alert(error));
-
-    if (!name) {
-      growl.error({ text: "Preencha seu nome", ...validateRegister });
-    } else if (!email) {
-      growl.error({ text: "Preencha um e-mail válido!", ...validateRegister });
-    } else if (!password) {
-      growl.error({ text: "Insira uma senha!", ...validateRegister });
-    } else if (!workPlace) {
-      growl.error({
-        text: "Escolha uma área de trabalho",
-        ...validateRegister,
-      });
-    }
+      .catch((error) =>
+        growl.error({
+          text: "Erro desconhecido, contate um administrador!",
+          ...validateRegister,
+        })
+      );
   };
   const noRefresh = (event) => {
     event.preventDefault();

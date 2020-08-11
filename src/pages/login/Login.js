@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import growl from 'growl-alert';
-import 'growl-alert/dist/growl-alert.css';
+import growl from "growl-alert";
+import "growl-alert/dist/growl-alert.css";
 import firebase from "../../firebase-config";
 import Image from "../../components/image/image";
 import logo from "../../assets/logo.svg";
@@ -27,18 +27,25 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   function loginUser() {
+    if (!email) {
+      growl.error({ text: "Preencha um e-mail válido!", ...validateEmail });
+      return;
+    } else if (!password) {
+      growl.error({ text: "Insira uma senha!", ...validateEmail });
+      return;
+    }
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password) //autenticando usuária logado
+      .signInWithEmailAndPassword(email, password)
       .then()
-      .catch((error) => alert(error));
+      .catch((error) =>
+        growl.error({
+          text: "Erro desconhecido, contate o administrador!",
+          ...validateEmail,
+        })
+      );
   }
-    if(!email){
-    growl.error({ text: "Preencha um e-mail válido!", ...validateEmail });
-  }else if(!password){
-    growl.error({ text: "Insira uma senha!", ...validateEmail });
-  }
-  
+
   const noRefresh = (event) => {
     event.preventDefault();
     loginUser(email, password);
@@ -46,7 +53,7 @@ const Login = () => {
 
   return (
     <div className='div-login'>
-      <figure className='figure-login'> 
+      <figure className='figure-login'>
         <Image src={logo} alt='logo' class='logo' />
       </figure>
       <h1 className='h1'>BURGER QUEEN</h1>

@@ -119,7 +119,6 @@ const Hall = () => {
       created_at: new Date().getTime(),
       updated_at: "",
       status: "",
-
     };
     if (nameCustomer && numberTable && order.length) {
       firebase
@@ -128,14 +127,7 @@ const Hall = () => {
         .add(sendOrder)
         .then(() => {
           growl.success({ text: "Pedido enviado com sucesso!", ...option });
-          const clearOrder = () => {
-            setNameCustomer('');
-            setNumberTable('');
-            setResume('');
-            setOrder([]);
-            setTotal(0);
-          }
-          clearOrder()
+          clearOrder();
         });
     } else if (!order.length) {
       growl.warning({ text: "Adicione um item", ...option });
@@ -144,11 +136,20 @@ const Hall = () => {
     } else if (!numberTable) {
       growl.warning({ text: "Preencha mesa", ...option });
     }
-    
   };
 
-  const cancelButton = (e) => {
+  const clearOrder = () => {
+    setNameCustomer("");
+    setNumberTable("");
+    setResume("");
+    setOrder([]);
+    setTotal(0);
+  };
+
+  const cancelOrder = (e) => {
     e.preventDefault();
+    clearOrder();
+    growl.success({ text: "Pedido cancelado com sucesso!", ...option });
   };
 
   return (
@@ -164,13 +165,16 @@ const Hall = () => {
           </figure>
         </div>
         <ul>
-          <li> <button
-            className='button-exit'
-            name='EXIT'
-            onClick={() => firebase.auth().signOut()}
-          >
-            <Image src={exit} alt='exit' class='exit-image' />
-          </button></li>
+          <li>
+            {" "}
+            <button
+              className='button-exit'
+              name='EXIT'
+              onClick={() => firebase.auth().signOut()}
+            >
+              <Image src={exit} alt='exit' class='exit-image' />
+            </button>
+          </li>
           <li>
             <p className='show-orders' onClick={() => setIsModalVisible(true)}>
               <u>PEDIDOS</u>
@@ -179,7 +183,6 @@ const Hall = () => {
               <Modal onClose={() => setIsModalVisible(false)}>
                 {<OrderSent />}
               </Modal>
-
             ) : null}
           </li>
         </ul>
@@ -255,15 +258,15 @@ const Hall = () => {
             <span className='total-price'>TOTAL:R$ {total}</span>
             <Button
               class='button-hall-end'
-              type="submit"
+              type='submit'
               name='CANCELAR'
-              onCancel={(e) => cancelButton(e)}
+              onClick={(e) => cancelOrder(e)}
             />
             <Button
               class='button-hall-end'
               name='ENVIAR'
               type='submit'
-              onClick={(e) => sendOrders(e)}              
+              onClick={(e) => sendOrders(e)}
             />
           </div>
         </div>
