@@ -46,8 +46,8 @@ function OrderSent() {
     const newDone = done.filter((el) => el.id !== item.id);
     setDone(newDone);
 
-    const newDelivered = [...delivered, { ...item, status: 'delivered', updated_at: new Date() }];
-    setDelivered(newDelivered);
+    delivered.unshift({ ...item, status: 'delivered', updated_at: new Date() })
+    setDelivered(delivered);
 
     growl.success({ text: 'Pedido entregue!', ...option })
   };

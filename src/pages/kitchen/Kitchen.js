@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useDebugValue } from "react";
 import firebase from "../../firebase-config";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
@@ -52,8 +52,8 @@ const Kitchen = () => {
     const newPending = pending.filter((el) => el.id !== item.id);
     setPending(newPending);
 
-    const newDone = [...done, { ...item, ready: 'done', updated_at: new Date() }];
-    setDone(newDone);
+    done.unshift({ ...item, ready: 'done', updated_at: new Date() })
+    setDone(done);
 
     growl.success({ text: 'Pedido pronto!', ...orderOption })
   };
