@@ -2,13 +2,21 @@ import React, { useState, useEffect } from "react";
 import firebase from "../../firebase-config";
 import "firebase/firebase-auth";
 import "firebase/firebase-firestore";
+import growl from 'growl-alert';
+import 'growl-alert/dist/growl-alert.css';
 import Image from "../../components/image/image";
 import {Link} from "react-router-dom";
 import Button from "../../components/button/button";
 import logo from "../../assets/logo.svg";
 import exit from "../../assets/exit.svg";
 import OrderHistory from "../../components/menu/OrderHistory"
-import'./Kitchen.css'
+import'./Kitchen.css';
+
+
+const orderOption = {
+  fadeAway: true,
+  fadeAwayTimeout: 2000,
+};
 
 const Kitchen = () => {
   const [done, setDone] = useState([]);
@@ -46,6 +54,8 @@ const Kitchen = () => {
 
     const newDone = [...done, { ...item, ready: 'done', updated_at: new Date() }];
     setDone(newDone);
+
+    growl.success({ text: 'Pedido pronto!', ...orderOption })
   };
 
   function time(readyTime, finalTime){
@@ -113,7 +123,8 @@ const Kitchen = () => {
                     table={item.table}
                     name={item.name}
                     order={item.order.map((i, index) => (
-                      <div key={index}>{i.count}
+                      <div key={index}>
+                        {i.count}
                         {i.item}
                       </div>))}
                   />

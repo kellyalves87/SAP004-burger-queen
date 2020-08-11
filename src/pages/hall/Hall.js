@@ -92,8 +92,8 @@ const Hall = () => {
 
     const itemCount = order[itemIndex];
     const count = itemCount.count;
-    if (itemCount === 1) {
-      const delItem = order.filter((elem) => elem !== itemCount.item);
+    if (count === 1) {
+      const delItem = order.filter((elem) => elem.item !== itemCount.item);
       setOrder([...delItem]);
       setTotal(total - price * count);
     } else {

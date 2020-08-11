@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import growl from 'growl-alert';
+import 'growl-alert/dist/growl-alert.css';
 import firebase from "../../firebase-config";
 import Image from "../../components/image/image";
 import logo from "../../assets/logo.svg";
@@ -14,6 +16,11 @@ import Button from "../../components/button/button";
 import Input from "../../components/input/input";
 import "./Login.css";
 
+const validateEmail = {
+  fadeAway: true,
+  fadeAwayTimeout: 2000,
+};
+
 const Login = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [email, setEmail] = useState("");
@@ -25,6 +32,11 @@ const Login = () => {
       .signInWithEmailAndPassword(email, password) //autenticando usuária logado
       .then()
       .catch((error) => alert(error));
+  }
+    if(!email){
+    growl.error({ text: "Preencha um e-mail válido!", ...validateEmail });
+  }else if(!password){
+    growl.error({ text: "Insira uma senha!", ...validateEmail });
   }
   
   const noRefresh = (event) => {

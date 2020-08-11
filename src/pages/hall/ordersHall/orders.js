@@ -54,15 +54,14 @@ function OrderSent() {
 
   function time(readyTime, finalTime) {
     const diffTime = finalTime - readyTime
-    const teste1 = diffTime / 1000 / 60;
-    if (teste1 <= 60) {
-      return `Entregue em ${Math.abs(Math.round(teste1))} min`;
+    const minuteTime = diffTime / 1000 / 60;
+    if (minuteTime <= 60) {
+      return `Entregue em ${Math.abs(Math.round(minuteTime))} min`;
     } else {
-      const teste2 = diffTime / 1000 / 60 / 60;
-      return `Entregue em ${Math.abs(Math.round(teste2))} horas`;
+      const hourTime = diffTime / 1000 / 60 / 60;
+      return `Entregue em ${Math.abs(Math.round(hourTime))} horas`;
     }
   }
-
 
   return (
     <div className='container-orders'>
@@ -75,7 +74,8 @@ function OrderSent() {
                 table={item.table}
                 name={item.name}
                 order={item.order.map((i, index) => (
-                  <div key={index}>{i.count}
+                  <div key={index}>
+                    {i.count}
                     {i.item}
                   </div>))}
               />
