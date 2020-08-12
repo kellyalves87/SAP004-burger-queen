@@ -85,8 +85,8 @@ const Kitchen = () => {
         <div className='div-orderRecived'>
           <h1 className='h1-orders'>PEDIDOS PENDENTES</h1>
           <div className='div1'>
-            {pending.map((item) => (
-              <div key={item.id} className='div2'>
+            {pending.map((item) =>
+              <div key={item.id} className='container-order'>
                 <OrderHistory
                   table={item.table}
                   name={item.name}
@@ -106,15 +106,15 @@ const Kitchen = () => {
                   title={'Pedido Pronto'}
                 />
               </div>
-            ))}
+            )}
           </div>
         </div>
         <div className='div-orderFinished'>
           <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
           <div>
             <div>
-              {done.map((item) => (
-                <div key={item.id} className='div2'>
+              {done.map((item) =>
+                <div key={item.id} className='container-order'>
                   <OrderHistory
                     sendTime={time(item.created_at, item.updated_at)}
                     table={item.table}
@@ -127,7 +127,7 @@ const Kitchen = () => {
                     ))}
                   />
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>

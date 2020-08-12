@@ -27,9 +27,15 @@ li {
 }
 .client-info {
   display: flex;
-  justify-content: space-evenly;
-  margin: 10px;
-  margin-bottom: 10px;
+justify-content: space-evenly;
+margin: 3vh  10px 10px 10px ;
+
+}
+.show-orders{
+  text-align: center;
+}
+.header-options{
+  display: grid;
 }
 .h1-hall {
   margin-top: 10vh;
@@ -187,6 +193,10 @@ li {
   button {
     font-family: "Fredoka One", cursive;
     background-color: #97e264;
+  }
+  .client-info {
+    border: 1px solid;
+    display: block;
   }
   .button-hall {
     font-family: "Fredoka One", cursive;
