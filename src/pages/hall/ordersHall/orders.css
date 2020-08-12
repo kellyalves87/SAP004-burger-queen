@@ -6,7 +6,8 @@
 }
 .container-order{
   border: 1px solid;
-  margin: 10px;
+  margin: 3vh  10px 10px 10px ;
+  /* margin-top: 3vh; */
 }
 .orders{
   width: 40vw;
@@ -14,4 +15,10 @@
   text-align: center;
   overflow: auto;
   border: 3px solid;
+}
+.order-state{
+position: fixed;
+width: 39vw;
+color: black;
+background-color: #96e2643b;
 }

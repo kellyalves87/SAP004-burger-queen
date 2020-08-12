@@ -163,7 +163,7 @@ const Hall = () => {
             <Image src={line} alt='line' class='line-hall' />
           </figure>
         </div>
-        <ul>
+        <ul className='header-options'>
           <li> <button
             className='button-exit'
             name='EXIT'

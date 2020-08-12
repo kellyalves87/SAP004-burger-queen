@@ -69,7 +69,7 @@ function OrderSent() {
   return (
     <div className='container-orders'>
       <div className='orders'>
-        <p >PEDIDOS PRONTOS</p>
+        <p className='order-state'>PEDIDOS PRONTOS</p>
         <div >
           {done.map((item) =>
             <div key={item.id} className='container-order'>
@@ -95,7 +95,7 @@ function OrderSent() {
       </div>
 
       <div className='orders'>
-        <p >PEDIDOS ENTREGUES</p>
+        <p className='order-state'>PEDIDOS ENTREGUES</p>
         <div>
           {delivered.map((item) =>
             <div key={item.id} className='container-order'>
@@ -104,7 +104,8 @@ function OrderSent() {
                 table={item.table}
                 name={item.name}
                 order={item.order.map((i, index) => (
-                  <div key={index}>{i.count}
+                  <div key={index}>                    
+                    {i.count}  
                     {i.item}
                   </div>))}
               />
