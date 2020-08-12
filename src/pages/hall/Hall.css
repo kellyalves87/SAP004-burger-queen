@@ -9,6 +9,8 @@
 li {
   list-style-type: none;
 }
+ul{display: grid;
+}
 .header-hall {
   display: flex;
 }
@@ -136,13 +138,15 @@ margin: 3vh  10px 10px 10px ;
   height: 8vh;
 }
 .resume-order {
+  border: 1px solid;
+  margin: auto;
   display: flex;
   align-content: baseline;
   flex-wrap: wrap;
   justify-content: center;
   overflow: auto;
   height: 42vh;
-  width: 50vw;
+  width: 44vw;
 }
 .item-order {
   width: 26vw;
@@ -199,6 +203,7 @@ margin: 3vh  10px 10px 10px ;
     display: block;
   }
   .button-hall {
+    margin-bottom: 10px;
     font-family: "Fredoka One", cursive;
     width: 32.512999vw;
     height: 6.413534vh;
@@ -235,13 +240,20 @@ margin: 3vh  10px 10px 10px ;
     font-size: 26px;
   }
   .item-name {
-    font-size: 20px;
+    font-size: 30px;
     letter-spacing: 2px;
   }
   .item-order {
-    font-size: 21px;
+    font-size: 30px;
   }
   .total-price {
     font-size: 26px;
+  }
+  .price{
+    font-size: 25px;
+  }
+  .show-orders{
+    letter-spacing: 2px;
+    font-size: 23px;
   }
 }

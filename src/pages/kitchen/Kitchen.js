@@ -91,9 +91,9 @@ const Kitchen = () => {
                   table={item.table}
                   name={item.name}
                   order={item.order.map((i, index) => (
-                    <div key={index}>
+                    <div key={index}>                     
+                      {i.item}: 
                       {i.count}
-                      {i.item}
                     </div>
                   ))}
                 />
@@ -121,8 +121,8 @@ const Kitchen = () => {
                     name={item.name}
                     order={item.order.map((i, index) => (
                       <div key={index}>
+                        {i.item}:
                         {i.count}
-                        {i.item}
                       </div>
                     ))}
                   />
