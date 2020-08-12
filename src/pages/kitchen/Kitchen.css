@@ -23,10 +23,11 @@
   width: 100vw;
   height: 16vh;
 }
-.div2 {
+.container-order{
+  /* margin-top: 3vh; */
   font-family: Fira Code;
   border: 1px solid;
-  margin: 10px;
+  margin: 3vh  10px 10px 10px ;
   background-color: #96e2643b;
 }
 .div-orderRecived {
@@ -63,6 +64,9 @@
 @media (min-width: 320px) {
   .nav-kitchen {
     height: 19vh;
+  }
+  .container-order{
+    margin: 8vh 10px 10px 10px;
   }
   .logo-kitchen {
     height: 17.300752vh;

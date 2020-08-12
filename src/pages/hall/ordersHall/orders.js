@@ -65,9 +65,9 @@ function OrderSent() {
   return (
     <div className='container-orders'>
       <div className='orders'>
-        <p>PEDIDOS PRONTOS</p>
-        <div>
-          {done.map((item) => (
+        <p className='order-state'>PEDIDOS PRONTOS</p>
+        <div >
+          {done.map((item) =>
             <div key={item.id} className='container-order'>
               <OrderHistory
                 table={item.table}
@@ -88,12 +88,12 @@ function OrderSent() {
                 title={'Pedido Entregue'}
               />
             </div>
-          ))}
+          )}
         </div>
       </div>
 
       <div className='orders'>
-        <p>PEDIDOS ENTREGUES</p>
+        <p className='order-state'>PEDIDOS ENTREGUES</p>
         <div>
           {delivered.map((item) => (
             <div key={item.id} className='container-order'>

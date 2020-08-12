@@ -12,7 +12,6 @@
 }
 figure {
   display: flex;
-  margin-bottom: 6.360902vh;
 }
 .logo {
   margin: auto;
@@ -105,10 +104,7 @@ figure {
     font-size: 18px;
     padding: 8px;
   }
-  .figure-login {
-    margin-bottom: 5.360902vh;
-  }
-  .p-login {
+    .p-login {
     font-size: 15px;
     letter-spacing: 3px;
   }
@@ -142,9 +138,7 @@ figure {
     font-size: 24px;
     padding: 8px;
   }
-  figure {
-    margin-bottom: 5.360902vh;
-  }
+
   .p-login {
     font-size: 25px;
     letter-spacing: 3px;
