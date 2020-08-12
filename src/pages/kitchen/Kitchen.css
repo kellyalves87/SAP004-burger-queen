@@ -23,11 +23,11 @@
   width: 100vw;
   height: 16vh;
 }
-.div2{
+.div2 {
   font-family: Fira Code;
   border: 1px solid;
- margin: 10px;
- background-color: #96e2643b;
+  margin: 10px;
+  background-color: #96e2643b;
 }
 .div-orderRecived {
   border: 2px solid #97e264;
@@ -73,7 +73,6 @@
     height: 3vh;
   }
   .h1-kitchen {
-    /* margin-left: -209px; */
     font-family: "Fredoka One", cursive;
     font-size: 16px;
     color: #97e264;
@@ -83,7 +82,8 @@
   .h1-orders {
     font-size: 12px;
   }
-  .div-orderRecived, .div-orderFinished {
+  .div-orderRecived,
+  .div-orderFinished {
     justify-content: center;
     height: 78vh;
   }

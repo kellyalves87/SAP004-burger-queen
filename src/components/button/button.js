@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Button = (props) => {
   return (
@@ -8,7 +8,6 @@ const Button = (props) => {
       type={props.type}
       onClick={props.onClick}
       value={props.value}
-      
     >
       {props.name}
       {props.price}

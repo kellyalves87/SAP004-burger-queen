@@ -25,11 +25,11 @@ li {
   margin: auto;
   height: 3vh;
 }
-.client-info{
+.client-info {
   display: flex;
-justify-content: space-evenly;
-margin: 10px;
-margin-bottom: 10px;
+  justify-content: space-evenly;
+  margin: 10px;
+  margin-bottom: 10px;
 }
 .h1-hall {
   margin-top: 10vh;
@@ -188,27 +188,16 @@ margin-bottom: 10px;
     font-family: "Fredoka One", cursive;
     background-color: #97e264;
   }
-  .card {
-    /* height: 13vh; */
-  }
   .button-hall {
     font-family: "Fredoka One", cursive;
     width: 32.512999vw;
     height: 6.413534vh;
     font-size: 11px;
   }
-  
-  /* .itens-menu {
-    margin-top: -7vh;
-  } */
   .icons-item {
     height: 16px;
     width: 16px;
   }
-  /* p {
-    font-size: 12px;
-    letter-spacing: 2px;
-  } */
   .exit-image {
     margin: 5px;
     float: right;

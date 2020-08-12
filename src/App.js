@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Hall from "../src/pages/hall/Hall";
-import Kitchen from "../src/pages/kitchen/Kitchen";
-import Login from "../src/pages/login/Login";
-import SignUp from "../src/pages/signup/SignUp";
-import firebase from "./firebase-config";
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Hall from '../src/pages/hall/Hall';
+import Kitchen from '../src/pages/kitchen/Kitchen';
+import Login from '../src/pages/login/Login';
+import SignUp from '../src/pages/signup/SignUp';
+import firebase from './firebase-config';
 
 const App = () => {
   const [loggedUser, setLoggedUser] = useState();
@@ -14,11 +14,11 @@ const App = () => {
       if (user) {
         firebase
           .firestore()
-          .collection("users")
+          .collection('users')
           .doc(user.uid)
           .get()
           .then((doc) => {
-            if (doc.data().workPlace === "kitchen") {
+            if (doc.data().workPlace === 'kitchen') {
               setLoggedUser(() => (
                 <BrowserRouter>
                   <Redirect to='/kitchen' />

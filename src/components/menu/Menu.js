@@ -1,16 +1,15 @@
-import React from "react";
-import MenuItem from "./MenuItem";
-import'./menu.css';
-
+import React from 'react';
+import MenuItem from './MenuItem';
+import './menu.css';
 
 const Menu = (props) => {
   return (
-    <> 
+    <>
       {Object.entries(props.items).map((item) => {
         return (
-          <MenuItem 
+          <MenuItem
             key={item[0]}
-            name={item[0]}        
+            name={item[0]}
             price={item[1]}
             handleClick={props.addItem}
             handleRemoveItem={props.removeItem}

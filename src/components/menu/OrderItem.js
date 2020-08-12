@@ -1,5 +1,5 @@
-import React from "react";
-import './MenuItem.css'
+import React from 'react';
+import './MenuItem.css';
 
 const OrderItem = (props) => {
   return (
@@ -9,16 +9,10 @@ const OrderItem = (props) => {
           <b className='item-name'>{props.name}</b>
         </h4>
         {Object.entries(props.items).map((item) => {
-        return (
-          <OrderItem
-            key={item[0]}
-            count={item[0]}  
-            item={item[1]}      
-            />
-        );
-      })}
+          return <OrderItem key={item[0]} count={item[0]} item={item[1]} />;
+        })}
         <button
-        className='btn-order'
+          className='btn-order'
           onClick={(e) => {
             e.preventDefault();
             props.handleRemoveItem(e);

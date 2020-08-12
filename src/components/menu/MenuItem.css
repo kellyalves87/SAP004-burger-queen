@@ -11,14 +11,13 @@
   height: auto;
   margin-top: 2vh;
 }
-.price{
-  
+.price {
   letter-spacing: 3px;
 }
 .item-name {
   letter-spacing: 3px;
   font-size: 13px;
 }
-@media(min-widyh:800px){
+@media (min-widyh: 800px) {
   font-size: 19px;
 }

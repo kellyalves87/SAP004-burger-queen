@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import firebase from "../../../firebase-config"
+import React, { useState, useEffect } from 'react';
+import firebase from '../../../firebase-config';
 import Button from '../../../components/button/button';
-import "firebase/firebase-auth";
-import "firebase/firebase-firestore";
-import OrderHistory from "../../../components/menu/OrderHistory"
+import 'firebase/firebase-auth';
+import 'firebase/firebase-firestore';
+import OrderHistory from '../../../components/menu/OrderHistory';
 import growl from 'growl-alert';
 import 'growl-alert/dist/growl-alert.css';
-import "./orders.css"
+import './orders.css';
 
 const option = {
   fadeAway: true,
@@ -20,40 +20,39 @@ function OrderSent() {
   useEffect(() => {
     firebase
       .firestore()
-      .collection("orders")
-      .orderBy("created_at", "desc")
-      .get().then((snapshot) => {
+      .collection('orders')
+      .orderBy('created_at', 'desc')
+      .get()
+      .then((snapshot) => {
         const pedidos = snapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data()
-        }))
+          ...doc.data(),
+        }));
 
-        setDone(pedidos.filter(doc => doc.ready === 'done' && doc.status ===""))
-        setDelivered(pedidos.filter(doc => doc.status === 'delivered'))
-      })
+        setDone(
+          pedidos.filter((doc) => doc.ready === 'done' && doc.status === '')
+        );
+        setDelivered(pedidos.filter((doc) => doc.status === 'delivered'));
+      });
   }, []);
 
   function orderDelivered(item) {
-    firebase
-      .firestore()
-      .collection("orders")
-      .doc(item.id)
-      .update({
-        updated_at: new Date().getTime(),
-        status: "delivered",
-      })
+    firebase.firestore().collection('orders').doc(item.id).update({
+      updated_at: new Date().getTime(),
+      status: 'delivered',
+    });
 
     const newDone = done.filter((el) => el.id !== item.id);
     setDone(newDone);
 
-    delivered.unshift({ ...item, status: 'delivered', updated_at: new Date() })
+    delivered.unshift({ ...item, status: 'delivered', updated_at: new Date() });
     setDelivered(delivered);
 
-    growl.success({ text: 'Pedido entregue!', ...option })
-  };
+    growl.success({ text: 'Pedido entregue!', ...option });
+  }
 
   function time(readyTime, finalTime) {
-    const diffTime = finalTime - readyTime
+    const diffTime = finalTime - readyTime;
     const minuteTime = diffTime / 1000 / 60;
     if (minuteTime <= 60) {
       return `Entregue em ${Math.abs(Math.round(minuteTime))} min`;
@@ -66,9 +65,9 @@ function OrderSent() {
   return (
     <div className='container-orders'>
       <div className='orders'>
-        <p >PEDIDOS PRONTOS</p>
-        <div >
-          {done.map((item) =>
+        <p>PEDIDOS PRONTOS</p>
+        <div>
+          {done.map((item) => (
             <div key={item.id} className='container-order'>
               <OrderHistory
                 table={item.table}
@@ -77,42 +76,51 @@ function OrderSent() {
                   <div key={index}>
                     {i.count}
                     {i.item}
-                  </div>))}
+                  </div>
+                ))}
               />
               <Button
                 name='ENTREGAR'
                 onClick={(e) => {
-                  orderDelivered(item)
-                  e.preventDefault()
+                  orderDelivered(item);
+                  e.preventDefault();
                 }}
                 title={'Pedido Entregue'}
               />
             </div>
-          )}
+          ))}
         </div>
       </div>
 
       <div className='orders'>
-        <p >PEDIDOS ENTREGUES</p>
+        <p>PEDIDOS ENTREGUES</p>
         <div>
-          {delivered.map((item) =>
+          {delivered.map((item) => (
             <div key={item.id} className='container-order'>
               <OrderHistory
                 sendTime={time(item.created_at, item.updated_at)}
                 table={item.table}
                 name={item.name}
                 order={item.order.map((i, index) => (
-                  <div key={index}>{i.count}
+                  <div key={index}>
+                    {i.count}
                     {i.item}
-                  </div>))}
+                  </div>
+                ))}
               />
-              <p>Total: {item.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+              <p>
+                Total:{' '}
+                {item.total.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })}
+              </p>
             </div>
-          )}
+          ))}
         </div>
       </div>
     </div>
-  )
-};
+  );
+}
 
 export default OrderSent;
