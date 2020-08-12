@@ -1,4 +1,4 @@
-button{
+button {
   font-weight: bold;
   font-family: Nixie One;
   letter-spacing: 1px;
@@ -6,14 +6,14 @@ button{
   font-size: 11px;
   height: 7vh;
   width: 24vw;
-  background-color: #FFFCFC;
+  background-color: #fffcfc;
   border-radius: 6px;
   margin-top: 3px;
   margin-right: 2px;
   font-size: 11px;
 }
-@media(min-width: 768px){
-  button{
+@media (min-width: 768px) {
+  button {
     font-weight: bold;
     font-size: 17px;
     font-family: "Fredoka One", cursive;
@@ -26,7 +26,3 @@ button{
     margin-right: 10px;
   }
 }
-
-
-
-    

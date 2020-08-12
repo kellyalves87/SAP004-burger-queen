@@ -25,7 +25,7 @@ li {
   margin: auto;
   height: 3vh;
 }
-.client-info{
+.client-info {
   display: flex;
 justify-content: space-evenly;
 margin: 3vh  10px 10px 10px ;
@@ -204,18 +204,10 @@ margin: 3vh  10px 10px 10px ;
     height: 6.413534vh;
     font-size: 11px;
   }
-  
-  /* .itens-menu {
-    margin-top: -7vh;
-  } */
   .icons-item {
     height: 16px;
     width: 16px;
   }
-  /* p {
-    font-size: 12px;
-    letter-spacing: 2px;
-  } */
   .exit-image {
     margin: 5px;
     float: right;

@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from "react";
-import firebase from "../../firebase-config";
-import "firebase/firebase-auth";
-import "firebase/firebase-firestore";
-import Image from "../../components/image/image";
-import {Link} from "react-router-dom";
-import Button from "../../components/button/button";
-import logo from "../../assets/logo.svg";
-import exit from "../../assets/exit.svg";
-import OrderHistory from "../../components/menu/OrderHistory"
-import'./Kitchen.css'
+import React, { useState, useEffect } from 'react';
+import firebase from '../../firebase-config';
+import 'firebase/firebase-auth';
+import 'firebase/firebase-firestore';
+import growl from 'growl-alert';
+import 'growl-alert/dist/growl-alert.css';
+import Image from '../../components/image/image';
+import { Link } from 'react-router-dom';
+import Button from '../../components/button/button';
+import logo from '../../assets/logo.svg';
+import exit from '../../assets/exit.svg';
+import OrderHistory from '../../components/menu/OrderHistory';
+import './Kitchen.css';
+
+const orderOption = {
+  fadeAway: true,
+  fadeAwayTimeout: 2000,
+};
 
 const Kitchen = () => {
   const [done, setDone] = useState([]);
@@ -17,8 +24,8 @@ const Kitchen = () => {
   useEffect(() => {
     firebase
       .firestore()
-      .collection("orders")
-      .orderBy("created_at", "desc")
+      .collection('orders')
+      .orderBy('created_at', 'desc')
       .get()
       .then((snapshot) => {
         const pedidos = snapshot.docs.map((doc) => ({
@@ -26,30 +33,28 @@ const Kitchen = () => {
           ...doc.data(),
         }));
 
-        setPending(pedidos.filter((doc) => doc.ready === "pending"));
-        setDone(pedidos.filter((doc) => doc.ready === "done"));
+        setPending(pedidos.filter((doc) => doc.ready === 'pending'));
+        setDone(pedidos.filter((doc) => doc.ready === 'done'));
       });
   }, []);
 
   function orderDone(item) {
-    firebase
-      .firestore()
-      .collection("orders")
-      .doc(item.id)
-      .update({
-        ready: "done",
-        updated_at: new Date().getTime(),
-      })
+    firebase.firestore().collection('orders').doc(item.id).update({
+      ready: 'done',
+      updated_at: new Date().getTime(),
+    });
 
     const newPending = pending.filter((el) => el.id !== item.id);
     setPending(newPending);
 
-    const newDone = [...done, { ...item, ready: 'done', updated_at: new Date() }];
-    setDone(newDone);
-  };
+    done.unshift({ ...item, ready: 'done', updated_at: new Date() });
+    setDone(done);
 
-  function time(readyTime, finalTime){
-    const diffTime = finalTime - readyTime
+    growl.success({ text: 'Pedido pronto!', ...orderOption });
+  }
+
+  function time(readyTime, finalTime) {
+    const diffTime = finalTime - readyTime;
     const teste = diffTime / 1000 / 60;
     if (teste <= 60) {
       return `Pedido entregue em ${Math.abs(Math.round(teste))} min`;
@@ -66,7 +71,7 @@ const Kitchen = () => {
           <Image src={logo} alt='logo' class='logo-kitchen' />
         </figure>
         <h1 className='h1-kitchen'>BURGER QUEEN</h1>
-        <Link to='/login' >
+        <Link to='/login'>
           <button
             className='button-exit'
             name='EXIT'
@@ -86,9 +91,11 @@ const Kitchen = () => {
                   table={item.table}
                   name={item.name}
                   order={item.order.map((i, index) => (
-                    <div key={index} >{i.count}
+                    <div key={index}>
+                      {i.count}
                       {i.item}
-                    </div>))}
+                    </div>
+                  ))}
                 />
                 <Button
                   name='PRONTO'
@@ -96,7 +103,7 @@ const Kitchen = () => {
                     orderDone(item);
                     e.preventDefault();
                   }}
-                  title={"Pedido Pronto"}
+                  title={'Pedido Pronto'}
                 />
               </div>
             )}
@@ -113,9 +120,11 @@ const Kitchen = () => {
                     table={item.table}
                     name={item.name}
                     order={item.order.map((i, index) => (
-                      <div key={index}>{i.count}
+                      <div key={index}>
+                        {i.count}
                         {i.item}
-                      </div>))}
+                      </div>
+                    ))}
                   />
                 </div>
               )}

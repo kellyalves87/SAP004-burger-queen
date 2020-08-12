@@ -1,55 +1,55 @@
-import React, { useState, useEffect } from "react";
-import firebase from "../../firebase-config";
-import "firebase/firebase-auth";
-import "firebase/firebase-firestore";
-import growl from "growl-alert";
-import "growl-alert/dist/growl-alert.css";
-import Menu from "../../components/menu/Menu";
-import Input from "../../components/input/input";
-import Button from "../../components/button/button";
-import Image from "../../components/image/image";
-import logo from "../../assets/logo.svg";
-import exit from "../../assets/exit.svg";
-import line from "../../assets/line.svg";
-import Modal from "../../components/modal/modal";
-import OrderSent from "../hall/ordersHall/orders";
-import "./Hall.css";
+import React, { useState, useEffect } from 'react';
+import firebase from '../../firebase-config';
+import 'firebase/firebase-auth';
+import 'firebase/firebase-firestore';
+import growl from 'growl-alert';
+import 'growl-alert/dist/growl-alert.css';
+import Menu from '../../components/menu/Menu';
+import Input from '../../components/input/input';
+import Button from '../../components/button/button';
+import Image from '../../components/image/image';
+import logo from '../../assets/logo.svg';
+import exit from '../../assets/exit.svg';
+import line from '../../assets/line.svg';
+import Modal from '../../components/modal/modal';
+import OrderSent from '../hall/ordersHall/orders';
+import './Hall.css';
 
 const Hall = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [nameCustomer, setNameCustomer] = useState("");
-  const [numberTable, setNumberTable] = useState("");
-  const [menu, setMenu] = useState("breakfast");
+  const [nameCustomer, setNameCustomer] = useState('');
+  const [numberTable, setNumberTable] = useState('');
+  const [menu, setMenu] = useState('breakfast');
   const [breakfast, setBreakfast] = useState({});
   const [brunch, setBrunch] = useState({});
-  const [resume, setResume] = useState("");
+  const [resume, setResume] = useState('');
   const [order, setOrder] = useState([]);
   const [total, setTotal] = useState(0);
 
   const getMenu = ({ name, state }) => {
     firebase
       .firestore()
-      .collection("products")
+      .collection('products')
       .doc(name)
       .get()
       .then((docRef) => {
         const itemData = docRef.data();
         state(() => itemData);
       });
-  };
-
-  useEffect(() => {
-    getMenu({ name: "breakfast", state: setBreakfast });
-  }, []);
-  const allBrunch = (e) => {
-    setMenu(e.target.value);
-    getMenu({ name: "brunch", state: setBrunch });
-  };
+    };
+    
+    useEffect(() => {
+      getMenu({ name: 'breakfast', state: setBreakfast });
+    }, []);
+    const allBrunch = (e) => {
+      setMenu(e.target.value);
+      getMenu({ name: 'brunch', state: setBrunch });
+    };
 
   const handleAddItem = (e) => {
     const item = e.currentTarget.parentElement.firstChild.innerText;
     const price = parseFloat(
-      e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
+      e.currentTarget.parentElement.children[1].innerText.replace('R$ ', '')
     );
 
     const itemIndex = order.findIndex((el) => el.item === item);
@@ -67,7 +67,7 @@ const Hall = () => {
   const handleRemoveItem = (e) => {
     const item = e.currentTarget.parentElement.firstChild.innerText;
     const price = parseFloat(
-      e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
+      e.currentTarget.parentElement.children[1].innerText.replace('R$ ', '')
     );
     const itemIndex = order.findIndex((el) => el.item === item);
     if (itemIndex === -1) {
@@ -83,7 +83,7 @@ const Hall = () => {
   const handleSubtractItem = (e) => {
     const item = e.currentTarget.parentElement.firstChild.innerText;
     const price = parseFloat(
-      e.currentTarget.parentElement.children[1].innerText.replace("R$ ", "")
+      e.currentTarget.parentElement.children[1].innerText.replace('R$ ', '')
     );
     const itemIndex = order.findIndex((el) => el.item === item);
     if (itemIndex === -1 || total === 0) {
@@ -92,8 +92,8 @@ const Hall = () => {
 
     const itemCount = order[itemIndex];
     const count = itemCount.count;
-    if (itemCount === 1) {
-      const delItem = order.filter((elem) => elem !== itemCount.item);
+    if (count === 1) {
+      const delItem = order.filter((elem) => elem.item !== itemCount.item);
       setOrder([...delItem]);
       setTotal(total - price * count);
     } else {
@@ -114,41 +114,42 @@ const Hall = () => {
       name: nameCustomer,
       table: numberTable,
       order: order,
-      ready: "pending",
+      ready: 'pending',
       total,
       created_at: new Date().getTime(),
-      updated_at: "",
-      status: "",
-
+      updated_at: '',
+      status: '',
     };
     if (nameCustomer && numberTable && order.length) {
       firebase
         .firestore()
-        .collection("orders")
+        .collection('orders')
         .add(sendOrder)
         .then(() => {
-          growl.success({ text: "Pedido enviado com sucesso!", ...option });
-          const clearOrder = () => {
-            setNameCustomer('');
-            setNumberTable('');
-            setResume('');
-            setOrder([]);
-            setTotal(0);
-          }
-          clearOrder()
+          growl.success({ text: 'Pedido enviado com sucesso!', ...option });
+          clearOrder();
         });
     } else if (!order.length) {
-      growl.warning({ text: "Adicione um item", ...option });
+      growl.warning({ text: 'Adicione um item', ...option });
     } else if (!nameCustomer) {
-      growl.warning({ text: "Preencha nome", ...option });
+      growl.warning({ text: 'Preencha nome', ...option });
     } else if (!numberTable) {
-      growl.warning({ text: "Preencha mesa", ...option });
+      growl.warning({ text: 'Preencha mesa', ...option });
     }
-    
   };
 
-  const cancelButton = (e) => {
+  const clearOrder = () => {
+    setNameCustomer('');
+    setNumberTable('');
+    setResume('');
+    setOrder([]);
+    setTotal(0);
+  };
+
+  const cancelOrder = (e) => {
     e.preventDefault();
+    clearOrder();
+    growl.success({ text: 'Pedido cancelado com sucesso!', ...option });
   };
 
   return (
@@ -163,14 +164,17 @@ const Hall = () => {
             <Image src={line} alt='line' class='line-hall' />
           </figure>
         </div>
-        <ul className='header-options'>
-          <li> <button
-            className='button-exit'
-            name='EXIT'
-            onClick={() => firebase.auth().signOut()}
-          >
-            <Image src={exit} alt='exit' class='exit-image' />
-          </button></li>
+        <ul>
+          <li>
+            {' '}
+            <button
+              className='button-exit'
+              name='EXIT'
+              onClick={() => firebase.auth().signOut()}
+            >
+              <Image src={exit} alt='exit' class='exit-image' />
+            </button>
+          </li>
           <li>
             <p className='show-orders' onClick={() => setIsModalVisible(true)}>
               <u>PEDIDOS</u>
@@ -179,7 +183,6 @@ const Hall = () => {
               <Modal onClose={() => setIsModalVisible(false)}>
                 {<OrderSent />}
               </Modal>
-
             ) : null}
           </li>
         </ul>
@@ -225,7 +228,7 @@ const Hall = () => {
             <Menu
               type={menu}
               class='button-hall'
-              items={menu === "breakfast" ? breakfast : brunch}
+              items={menu === 'breakfast' ? breakfast : brunch}
               addItem={handleAddItem}
               removeItem={handleRemoveItem}
               subtractItem={handleSubtractItem}
@@ -255,15 +258,15 @@ const Hall = () => {
             <span className='total-price'>TOTAL:R$ {total}</span>
             <Button
               class='button-hall-end'
-              type="submit"
+              type='submit'
               name='CANCELAR'
-              onCancel={(e) => cancelButton(e)}
+              onClick={(e) => cancelOrder(e)}
             />
             <Button
               class='button-hall-end'
               name='ENVIAR'
               type='submit'
-              onClick={(e) => sendOrders(e)}              
+              onClick={(e) => sendOrders(e)}
             />
           </div>
         </div>

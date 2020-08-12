@@ -1,32 +1,51 @@
-import React, { useState } from "react";
-import firebase from "../../firebase-config";
-import Image from "../../components/image/image";
-import logo from "../../assets/logo.svg";
-import line from "../../assets/line.svg";
-import fries from "../../assets/fries.svg";
-import hamburger from "../../assets/hamburger.svg";
-import juice from "../../assets/juice.svg";
-import milkshake from "../../assets/milkshake.svg";
-import soda from "../../assets/soda.svg";
-import SignUp from "../signup/SignUp";
-import Modal from "../../components/modal/modal";
-import Button from "../../components/button/button";
-import Input from "../../components/input/input";
-import "./Login.css";
+import React, { useState } from 'react';
+import growl from 'growl-alert';
+import 'growl-alert/dist/growl-alert.css';
+import firebase from '../../firebase-config';
+import Image from '../../components/image/image';
+import logo from '../../assets/logo.svg';
+import line from '../../assets/line.svg';
+import fries from '../../assets/fries.svg';
+import hamburger from '../../assets/hamburger.svg';
+import juice from '../../assets/juice.svg';
+import milkshake from '../../assets/milkshake.svg';
+import soda from '../../assets/soda.svg';
+import SignUp from '../signup/SignUp';
+import Modal from '../../components/modal/modal';
+import Button from '../../components/button/button';
+import Input from '../../components/input/input';
+import './Login.css';
+
+const validateEmail = {
+  fadeAway: true,
+  fadeAwayTimeout: 2000,
+};
 
 const Login = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   function loginUser() {
+    if (!email) {
+      growl.error({ text: 'Preencha um e-mail válido!', ...validateEmail });
+      return;
+    } else if (!password) {
+      growl.error({ text: 'Insira uma senha!', ...validateEmail });
+      return;
+    }
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password) //autenticando usuária logado
+      .signInWithEmailAndPassword(email, password)
       .then()
-      .catch((error) => alert(error));
+      .catch((error) =>
+        growl.error({
+          text: 'Erro desconhecido, contate o administrador!',
+          ...validateEmail,
+        })
+      );
   }
-  
+
   const noRefresh = (event) => {
     event.preventDefault();
     loginUser(email, password);
@@ -34,7 +53,7 @@ const Login = () => {
 
   return (
     <div className='div-login'>
-      <figure className='figure-login'> 
+      <figure className='figure-login'>
         <Image src={logo} alt='logo' class='logo' />
       </figure>
       <h1 className='h1'>BURGER QUEEN</h1>
