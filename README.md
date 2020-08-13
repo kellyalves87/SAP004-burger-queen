@@ -130,8 +130,11 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 
 ## 4. Protótipo
 
-![Protótipo](https://www.figma.com/proto/OQdRPgzOm8eMe4tXH4BYY3/Dri-and-Kelly-Colors?node-id=169%3A16&scaling=scale-down)
-
+![tela_login](https://user-images.githubusercontent.com/54040625/90187736-a3b81200-dd90-11ea-80bd-72f5a277bd5c.png)
+![tela_cadastro](https://user-images.githubusercontent.com/54040625/90187732-a31f7b80-dd90-11ea-927f-75b3ff18af90.png)
+![tela_salã0](https://user-images.githubusercontent.com/54040625/90187743-a4e93f00-dd90-11ea-9151-57396244cf5a.png)
+![tela_pedidos_prontos_e_entregues_salão](https://user-images.githubusercontent.com/54040625/90187740-a450a880-dd90-11ea-9fb6-f4ec72636467.png)
+![tela_pedidos_pendentes_e_prontos_cozinha](https://user-images.githubusercontent.com/54040625/90187737-a450a880-dd90-11ea-97dd-17ae88b0f608.png)
 
 ## 5. Tecnologias utilizadas
 
