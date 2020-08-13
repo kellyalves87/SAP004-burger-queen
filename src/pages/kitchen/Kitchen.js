@@ -55,12 +55,12 @@ const Kitchen = () => {
 
   function time(readyTime, finalTime) {
     const diffTime = finalTime - readyTime;
-    const teste = diffTime / 1000 / 60;
-    if (teste <= 60) {
-      return `Pedido entregue em ${Math.abs(Math.round(teste))} min`;
+    const minuts = diffTime / 1000 / 60;
+    if (minuts <= 60) {
+      return `Pedido entregue em ${Math.abs(Math.round(minuts))} min`;
     } else {
-      const teste2 = diffTime / 1000 / 60 / 60;
-      return `Pedido entregue em ${Math.abs(Math.round(teste2))} horas`;
+      const hours = diffTime / 1000 / 60 / 60;
+      return `Pedido entregue em ${Math.abs(Math.round(hours))} horas`;
     }
   }
 

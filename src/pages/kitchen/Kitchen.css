@@ -28,7 +28,7 @@
   font-family: Fira Code;
   border: 1px solid;
   margin: 3vh  10px 10px 10px ;
-  background-color: #96e2643b;
+  background-color: #96e26410;
 }
 .div-orderRecived {
   border: 2px solid #97e264;
@@ -48,6 +48,7 @@
   height: 9vh;
 }
 .h1-kitchen {
+  margin-left: 4vh;
   align-self: center;
   letter-spacing: 3px;
 }
