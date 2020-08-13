@@ -11,16 +11,8 @@
 ---
 
 ## 1. Burger Queen
-<<<<<<< HEAD
-  
-
-## 2. Resumo do projeto
-
-Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
-=======
 
 Um pequeno restaurante de hambúrgueres, que está crescendo e necessita de uma
->>>>>>> 4f83f6b5b620104385f325e139d664db4e9386db
 interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
 para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
