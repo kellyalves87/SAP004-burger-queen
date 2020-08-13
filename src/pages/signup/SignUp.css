@@ -67,7 +67,7 @@
     height: 17px;
   }
   .button-create {
-
+    align-items: center;
     display: flex;
     text-align: center;
     width: 30vw;
