@@ -18,10 +18,6 @@
 
 ## 2. Resumo do projeto
 
-Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
-sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que
-primeiro deve se assegurar de cumprir os requisitos.
-
 Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
 interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
 para a cozinha para que sejam preparados de forma ordenada e eficiente.
