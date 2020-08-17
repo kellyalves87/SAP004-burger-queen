@@ -255,7 +255,7 @@ const Hall = () => {
             ))}
           </div>
           <div className='finish-order'>
-            <span className='total-price'>TOTAL:R$ {total}</span>
+            <span className='total-price'>TOTAL: R$ {total}</span>
             <Button
               class='button-hall-end'
               type='submit'

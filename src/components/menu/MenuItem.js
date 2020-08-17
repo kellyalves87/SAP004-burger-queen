@@ -12,7 +12,7 @@ const MenuItem = (props) => {
         <h4>
           <b className='item-name'>{props.name}</b>
         </h4>
-        <p className='price'>R$ {props.price.toFixed(2)}</p>
+        <p className='price'> R$ {props.price.toFixed(2)}</p>
 
         <button
           className='btn-item'

@@ -33,7 +33,7 @@ const App = () => {
       </BrowserRouter>
     ));
   };
-  
+    
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       user ? getUser(user) : defineRoute("/login", Login, true);
