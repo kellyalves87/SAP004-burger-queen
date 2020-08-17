@@ -11,6 +11,9 @@ li {
 }
 ul{display: grid;
 }
+input{
+  outline: none;
+}
 .header-hall {
   display: flex;
 }
@@ -34,6 +37,7 @@ margin: 1vh  10px 10px 10px ;
 
 }
 .show-orders{
+  cursor: pointer;
   text-align: center;
 }
 .header-options{
@@ -73,8 +77,8 @@ margin: 1vh  10px 10px 10px ;
   width: 50vw;
 }
 .icons-item {
-  height: 25px;
-  width: 25px;
+  height: 2vh;
+  width: 4vw;
 }
 .div-option,
 .div-resume {
@@ -147,7 +151,7 @@ margin: 1vh  10px 10px 10px ;
   overflow: auto;
   height: 42vh;
   width: 44vw;
-  margin-top: 4vh;
+ 
 }
 .item-order {
   width: 26vw;
@@ -211,8 +215,9 @@ margin: 1vh  10px 10px 10px ;
     font-size: 11px;
   }
   .icons-item {
-    height: 16px;
-    width: 16px;
+    height: 2vh;
+    width: 4vw;
+
   }
   .exit-image {
     margin: 5px;
@@ -241,10 +246,7 @@ margin: 1vh  10px 10px 10px ;
   .input-service {
     font-size: 26px;
   }
-  .item-name {
-    font-size: 30px;
-    letter-spacing: 2px;
-  }
+
   .item-order {
     font-size: 30px;
   }
@@ -252,9 +254,7 @@ margin: 1vh  10px 10px 10px ;
     align-self: center;
     font-size: 26px;
   }
-  .price{
-    font-size: 25px;
-  }
+  
   .show-orders{
     letter-spacing: 2px;
     font-size: 23px;

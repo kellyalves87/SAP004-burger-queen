@@ -78,6 +78,11 @@ figure {
   margin-top: 10px;
 }
 
+@media(max-height:389px ){
+  .footer-login {
+    display: none;
+  }
+}
 @media (min-width: 320px) {
   .img-section {
     height: 60px;
@@ -151,4 +156,24 @@ figure {
   .footer-login {
     height: 12vh;
   }
+}
+@media (min-width: 1200px){
+.input-login{
+  font-size: 63px;
+}
+.p-login {
+  font-size: 3em;
+  cursor: pointer;
+  
+}
+.h1 {
+  font-size: 9em;
+}
+.line {  
+ width: 30vw;
+}
+.button-login {
+  font-size: 3em;
+}
+
 }
