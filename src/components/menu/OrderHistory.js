@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const OrderHistory = (props) => {
   return (
-    <div>
+    <header>
       <div className='client-info'>
-        <div> Mesa: {props.table} </div>
-        <div> Cliente: {props.name} </div>
+        <p> Mesa: {props.table} </p>
+        <p> Cliente: {props.name} </p>
       </div>
       <span>{props.sendTime} </span>
       {props.order}
-    </div>
+    </header>
   );
 };
 

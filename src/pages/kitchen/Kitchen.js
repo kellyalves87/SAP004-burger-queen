@@ -28,17 +28,20 @@ const Kitchen = () => {
       .orderBy('created_at', 'desc')
       .get()
       .then((snapshot) => {
-        const pedidos = snapshot.docs.map((doc) => ({
+        const kitchenOrders = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-
-        setPending(pedidos.filter((doc) => doc.ready === 'pending'));
-        setDone(pedidos.filter((doc) => doc.ready === 'done'));
+        filterBy(setPending, 'pending', kitchenOrders);
+        filterBy(setDone, 'done', kitchenOrders);
       });
   }, []);
 
-  function orderDone(item) {
+  const filterBy = (state, status, array) => {
+    state(array.filter((doc) => doc.ready === status));
+  };
+
+  const orderDone = (item) => {
     firebase.firestore().collection('orders').doc(item.id).update({
       ready: 'done',
       updated_at: new Date().getTime(),
@@ -51,9 +54,9 @@ const Kitchen = () => {
     setDone(done);
 
     growl.success({ text: 'Pedido pronto!', ...orderOption });
-  }
+  };
 
-  function time(readyTime, finalTime) {
+  const time = (readyTime, finalTime) => {
     const diffTime = finalTime - readyTime;
     const minuts = diffTime / 1000 / 60;
     if (minuts <= 60) {
@@ -62,7 +65,7 @@ const Kitchen = () => {
       const hours = diffTime / 1000 / 60 / 60;
       return `Pedido entregue em ${Math.abs(Math.round(hours))} horas`;
     }
-  }
+  };
 
   return (
     <div className='div-kitchen'>
@@ -85,15 +88,14 @@ const Kitchen = () => {
         <div className='div-orderRecived'>
           <h1 className='h1-orders'>PEDIDOS PENDENTES</h1>
           <div className='div1'>
-            {pending.map((item) =>
+            {pending.map((item) => (
               <div key={item.id} className='container-order'>
                 <OrderHistory
                   table={item.table}
                   name={item.name}
                   order={item.order.map((i, index) => (
-                    <div key={index}>                     
-                      {i.item}: 
-                      {i.count}
+                    <div key={index}>
+                      {i.item}:{i.count}
                     </div>
                   ))}
                 />
@@ -106,14 +108,14 @@ const Kitchen = () => {
                   title={'Pedido Pronto'}
                 />
               </div>
-            )}
+            ))}
           </div>
         </div>
         <div className='div-orderFinished'>
           <h1 className='h1-orders'>PEDIDOS PRONTOS</h1>
           <div>
             <div>
-              {done.map((item) =>
+              {done.map((item) => (
                 <div key={item.id} className='container-order'>
                   <OrderHistory
                     sendTime={time(item.created_at, item.updated_at)}
@@ -121,13 +123,12 @@ const Kitchen = () => {
                     name={item.name}
                     order={item.order.map((i, index) => (
                       <div key={index}>
-                        {i.item}:
-                        {i.count}
+                        {i.item}:{i.count}
                       </div>
                     ))}
                   />
                 </div>
-              )}
+              ))}
             </div>
           </div>
         </div>

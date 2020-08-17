@@ -78,18 +78,12 @@
     border-radius: 7px;
     font-family: Fredoka One;
     letter-spacing: 2px;
-    /* margin: 10px; */
-    /* width: 46.512999vw; */
     height: 7.413534vh;
     font-size: 16px;
   }
   figure {
     margin-bottom: 5.360902vh;
   }
-  /* p {
-    font-size: 15px;
-    letter-spacing: 3px;
-  } */
   .line {
     margin-top: 1.022556vh;
     width: 212px;
@@ -115,8 +109,6 @@
   }
   .credentials {
     margin: auto;
-    /* margin: 30px;
-    margin-left: 181px; */
     font-size: 24px;
     width: 350px;
     height: 80px;
@@ -131,7 +123,6 @@
     border-radius: 10px;
     font-family: Fredoka One;
     letter-spacing: 2px;
-    /* width: 44.512999vw; */
     height: 6.413534vh;
     font-size: 26px;
   }
