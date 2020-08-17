@@ -11,6 +11,9 @@ li {
 }
 ul{display: grid;
 }
+input{
+  outline: none;
+}
 .header-hall {
   display: flex;
 }
@@ -73,8 +76,8 @@ margin: 1vh  10px 10px 10px ;
   width: 50vw;
 }
 .icons-item {
-  height: 25px;
-  width: 25px;
+  height: 2vh;
+  width: 4vw;
 }
 .div-option,
 .div-resume {
@@ -211,8 +214,9 @@ margin: 1vh  10px 10px 10px ;
     font-size: 11px;
   }
   .icons-item {
-    height: 16px;
-    width: 16px;
+    height: 2vh;
+    width: 4vw;
+
   }
   .exit-image {
     margin: 5px;

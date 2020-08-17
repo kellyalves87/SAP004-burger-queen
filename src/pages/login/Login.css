@@ -78,6 +78,11 @@ figure {
   margin-top: 10px;
 }
 
+@media(max-height:389px ){
+  .footer-login {
+    display: none;
+  }
+}
 @media (min-width: 320px) {
   .img-section {
     height: 60px;
