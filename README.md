@@ -144,7 +144,7 @@ O objetivo principal do projeto foi aprender a construir uma interface web usand
 
 ## 6. Produto final
 
-https://burger-queen-6172d.web.app/login
+https://burger-queen-6172d.web.app
 
 ## 7. Autoras
 
