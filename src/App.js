@@ -38,7 +38,7 @@ const App = () => {
     firebase.auth().onAuthStateChanged((user) => {
       user ? getUser(user) : defineRoute("/login", Login, true);
     });
-  }, []);
+  }, []); //eslint-disable-line
 
   return <>{loggedUser}</>;
 };
