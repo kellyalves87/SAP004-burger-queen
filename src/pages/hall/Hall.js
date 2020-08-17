@@ -132,9 +132,9 @@ const Hall = () => {
     } else if (!order.length) {
       growl.warning({ text: 'Adicione um item', ...option });
     } else if (!nameCustomer) {
-      growl.warning({ text: 'Preencha nome', ...option });
+      growl.warning({ text: 'Preencha o nome do cliente', ...option });
     } else if (!numberTable) {
-      growl.warning({ text: 'Preencha mesa', ...option });
+      growl.warning({ text: 'Preencha o número da mesa', ...option });
     }
   };
 
@@ -247,9 +247,9 @@ const Hall = () => {
             {order.map((orderItem, index) => (
               <div key={`${index}_${orderItem.count}`} className='itens-resume'>
                 <div className='item-order'>
-                  Item: {orderItem.item}
+                  Item:  {orderItem.item}
                   <br></br>
-                  Qtde: {orderItem.count}
+                  Qtde:  {orderItem.count}
                 </div>
               </div>
             ))}
