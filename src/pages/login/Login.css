@@ -157,3 +157,23 @@ figure {
     height: 12vh;
   }
 }
+@media (min-width: 1200px){
+.input-login{
+  font-size: 63px;
+}
+.p-login {
+  font-size: 3em;
+  cursor: pointer;
+  
+}
+.h1 {
+  font-size: 9em;
+}
+.line {  
+ width: 30vw;
+}
+.button-login {
+  font-size: 3em;
+}
+
+}

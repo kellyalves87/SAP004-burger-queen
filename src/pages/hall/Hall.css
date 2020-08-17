@@ -37,6 +37,7 @@ margin: 1vh  10px 10px 10px ;
 
 }
 .show-orders{
+  cursor: pointer;
   text-align: center;
 }
 .header-options{
@@ -245,10 +246,7 @@ margin: 1vh  10px 10px 10px ;
   .input-service {
     font-size: 26px;
   }
-  .item-name {
-    font-size: 30px;
-    letter-spacing: 2px;
-  }
+
   .item-order {
     font-size: 30px;
   }
@@ -256,9 +254,7 @@ margin: 1vh  10px 10px 10px ;
     align-self: center;
     font-size: 26px;
   }
-  .price{
-    font-size: 25px;
-  }
+  
   .show-orders{
     letter-spacing: 2px;
     font-size: 23px;

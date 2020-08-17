@@ -1,9 +1,10 @@
 .btn-item {
   background-color: #3d3d3d;
   height: 4vh;
-  width: 9vw;
+  width: 10vw;
   border-radius: 24px;
   font-family: Nixie One;
+  margin-left: 1vw;
 }
 .container-menu {
   border: 1px solid;
@@ -14,10 +15,21 @@
 .price {
   letter-spacing: 3px;
 }
-.item-name {
-  letter-spacing: 3px;
-  font-size: 13px;
+.item-name {  
+    font-size: 30px;
+    letter-spacing: 2px;
+  
 }
-@media (min-widyh: 800px) {
-  font-size: 19px;
+.price{
+  font-size: 25px;
+}
+@media (min-width: 1200px) {
+ 
+.item-name {
+  font-size: 2em;
+  letter-spacing: 4px;
+}
+.price {
+  font-size: 2em;
+}
 }
