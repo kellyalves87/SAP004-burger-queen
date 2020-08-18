@@ -4,9 +4,10 @@
 - [2. Resumo do projeto](#2-resumo-do-projeto)
 - [3. Historias de usuário](#3-usuário-de-usuário)
 - [4. Protótipo](#4-prototipo)
-- [5. Tecnologias utilizadas](#5-tecnologias-utilizadas)
-- [6. Produto final](#6-produto-final)
-- [7. Autoras](#7-autoras)
+- [5. Instalação do projeto](#-instalação-do-projeto)
+- [6. Tecnologias utilizadas](#5-tecnologias-utilizadas)
+- [7. Produto final](#6-produto-final)
+- [8. Autoras](#7-autoras)
 
 ---
 
@@ -136,16 +137,56 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 ![tela_pedidos_prontos_e_entregues_salão](https://user-images.githubusercontent.com/54040625/90187740-a450a880-dd90-11ea-9fb6-f4ec72636467.png)
 ![tela_pedidos_pendentes_e_prontos_cozinha](https://user-images.githubusercontent.com/54040625/90187737-a450a880-dd90-11ea-97dd-17ae88b0f608.png)
 
-## 5. Tecnologias utilizadas
+---
+
+## 5. Instalação do projeto
+
+```git clone <link do repositório>```
+
+Lembrando que para que rodar o projeto é preciso ter o Node.js instalado
+
+Assim que a instalação tiver sido concluída, basta digitar em seu terminal:
+
+```npm install```
+
+Neste projeto utilizamos o Firebase como Backend da aplicação, portanto certifique-se de criar uma conta no Firebase e abrir um projeto novo.
+
+Após isto, rode o comando abaixo em seu terminal para instalar o Firebase:
+
+```npm i firebase```
+
+Faça login no Google. Execute este comando em seu terminal para conectar sua máquina local ao Firebase e concede acesso ao seu projeto.
+
+```firebase login```
+
+Inicialize seu projeto utilizando o comando:
+
+```firebase init```
+
+Para rodar o projeto localmente insira o comando a seguir em seu terminal:
+
+```firebase serve```
+
+Basta clicar no link (localhost) que será disponibilizado em seu terminal.
+
+Para dar deploy, utilize o seguinte comando:
+
+```firebase deploy```
+
+---
+
+## 6. Tecnologias utilizadas
 
 O objetivo principal do projeto foi aprender a construir uma interface web usando _React_. Mas também utilizamos tecnologias como _HTML5_, _Javascript_, _CSS3_, _Node.js_, _Firebase_ e _Growl_.
 
 ---
 
-## 6. Produto final
+## 7. Produto final
 
 https://burger-queen-6172d.web.app
 
-## 7. Autoras
+---
+
+## 8. Autoras
 
 [Adriana](https://github.com/sjadriana) e [Kelly](https://github.com/kellyalves87)

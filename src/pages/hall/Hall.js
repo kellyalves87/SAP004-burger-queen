@@ -238,7 +238,7 @@ const Hall = () => {
         <div className='div-resume'>
           <Button
             name='RESUMO'
-            class='button-hall'
+            class='button-hall resume'
             type='text'
             value={resume}
             onClick={(e) => setResume(e.target.value)}
