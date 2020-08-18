@@ -36,6 +36,9 @@ justify-content: space-evenly;
 margin: 1vh  10px 10px 10px ;
 
 }
+.resume{
+  margin-bottom: 3vh;
+}
 .show-orders{
   cursor: pointer;
   text-align: center;
@@ -71,10 +74,12 @@ margin: 1vh  10px 10px 10px ;
   border-radius: 6px;
   font-size: 14px;
   letter-spacing: 2px;
+  /* margin-bottom: 3vh; */
 }
 .menu-itens,
 .order-resume {
   width: 50vw;
+  /* margin-top: 4vh; */
 }
 .icons-item {
   height: 2vh;
@@ -142,6 +147,7 @@ margin: 1vh  10px 10px 10px ;
   height: 8vh;
 }
 .resume-order {
+  margin-top: 3vh;
   border: 1px solid;
   margin: auto;
   display: flex;
@@ -208,7 +214,7 @@ margin: 1vh  10px 10px 10px ;
     display: block;
   }
   .button-hall {
-    margin-bottom: 10px;
+    /* margin-bottom: 3vh; */
     font-family: "Fredoka One", cursive;
     width: 32.512999vw;
     height: 8vh;
@@ -234,6 +240,7 @@ margin: 1vh  10px 10px 10px ;
     font-size: 45px;
   }
   .button-hall {
+    /* margin-bottom: 3vh; */
     font-weight: bold;
     font-size: 21px;
     width: 30vw;
