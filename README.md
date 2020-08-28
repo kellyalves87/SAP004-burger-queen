@@ -22,7 +22,7 @@ Após envio do pedido, o funcionário tem acesso a um histórico onde pode visua
 
 O funcionário da cozinha tem acesso aos pedidos feitos pelo salão, e também a um histórico onde pode visualizar os pedidos entregues e também aos pedidos prontos para enviar ao salão para ser entregue ao cliente.
 
-Para acessar a ferramenta, clique no link: https://burger-queen-6172d.web.app . 
+Acesse o app através do link: https://burger-queen-6172d.web.app . 
 
 Para maior comodidade, criamos dois usuários padrões para que possam acessar o app:
 
