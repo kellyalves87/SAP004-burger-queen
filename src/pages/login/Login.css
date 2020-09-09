@@ -65,10 +65,8 @@ figure {
   display: flex;
   position: fixed;
   justify-content: space-around;
-  position: absolute;
   left: 0;
   bottom: 0;
-  height: 13vh;
   width: 100%;
   overflow: hidden;
 }
