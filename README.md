@@ -17,6 +17,18 @@ Um pequeno restaurante de hambúrgueres, que está crescendo e necessita de uma
 interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
 para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
+A interface feita em React permite o funcionário do salão adicionar itens dos menus, editar os pedidos, anotar nome do Cliente e mesa para envio a cozinha.
+Após envio do pedido, o funcionário tem acesso a um histórico onde pode visualizar pedidos já finalizados, bem como pedidos prontos a serem entregues aos clientes.
+
+O funcionário da cozinha tem acesso aos pedidos feitos pelo salão, e também a um histórico onde pode visualizar os pedidos entregues e também aos pedidos prontos para enviar ao salão para ser entregue ao cliente.
+
+Acesse o app através do link: https://burger-queen-6172d.web.app . 
+
+Para maior comodidade, criamos dois usuários padrões para que possam acessar o app:
+
+- Usuário do salão: karen_santos@gmail.com senha: 123456 
+- Usuário da cozinha: gustavo@gmail.com senha: 123456
+
 ## 2. Resumo do projeto
 
 Recebemos as informações do cliente que tem as seguintes características:
